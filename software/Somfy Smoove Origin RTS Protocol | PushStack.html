@@ -1,0 +1,2707 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>Somfy Smoove Origin RTS Protocol | PushStack</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://pushstack.wordpress.com/xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="https://s2.wp.com/wp-content/themes/pub/reddle/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+
+<link rel="dns-prefetch" href="https://s2.wp.com/">
+<link rel="dns-prefetch" href="https://s1.wp.com/">
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://s.pubmine.com/">
+<link rel="dns-prefetch" href="https://x.bidswitch.net/">
+<link rel="dns-prefetch" href="https://static.criteo.net/">
+<link rel="dns-prefetch" href="https://ib.adnxs.com/">
+<link rel="dns-prefetch" href="https://aax.amazon-adsystem.com/">
+<link rel="dns-prefetch" href="https://bidder.criteo.com/">
+<link rel="dns-prefetch" href="https://cas.criteo.com/">
+<link rel="dns-prefetch" href="https://gum.criteo.com/">
+<link rel="dns-prefetch" href="https://ads.pubmatic.com/">
+<link rel="dns-prefetch" href="https://gads.pubmatic.com/">
+<link rel="dns-prefetch" href="https://tpc.googlesyndication.com/">
+<link rel="dns-prefetch" href="https://ad.doubleclick.net/">
+<link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/">
+<link rel="dns-prefetch" href="https://www.googletagservices.com/">
+<link rel="dns-prefetch" href="https://cdn.switchadhub.com/">
+<link rel="dns-prefetch" href="https://delivery.g.switchadhub.com/">
+<link rel="dns-prefetch" href="https://delivery.swid.switchadhub.com/">
+<link rel="alternate" type="application/rss+xml" title="PushStack » Feed" href="https://pushstack.wordpress.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="PushStack » Comments Feed" href="https://pushstack.wordpress.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="PushStack » Somfy Smoove Origin RTS&nbsp;Protocol Comments Feed" href="https://pushstack.wordpress.com/somfy-rts-protocol/feed/">
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+	</script>
+			<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/s2.wp.com\/wp-includes\/js\/wp-emoji-release.min.js?m=1516999477h&ver=4.9.6-beta1-43185"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56692,8205,9792,65039],[55357,56692,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/wp-emoji-release.js" type="text/javascript" defer="defer"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="all-css-0-1" href="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/a.css" type="text/css" media="all">
+<script type="text/javascript" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/a_003"></script><style></style>
+<link rel="stylesheet" id="all-css-0-2" href="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/style.css" type="text/css" media="all">
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='https://s2.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563h&#038;ver=20110606' type='text/css' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://pushstack.wordpress.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://s1.wp.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress.com">
+<link rel="canonical" href="https://pushstack.wordpress.com/somfy-rts-protocol/">
+<link rel="shortlink" href="https://wp.me/P4wxPx-2">
+<link rel="alternate" type="application/json+oembed" href="https://public-api.wordpress.com/oembed/?format=json&amp;url=https%3A%2F%2Fpushstack.wordpress.com%2Fsomfy-rts-protocol%2F&amp;for=wpcom-auto-discovery"><link rel="alternate" type="application/xml+oembed" href="https://public-api.wordpress.com/oembed/?format=xml&amp;url=https%3A%2F%2Fpushstack.wordpress.com%2Fsomfy-rts-protocol%2F&amp;for=wpcom-auto-discovery">
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Somfy Smoove Origin RTS Protocol">
+<meta property="og:url" content="https://pushstack.wordpress.com/somfy-rts-protocol/">
+<meta property="og:description" content="This document describes the Somfy RTS protocol as used by the “Somfy Smoove Origin RTS”. Most information in this document is based on passive observation of the data send by the Smoove…">
+<meta property="article:published_time" content="2014-04-14T13:17:07+00:00">
+<meta property="article:modified_time" content="2014-09-24T08:42:37+00:00">
+<meta property="og:site_name" content="PushStack">
+<meta property="og:image" content="https://s0.wp.com/i/blank.jpg">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:site" content="@wordpressdotcom">
+<meta name="twitter:text:title" content="Somfy Smoove Origin RTS&nbsp;Protocol">
+<meta name="twitter:card" content="summary">
+<meta property="fb:app_id" content="249643311490">
+<meta property="article:publisher" content="https://www.facebook.com/WordPresscom">
+
+<!-- End Jetpack Open Graph Tags -->
+<link rel="shortcut icon" type="image/x-icon" href="https://s1.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="icon" type="image/x-icon" href="https://s1.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="apple-touch-icon-precomposed" href="https://s2.wp.com/i/webclip.png">
+<link rel="openid.server" href="https://pushstack.wordpress.com/?openidserver=1">
+<link rel="openid.delegate" href="https://pushstack.wordpress.com/">
+<link rel="search" type="application/opensearchdescription+xml" href="https://pushstack.wordpress.com/osd.xml" title="PushStack">
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com">
+		<style type="text/css">
+			.recentcomments a {
+				display: inline !important;
+				padding: 0 !important;
+				margin: 0 !important;
+			}
+
+			table.recentcommentsavatartop img.avatar, table.recentcommentsavatarend img.avatar {
+				border: 0px;
+				margin: 0;
+			}
+
+			table.recentcommentsavatartop a, table.recentcommentsavatarend a {
+				border: 0px !important;
+				background-color: transparent !important;
+			}
+
+			td.recentcommentsavatarend, td.recentcommentsavatartop {
+				padding: 0px 0px 1px 0px;
+				margin: 0px;
+			}
+
+			td.recentcommentstextend {
+				border: none !important;
+				padding: 0px 0px 2px 10px;
+			}
+
+			.rtl td.recentcommentstextend {
+				padding: 0px 10px 2px 0px;
+			}
+
+			td.recentcommentstexttop {
+				border: none;
+				padding: 0px 0px 0px 10px;
+			}
+
+			.rtl td.recentcommentstexttop {
+				padding: 0px 10px 0px 0px;
+			}
+		</style>
+		<meta name="application-name" content="PushStack"><meta name="msapplication-window" content="width=device-width;height=device-height"><meta name="msapplication-tooltip" content="random projects stack"><meta name="msapplication-task" content="name=Subscribe;action-uri=https://pushstack.wordpress.com/feed/;icon-uri=https://s1.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=https://s1.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=https://s1.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=https://s1.wp.com/i/favicon.ico"><meta name="description" content="This document describes the Somfy RTS protocol as used by the &quot;Somfy Smoove Origin RTS&quot;. Most information in this document is based on passive observation of the data send by the Smoove Origin RTS remote, and thus can be inaccurate or incorrect! Changelog: 2014-06-25: Updated with information provided by Dirk Farin in the comments. 2014-09-24:…">
+	<style type="text/css">
+	#masthead img {
+		float: left;
+	}
+			#site-description {
+			color: #777 !important;
+		}
+		</style>
+			<script type="text/javascript">
+		var __ATA_PP = { pt: 2, ht: 0, tn: 'reddle', amp: false, siteid: 8982 };
+		var __ATA = __ATA || {};
+		__ATA.cmd = __ATA.cmd || [];
+		__ATA.criteo = __ATA.criteo || {};
+		__ATA.criteo.cmd = __ATA.criteo.cmd || [];
+		</script>
+		<script type="text/javascript" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/head.js" async=""></script><style type="text/css" id="syntaxhighlighteranchor"></style>
+<script type="text/javascript">
+	window.google_analytics_uacct = "UA-52447-2";
+</script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-52447-2']);
+	_gaq.push(['_setDomainName', 'wordpress.com']);
+	_gaq.push(['_initData']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})();
+</script><script type="text/javascript" async="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/ga.js"></script>
+<script type="text/javascript" async="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/ConsentA.js"></script><script type="text/javascript" async="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/a_002.js"></script><script type="text/javascript" async="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/a.js"></script><link rel="stylesheet" type="text/css" id="gravatar-card-css" href="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/services.css"></head>
+
+<body class="page-template-default page page-id-2 mp6 customizer-styles-applied primary single-author fluid highlander-enabled highlander-light">
+<div id="page" class="hfeed">
+	<header id="masthead" role="banner">
+		<div class="site-branding">
+			<h1 id="site-title"><a href="https://pushstack.wordpress.com/" title="PushStack" rel="home">PushStack</a></h1>
+			<h2 id="site-description">random projects stack</h2>
+		</div><!-- .site-branding -->
+
+		
+				<nav id="access" role="navigation">
+			<div class="skip-link assistive-text"><a href="#content" title="Skip to content">Skip to content</a></div>
+
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Main menu</button>
+			<div class="menu-menu-1-container"><ul id="primary-menu" class="menu nav-menu" aria-expanded="false"><li id="menu-item-26" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-26"><a href="https://pushstack.wordpress.com/">Home</a></li>
+<li id="menu-item-28" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item menu-item-28"><a href="https://pushstack.wordpress.com/somfy-rts-protocol/">Somfy RTS Protocol</a></li>
+</ul></div>		</nav><!-- #access -->
+			</header><!-- #masthead -->
+
+	<div id="main">
+		<div id="primary">
+			<div id="content" role="main">
+
+				
+					
+<article id="post-2" class="post-2 page type-page status-publish hentry">
+	
+	<header class="entry-header">
+		<h1 class="entry-title">Somfy Smoove Origin RTS&nbsp;Protocol</h1>	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p>This document describes the Somfy RTS protocol as used by the 
+“Somfy Smoove Origin RTS”. Most information in this document is based on
+ passive observation of the data send by the Smoove Origin RTS remote, 
+and thus can be inaccurate or incorrect!</p>
+<h3>Changelog:</h3>
+<ul>
+<li>2014-06-25: Updated with information provided by Dirk Farin in the comments.</li>
+<li>2014-09-24: Extended Control code list with info provided by Gerrit 
+in comments. And incorporated Gerardwr’s comment about non constant key 
+MSB.</li>
+</ul>
+<h2>Parameters</h2>
+<ul>
+<li><b>Frequency:</b> 433.42 Mhz</li>
+<li><b>Modulation:</b> ASK/OOK</li>
+<li><b>Encoding:</b> Manchester code, rising edge = 1, falling edge = 0</li>
+<li><b>Payload Data length:</b> 56 bit</li>
+<li><b>Symbol Width:</b> 1208 us</li>
+</ul>
+<h2>Frame description</h2>
+<p>Before the first frame of a button press there is some kind of wakeup pulse of 9415 us long followed by 89565 us of silence.</p>
+<p>Frame structure:</p>
+<pre>                                              604 us
+                                                /
+| 2416us | 2416us | 2416us | 2416us | 4550 us |  | 67648 us |  30415 us  |
+
++--------+        +--------+        +---...---+
++        +--------+        +--------+         +--+XXXX...XXX+-----...-----
+
+|              hw. sync.            |   soft.    |          | Inter-frame
+|                                   |   sync.    |   data   |     gap
+</pre>
+<p>Where:</p>
+<ul>
+<li><b>Hardware sync.:</b> Repeating sequence of 4 symbol width’s 
+high(~2416 us) and 4 symbol width’s low(~2416 us). When a button is 
+pressed the first frame has only 2 of these, repeating frames have 7</li>
+<li><b>Software sync.:</b> 4550 us high, followed by 1/2 symbol width low(~604 us)</li>
+<li><b>Inter-frame gap:</b> 30415 us of silence after last symbol. 
+(Note: This means that if last bit = 0, then the line will be silent 1/2
+ symbol width longer)</li>
+<li><b>Data:</b> Data is Manchester encoded, 1=rising edge, 0=falling edge. One bit is encoded per symbol(~1208 us)</li>
+</ul>
+<p>Encoded data example:</p>
+<pre>|   1208 us   |
+|604 us|
+
+       +------+      +------+------+      +------+             +------+
++------+      +------+             +------+      +------+------+  
+
+|      1      |      1      |      0      |      0      |      1      |
+</pre>
+<p>The whole timing isn’t very critical.&nbsp;It is not required to send
+ the wake up pulse and it is enough to just send one frame. Dirk Farin 
+reports in the comments below that there is about a 15-20 percent 
+tolerated error margin.&nbsp; Although what is accepted can probably 
+depend on the receiver you are trying to talk to.</p>
+<h2>Payload Data</h2>
+<pre>   byte
+    0       1        2       3       4       5       6
+|-------|--------|-------|-------|-------|-------|-------|
+|  key  |ctrl|cks|  Rolling Code |   Address(A0|A1|A3)   |
+|-------|--------|-------|-------|-------|-------|-------|
+</pre>
+<p>Where:</p>
+<ul>
+<li><b>Key:</b> “Encryption Key”, Most significant 4-bit are always 0xA,
+ Least Significant bits is a linear counter. In the Smoove Origin this 
+counter is increased together with the rolling code. But leaving this on
+ a constant value also works. Gerardwr notes that for some other types 
+of remotes the MSB is not constant.</li>
+<li><b>Ctrl:</b> 4-bit Control codes, this indicates the button that is pressed</li>
+<li><b>Cks:</b> 4-bit Checksum.</li>
+<li><b>Rolling Code:</b> 16-bit rolling code (big-endian) increased with every button press.</li>
+<li><b>Address:</b> 24-bit identifier of sending device (little-endian)</li>
+</ul>
+<p>The payload data is send starting with the MSB from byte 0.</p>
+<h3>Payload obfuscation</h3>
+<p>The payload data is obfuscated by doing an XOR between the byte to 
+obfuscate and the previous obfuscated byte. In pseudo C the algorithm 
+can be written as:</p>
+<pre>uint8_t frame[7];
+for (i=1; i &lt; 7; i++) {
+	frame[i] = frame[i] ^ frame[i-1];
+}
+</pre>
+<h3>Checksum algorithm</h3>
+<p>The checksum is calculated by doing a XOR of all nibbles of the 
+frame. To generate a checksum for a frame set the ‘cks’ field to 0 
+before calculating the checksum. To verify a frame check if the value 
+returned by the checksum algorithm is equal to 0, if not the frame is 
+corrupt.</p>
+<p>In pseudo C the algorithm can be written as:</p>
+<pre>uint8_t frame[7];
+for (i=0; i &lt; 7; i++) {
+ 	cksum = cksum ^ frame[i] ^ (frame[i] &gt;&gt; 4);
+}
+cksum = cksum &amp; 0xf;
+</pre>
+<h3>Control codes</h3>
+<p>The Smoove Origin RTS uses the following control codes:</p>
+<table>
+<thead>
+<tr>
+<td><strong>Value</strong></td>
+<td><strong>Button(s)</strong></td>
+<td><strong>Description</strong></td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x1</td>
+<td>My</td>
+<td>Stop or move to favourite position</td>
+</tr>
+<tr>
+<td>0x2</td>
+<td>Up</td>
+<td>Move up</td>
+</tr>
+<tr>
+<td>0x3</td>
+<td>My + Up</td>
+<td>Set upper motor limit in initial programming mode</td>
+</tr>
+<tr>
+<td>0x4</td>
+<td>Down</td>
+<td>Move down</td>
+</tr>
+<tr>
+<td>0x5</td>
+<td>My + Down</td>
+<td>Set lower motor limit in initial programming mode</td>
+</tr>
+<tr>
+<td>0x6</td>
+<td>Up + Down</td>
+<td>&nbsp;Change motor limit and initial programming mode</td>
+</tr>
+<tr>
+<td>0x8</td>
+<td>Prog</td>
+<td>Used for (de-)registering remotes, see below</td>
+</tr>
+<tr>
+<td>0x9</td>
+<td>Sun + Flag</td>
+<td>Enable sun and wind detector (SUN and FLAG symbol on the Telis Soliris RC)</td>
+</tr>
+<tr>
+<td>0xA</td>
+<td>Flag</td>
+<td>Disable sun detector (FLAG symbol on the Telis Soliris RC)</td>
+</tr>
+</tbody>
+</table>
+<p>More info on the motor programming/limits see the <a title="Somfy FAQ for Motors" href="http://www.somfysystems.com/en-us/home/tools-resources/frequently-asked-questions/motorfaq.html">Somfy Motors FAQ</a></p>
+<h3>Addressing</h3>
+<p>The address field of a frame contains the address of the source(eg. 
+the remote control). The device to be controlled is programmed with the 
+addresses of the remote controls it should listen to. Looking at the 
+addresses of multiple remote controls from the same batch suggests that 
+the addresses are little-endian and are sequentially assigned to the 
+devices.</p>
+<h3>Rolling code</h3>
+<p>The Rolling code is increased every time a button is pressed. The 
+receiver only accepts frames if the rolling code is above the last 
+received code and is not to far ahead of the last received code. This 
+window is in the order of a 100 big.</p>
+<h2>Frame repeat</h2>
+<p>When a button is hold pressed the sender will repeat the same code. 
+The frames are separated by the Inter-frame gap. The second and 
+following frames have a hardware sync that consists out of 7 high/low 
+repetitions instead of 2. The repeating frames are identical to the 
+original, the key and rolling code is not increased.</p>
+<h2>(De-)Registering remotes</h2>
+<p>The Somfy receivers allow new remotes to be registered and old 
+remotes to be deregistered from a receiver. The exact procedure is 
+described in the Somfy manuals.</p>
+<p>In short the registration process goes like this:</p>
+<ul>
+<li>Long press the ‘Prog’ button on a remote that is already registered 
+to the device, until the blinds move shortly up and down. (TODO: how 
+many frames is a long press?)</li>
+<li>Press the ‘Prog’ button on the new remote that you want to register,
+ until the blinds move shortly up and down again. Sending the same frame
+ 4 times, like I do with a normal button press, worked for me.</li>
+</ul>
+<p>The deregistration process should be similar although I haven’t tried that yet.</p>
+<p>As Dirk note’s in the comments below, when registering a new remote 
+its rolling code can start at an arbitrary value. But for deregistering 
+the rolling code must be within the receivers expected range.</p>
+<div id="atatags-370373-5af7fe7f53ed6">
+        <script type="text/javascript">
+            __ATA.cmd.push(function() {
+                __ATA.initVideoSlot('atatags-370373-5af7fe7f53ed6', {
+                    sectionId: '370373',
+                    format: 'inread'
+                });
+            });
+        </script>
+    </div>		<div class="wpcnt">
+			<div class="wpa wpmrec">
+				<span class="wpa-about">Advertisements</span>
+				<div class="u">		<div style="padding-bottom:15px;width:300px;height:250px;float:left;margin-right:5px;margin-top:0px">
+		<div id="atatags-26942-5af7fe7f53f00">
+			<script type="text/javascript">
+			__ATA.cmd.push(function() {
+				__ATA.initSlot('atatags-26942-5af7fe7f53f00',  {
+					collapseEmpty: 'before',
+					sectionId: '26942',
+					width: 300,
+					height: 250
+				});
+			});
+			</script>
+		</div></div>		<div style="padding-bottom:15px;width:300px;height:250px;float:left;margin-top:0px">
+		<div id="atatags-114160-5af7fe7f53f02">
+			<script type="text/javascript">
+			__ATA.cmd.push(function() {
+				__ATA.initSlot('atatags-114160-5af7fe7f53f02',  {
+					collapseEmpty: 'before',
+					sectionId: '114160',
+					width: 300,
+					height: 250
+				});
+			});
+			</script>
+		</div></div></div>
+				
+			</div>
+		</div><div id="jp-post-flair" class="sharedaddy sd-like-enabled sd-sharing-enabled"><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-2" class="share-twitter sd-button share-icon" href="https://pushstack.wordpress.com/somfy-rts-protocol/?share=twitter&amp;nb=1" target="_blank" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-2" class="share-facebook sd-button share-icon" href="https://pushstack.wordpress.com/somfy-rts-protocol/?share=facebook&amp;nb=1" target="_blank" title="Click to share on Facebook"><span>Facebook<span class="share-count">4</span></span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-2" class="share-google-plus-1 sd-button share-icon" href="https://pushstack.wordpress.com/somfy-rts-protocol/?share=google-plus-1&amp;nb=1" target="_blank" title="Click to share on Google+"><span>Google</span></a></li><li class="share-end"></li></ul></div></div></div><div class="sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-loaded" id="like-post-wrapper-66861887-2-5af7fe7f550ec" data-src="//widgets.wp.com/likes/index.html?ver=20180319#blog_id=66861887&amp;post_id=2&amp;origin=pushstack.wordpress.com&amp;obj_id=66861887-2-5af7fe7f550ec" data-name="like-post-frame-66861887-2-5af7fe7f550ec"><h3 class="sd-title">Like this:</h3><div class="likes-widget-placeholder post-likes-widget-placeholder" style="height: 55px; display: none;"><span class="button"><span>Like</span></span> <span class="loading">Loading...</span></div><iframe class="post-likes-widget jetpack-likes-widget" name="like-post-frame-66861887-2-5af7fe7f550ec" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/index.html" frameborder="0" width="100%" height="55px"></iframe><span class="sd-text-color"></span><a class="sd-link-color"></a></div></div>			</div><!-- .entry-content -->
+
+	</article><!-- #post-## -->
+
+					
+<div id="comments">
+
+			<h2 id="comments-title">
+			69 thoughts on “<span>Somfy Smoove Origin RTS&nbsp;Protocol</span>”		</h2>
+
+		
+		<ol class="commentlist">
+			
+	<li class="comment even thread-even depth-1 highlander-comment" id="li-comment-8">
+		<article id="comment-8" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/photo.jpg" class="avatar avatar-47" width="47" height="47">					<cite class="fn"><a href="https://plus.google.com/113179885452367077231" rel="external nofollow" class="url">Dirk Farin</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-8"><time pubdate="" datetime="2014-06-10T11:47:04+00:00">
+					June 10, 2014 at 11:47 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>A small fix to your description of 
+the obfuscation algorithm: if implemented as given in your pseudo-code, 
+the frame bytes would be overwritten by the unobfuscated bytes, while in
+ reality each byte is computed by a pair of original input bytes.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=8#respond" onclick='return addComment.moveForm( "comment-8", "8", "respond", "2" )' aria-label="Reply to Dirk Farin">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment byuser comment-author-pushstack bypostauthor odd alt depth-2 highlander-comment" id="li-comment-9">
+		<article id="comment-9" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/42f19fe53e61dfb3d9016319ea16d6c8.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-42f19fe53e61dfb3d9016319ea16d6c8-0" width="23" height="23">					<cite class="fn"><a href="https://pushstack.wordpress.com/" rel="external nofollow" class="url">pushstack</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-9"><time pubdate="" datetime="2014-06-10T13:45:27+00:00">
+					June 10, 2014 at 1:45 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Yes, you are correct when it comes to
+ de-obfuscating a frame. In that case you’ll probably want a second 
+buffer. For obfuscating a buffer the above pseudo code can be used.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=9#respond" onclick='return addComment.moveForm( "comment-9", "9", "respond", "2" )' aria-label="Reply to pushstack">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment even thread-odd thread-alt depth-1 highlander-comment" id="li-comment-10">
+		<article id="comment-10" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/photo.jpg" class="avatar avatar-47" width="47" height="47">					<cite class="fn"><a href="https://plus.google.com/113179885452367077231" rel="external nofollow" class="url">Dirk Farin</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-10"><time pubdate="" datetime="2014-06-22T22:23:04+00:00">
+					June 22, 2014 at 10:23 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Very nice, I got it working on a 
+raspberry with a cheap transmission module. Actually, I originally 
+started to decipher the protocol by myself and came to the same results 
+as you did. I could have saved quite some time had I seen your very 
+detailed description earlier. <img draggable="false" class="emoji" alt="🙂" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/1f642.svg"></p>
+<p>Here are some additional things that I observed:<br>
+– The lower 4 bits of the key seem to always be bound to the rolling 
+code in the original remotes, however it does not have to. Simply 
+setting them to a constant zero also works.<br>
+– The timing is not very critial, it still worked when I was sending pulses 20% longer, or 15% shorter.<br>
+– When registering the DIY remote with its own ID, the initial rolling 
+code can be arbitrary, but when deregistering the remote again, the 
+rolling code has to match. So you better take care not to lose it.<br>
+– As far as patent US8189620 is concerned, I don’t think that this is 
+relevant for us because that describes sending additional data in the 
+gap between two commands of an “old protocol”. What we are talking about
+ on this page is exactly this “old protocol” which the patent considers 
+as prior art.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=10#respond" onclick='return addComment.moveForm( "comment-10", "10", "respond", "2" )' aria-label="Reply to Dirk Farin">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment byuser comment-author-pushstack bypostauthor odd alt depth-2 highlander-comment" id="li-comment-11">
+		<article id="comment-11" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/42f19fe53e61dfb3d9016319ea16d6c8.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-42f19fe53e61dfb3d9016319ea16d6c8-1" width="23" height="23">					<cite class="fn"><a href="https://pushstack.wordpress.com/" rel="external nofollow" class="url">pushstack</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-11"><time pubdate="" datetime="2014-06-25T09:45:49+00:00">
+					June 25, 2014 at 9:45 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Thanks for the information! You answered some questions I still had on my ToDo list but didn’t have time for:).<br>
+I updated the post.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=11#respond" onclick='return addComment.moveForm( "comment-11", "11", "respond", "2" )' aria-label="Reply to pushstack">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+
+	<li class="comment even depth-2 highlander-comment" id="li-comment-12">
+		<article id="comment-12" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/ec7b85dc77089a92e2d35ef2cee68929.jpeg" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-ec7b85dc77089a92e2d35ef2cee68929-0" width="23" height="23">					<cite class="fn"><a href="http://gravatar.com/bubulemag" rel="external nofollow" class="url">Olivier Burgard</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-12"><time pubdate="" datetime="2014-07-12T12:07:05+00:00">
+					July 12, 2014 at 12:07 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Hello !</p>
+<p>Which transmission module did you use ? I can’t find one with the required 433.42Mhz frequency…</p>
+<p>Thanks,<br>
+Olivier</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=12#respond" onclick='return addComment.moveForm( "comment-12", "12", "respond", "2" )' aria-label="Reply to Olivier Burgard">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment byuser comment-author-pushstack bypostauthor odd alt depth-3 highlander-comment" id="li-comment-13">
+		<article id="comment-13" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/42f19fe53e61dfb3d9016319ea16d6c8.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-42f19fe53e61dfb3d9016319ea16d6c8-2" width="23" height="23">					<cite class="fn"><a href="https://pushstack.wordpress.com/" rel="external nofollow" class="url">pushstack</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-13"><time pubdate="" datetime="2014-07-12T16:58:42+00:00">
+					July 12, 2014 at 4:58 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Originally I used a Aurel 
+RX-4M50RR30SF which is actually at 433.92 Mhz. This frequency mismatch 
+causes the range to be only a couple of meters, but this varied per 
+blind. Currently I’m switching to a <a href="http://www.ebay.com/itm/281048575967" rel="nofollow">SI4010</a>, which is tunable and has a MCU build in. In an initial test with this module was successful at a range of 10m through a wall.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=13#respond" onclick='return addComment.moveForm( "comment-13", "13", "respond", "2" )' aria-label="Reply to pushstack">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1 highlander-comment" id="li-comment-14">
+		<article id="comment-14" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/d58e7b70e112d9ee115ce502482e1d08.png" class="avatar avatar-47 grav-hashed grav-hijack" id="grav-d58e7b70e112d9ee115ce502482e1d08-0" width="47" height="47">					<cite class="fn">John</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-14"><time pubdate="" datetime="2014-07-15T07:10:23+00:00">
+					July 15, 2014 at 7:10 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>This is awesome, great job reverse 
+engineering this. I looked into doing some home automation with my Somfy
+ powered shades a year ago but didn’t find information on the protocol 
+so I gave up. I decided to start again today and am waiting for a 
+Raspberry Pi, and found this page in the meantime <img draggable="false" class="emoji" alt="🙂" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/1f642.svg"></p>
+<p>Do you have more information about how you connected the SI4010? Are you using a Raspberry Pi?</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=14#respond" onclick='return addComment.moveForm( "comment-14", "14", "respond", "2" )' aria-label="Reply to John">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment byuser comment-author-pushstack bypostauthor odd alt depth-2 highlander-comment" id="li-comment-28">
+		<article id="comment-28" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/42f19fe53e61dfb3d9016319ea16d6c8.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-42f19fe53e61dfb3d9016319ea16d6c8-3" width="23" height="23">					<cite class="fn"><a href="https://pushstack.wordpress.com/" rel="external nofollow" class="url">pushstack</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-28"><time pubdate="" datetime="2014-09-24T08:10:02+00:00">
+					September 24, 2014 at 8:10 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>For info on the SI4010 see the blog 
+posts. I use a Raspberry Pi with the SI4010 connected to it using a 
+FT232 USB-&gt;UART adapter. Although I could also have connected it 
+directly to the RPI serial port.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=28#respond" onclick='return addComment.moveForm( "comment-28", "28", "respond", "2" )' aria-label="Reply to pushstack">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment byuser comment-author-gerardwr even depth-3 highlander-comment" id="li-comment-30">
+		<article id="comment-30" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/6a28e05808c14447b9fc0cccf509b80e_002.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-6a28e05808c14447b9fc0cccf509b80e-0" width="23" height="23">					<cite class="fn"><a href="http://gerardwr.wordpress.com/" rel="external nofollow" class="url">gerardwr</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-30"><time pubdate="" datetime="2014-09-24T08:50:30+00:00">
+					September 24, 2014 at 8:50 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>I am currently using an RPI with a 
+very cheap 433.92Mhz transmitter directly attached to the GPIO 
+connector, and software based on WiringPi and a migrated Arduino sketch 
+on the Arduino forum.</p>
+<p>Works OK for me (at least) within 5 meters and through 2 brick walls.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=30#respond" onclick='return addComment.moveForm( "comment-30", "30", "respond", "2" )' aria-label="Reply to gerardwr">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt depth-3 highlander-comment" id="li-comment-32">
+		<article id="comment-32" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/d58e7b70e112d9ee115ce502482e1d08_002.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-d58e7b70e112d9ee115ce502482e1d08-1" width="23" height="23">					<cite class="fn">John</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-32"><time pubdate="" datetime="2014-09-24T14:54:28+00:00">
+					September 24, 2014 at 2:54 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Thanks, I don’t have a programmer for
+ an SI4010. That would be necessary right? I found an evaluation kit on 
+digikey with a programmer for about $150, but given that the hacky (and 
+easier since no programming) method of hardwiring a remote cost 70, I 
+went with that for now.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=32#respond" onclick='return addComment.moveForm( "comment-32", "32", "respond", "2" )' aria-label="Reply to John">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment byuser comment-author-pushstack bypostauthor even depth-4 highlander-comment" id="li-comment-35">
+		<article id="comment-35" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/42f19fe53e61dfb3d9016319ea16d6c8.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-42f19fe53e61dfb3d9016319ea16d6c8-4" width="23" height="23">					<cite class="fn"><a href="https://pushstack.wordpress.com/" rel="external nofollow" class="url">pushstack</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-35"><time pubdate="" datetime="2014-09-24T17:14:05+00:00">
+					September 24, 2014 at 5:14 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>I use a standard FT232R chip + 
+SI4010prog for programming the SI4010, and also use the FT232R for 
+communicating with the SI4010 firmware. Total price of the component 
+including SMA connector and removable antenna is less than $15. This 
+setup has a clear line of sight range of more than 300M.</p>
+<p>But I’ll will write a blog post on this in the future.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=35#respond" onclick='return addComment.moveForm( "comment-35", "35", "respond", "2" )' aria-label="Reply to pushstack">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment odd alt depth-5 highlander-comment" id="li-comment-36">
+		<article id="comment-36" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/d58e7b70e112d9ee115ce502482e1d08_002.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-d58e7b70e112d9ee115ce502482e1d08-2" width="23" height="23">					<cite class="fn">John</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-36"><time pubdate="" datetime="2014-09-25T01:05:15+00:00">
+					September 25, 2014 at 1:05 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>@pushstack: a writeup would be 
+awesome, thanks. I’d love to not use a secondary remote connected to my 
+Raspberry Pi since it’s so big.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=36#respond" onclick='return addComment.moveForm( "comment-36", "36", "respond", "2" )' aria-label="Reply to John">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment even depth-3 highlander-comment" id="li-comment-33">
+		<article id="comment-33" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/d58e7b70e112d9ee115ce502482e1d08_002.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-d58e7b70e112d9ee115ce502482e1d08-3" width="23" height="23">					<cite class="fn">John</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-33"><time pubdate="" datetime="2014-09-24T14:56:36+00:00">
+					September 24, 2014 at 2:56 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>gerardwr: I tried using a cheap 
+433.92 transmitter using the GPIO connector. However even when setting 
+realtime priority for the process, I couldn’t switch the GPIO signal 
+fast enough for this protocol (i.e. I’d be off by 200-500us each time). 
+How did you do this? Also do you have your code up somewhere? Thanks</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=33#respond" onclick='return addComment.moveForm( "comment-33", "33", "respond", "2" )' aria-label="Reply to John">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment odd alt depth-4 highlander-comment" id="li-comment-38">
+		<article id="comment-38" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/a061b2cd2ffc758640d9529ebf2566c0_002.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-a061b2cd2ffc758640d9529ebf2566c0-0" width="23" height="23">					<cite class="fn">Creamers</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-38"><time pubdate="" datetime="2014-09-25T17:13:46+00:00">
+					September 25, 2014 at 5:13 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>John, check out :   pilight . org    In the next upcoming release (soon) it will probably support somfy.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=38#respond" onclick='return addComment.moveForm( "comment-38", "38", "respond", "2" )' aria-label="Reply to Creamers">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment even depth-5 highlander-comment" id="li-comment-119">
+		<article id="comment-119" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/cbffafde646c122a9bdf560b3bb7cb24.jpeg" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-cbffafde646c122a9bdf560b3bb7cb24-0" width="23" height="23">					<cite class="fn">Ben H</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-119"><time pubdate="" datetime="2015-04-30T22:07:25+00:00">
+					April 30, 2015 at 10:07 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Did anyone add somfy to pilight yet? Searching on their site, looks like not.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=119#respond" onclick='return addComment.moveForm( "comment-119", "119", "respond", "2" )' aria-label="Reply to Ben H">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment byuser comment-author-gerardwr odd alt depth-3 highlander-comment" id="li-comment-34">
+		<article id="comment-34" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/6a28e05808c14447b9fc0cccf509b80e_002.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-6a28e05808c14447b9fc0cccf509b80e-1" width="23" height="23">					<cite class="fn"><a href="http://gerardwr.wordpress.com/" rel="external nofollow" class="url">gerardwr</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-34"><time pubdate="" datetime="2014-09-24T15:50:26+00:00">
+					September 24, 2014 at 3:50 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>@john : Hi. </p>
+<p>I am not sure if PushStack would appreciate a direct link here, so 
+here it goes. Google for „somfy protocole” to get to a French topic on 
+the Arduino forum. The last page contains a link to a <span class="skimlinks-unlinked">somfy.ino</span> file. This sketch basically works, I needed some minor adaptations for the input/port port.</p>
+<p>Later I migrated the transmit part of the Arduino sketch to an RPi C 
+program, using the WiringPi library for the GPIO. This performs very 
+well, I had no problems with timing, and I use it for several RF 
+protocols.</p>
+<p>Leave an email address for a direct contact.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=34#respond" onclick='return addComment.moveForm( "comment-34", "34", "respond", "2" )' aria-label="Reply to gerardwr">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment even depth-4 highlander-comment" id="li-comment-37">
+		<article id="comment-37" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/d58e7b70e112d9ee115ce502482e1d08_002.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-d58e7b70e112d9ee115ce502482e1d08-4" width="23" height="23">					<cite class="fn">John</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-37"><time pubdate="" datetime="2014-09-25T01:05:43+00:00">
+					September 25, 2014 at 1:05 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>@gerardwr, I couldn’t find that information. Can you please email me at <a href="mailto:8x35NFj54cli@meltmail.com">8x35NFj54cli@meltmail.com</a>? Thanks</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=37#respond" onclick='return addComment.moveForm( "comment-37", "37", "respond", "2" )' aria-label="Reply to John">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="post pingback">
+		<p>Pingback: <a href="https://pushstack.wordpress.com/2014/04/14/reversing-somfy-rts/" rel="external nofollow" class="url">Reversing Somfy RTS | PushStack</a></p>
+
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1 highlander-comment" id="li-comment-19">
+		<article id="comment-19" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/a061b2cd2ffc758640d9529ebf2566c0.png" class="avatar avatar-47 grav-hashed grav-hijack" id="grav-a061b2cd2ffc758640d9529ebf2566c0-1" width="47" height="47">					<cite class="fn">Creamers</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-19"><time pubdate="" datetime="2014-08-24T14:03:15+00:00">
+					August 24, 2014 at 2:03 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Whhaaw, great find. Like John I  
+searched also alot on the internet, gave up as I also coudnt find 
+anything about it. Please give a look at the opensource <span class="skimlinks-unlinked">pilight.org</span> project. It’s probably something you also like!<br>
+You write that you connect your sender as another remote to the somfy 
+receiver, but how to you manage the rolling code?  (you can contact me 
+if you like)</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=19#respond" onclick='return addComment.moveForm( "comment-19", "19", "respond", "2" )' aria-label="Reply to Creamers">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment byuser comment-author-pushstack bypostauthor even depth-2 highlander-comment" id="li-comment-26">
+		<article id="comment-26" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/42f19fe53e61dfb3d9016319ea16d6c8.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-42f19fe53e61dfb3d9016319ea16d6c8-5" width="23" height="23">					<cite class="fn"><a href="https://pushstack.wordpress.com/" rel="external nofollow" class="url">pushstack</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-26"><time pubdate="" datetime="2014-09-24T07:56:10+00:00">
+					September 24, 2014 at 7:56 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>I manage the rolling code using a 
+state file. The state file contains the remote it’s address and the 
+rolling code. I Use a command line program that accepts as arguments 
+which button press to generate and the state file. My program updates 
+the state file by increasing the rolling code and key, after sending the
+ frames.</p>
+<p>pilight definitely looks interesting  for integrating the RTS protocol.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=26#respond" onclick='return addComment.moveForm( "comment-26", "26", "respond", "2" )' aria-label="Reply to pushstack">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment byuser comment-author-gerardwr odd alt depth-3 highlander-comment" id="li-comment-31">
+		<article id="comment-31" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/6a28e05808c14447b9fc0cccf509b80e_002.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-6a28e05808c14447b9fc0cccf509b80e-2" width="23" height="23">					<cite class="fn"><a href="http://gerardwr.wordpress.com/" rel="external nofollow" class="url">gerardwr</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-31"><time pubdate="" datetime="2014-09-24T08:57:18+00:00">
+					September 24, 2014 at 8:57 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Same here. My command looks like “somfy 12345 4”, where 12345 is the address and 4 the command.</p>
+<p>The C program reads the current rolling code from file 12345.conf, 
+use to for sending, and then increments the code in the .conf file.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=31#respond" onclick='return addComment.moveForm( "comment-31", "31", "respond", "2" )' aria-label="Reply to gerardwr">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+
+	<li class="comment even depth-3 highlander-comment" id="li-comment-51">
+		<article id="comment-51" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/a061b2cd2ffc758640d9529ebf2566c0_002.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-a061b2cd2ffc758640d9529ebf2566c0-2" width="23" height="23">					<cite class="fn">Creamers</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-51"><time pubdate="" datetime="2014-10-22T17:39:03+00:00">
+					October 22, 2014 at 5:39 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>question:  as I disconnect the 
+shutter from the power, record the pulsetrain, enable the power, 
+playback the pulsetrain (433,8mhz) my shutter doesnt move. I confirm the
+ pulsestream as valid and correct (looking at the next press of the 
+somfy to comfirm also)</p>
+<p>What could be the issue? Receiving is no problem and matches exactly 
+the logic, but somehow sending isn’t accepted by the (pretty) new 
+shutter. (you think this 433.4 vs 433.8 could be THE issue or should it 
+also work?)</p>
+<p>Any suggestions?</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=51#respond" onclick='return addComment.moveForm( "comment-51", "51", "respond", "2" )' aria-label="Reply to Creamers">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment byuser comment-author-pushstack bypostauthor odd alt depth-4 highlander-comment" id="li-comment-53">
+		<article id="comment-53" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/42f19fe53e61dfb3d9016319ea16d6c8.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-42f19fe53e61dfb3d9016319ea16d6c8-6" width="23" height="23">					<cite class="fn"><a href="https://pushstack.wordpress.com/" rel="external nofollow" class="url">pushstack</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-53"><time pubdate="" datetime="2014-10-25T08:54:23+00:00">
+					October 25, 2014 at 8:54 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>I found that the 433.4 vs 433.8 MHz 
+mismatch can be an issue with some screens. One of the screen’s I tested
+ with could only be controlled with my 433.8 MHz sender when I placed 
+the antenna in a certain sweet spot(almost right below the left, as seen
+ from inside, hand side of the screen.). But moving it like 15-30 cm 
+caused it to fail. While other screens in the same building I was able 
+to control from 10 meters distance.</p>
+<p>So try to move around a bit or try a different antenna/antenna orientation.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=53#respond" onclick='return addComment.moveForm( "comment-53", "53", "respond", "2" )' aria-label="Reply to pushstack">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1 highlander-comment" id="li-comment-20">
+		<article id="comment-20" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/6a28e05808c14447b9fc0cccf509b80e.png" class="avatar avatar-47 grav-hashed grav-hijack" id="grav-6a28e05808c14447b9fc0cccf509b80e-3" width="47" height="47">					<cite class="fn">gerardwr</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-20"><time pubdate="" datetime="2014-09-02T08:13:38+00:00">
+					September 2, 2014 at 8:13 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Excellent info, it has enabled to decode the RF signal from my Somfy remotes using Arduino. Thanks!</p>
+<p>Please note that the “Somfy Telis RTS 1”  (vanilla color with 3 grey 
+buttons) remotes I own do NOT have 0xA in the MSB of the 1st byte, but 
+is seemingly random. I also have a Somfy Telis 1 PURE (with the MY 
+center button), that HAS the 0xA in the MSB.</p>
+<p>Regards.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=20#respond" onclick='return addComment.moveForm( "comment-20", "20", "respond", "2" )' aria-label="Reply to gerardwr">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1 highlander-comment" id="li-comment-24">
+		<article id="comment-24" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/21588e63be7235a01a3cf7c4224dfe34.png" class="avatar avatar-47 grav-hashed grav-hijack" id="grav-21588e63be7235a01a3cf7c4224dfe34-0" width="47" height="47">					<cite class="fn">Gerrit</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-24"><time pubdate="" datetime="2014-09-21T12:48:59+00:00">
+					September 21, 2014 at 12:48 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Hello Pushstack,</p>
+<p>The control codes 0x3, 0x5 and 0x6 have the following functions:<br>
+0x3 -&gt; My &amp;&amp; Up (pressed at the same time).<br>
+0x5 -&gt; My &amp;&amp; Down (pressed at the same time).<br>
+0x6 -&gt; Up &amp;&amp; Down (pressed at the same time).</p>
+<p>There are also the control codes 0xA and 0x9, they are used for the sun and wind detector like the Somfy Soliris:<br>
+0x9 -&gt; Enable sun and wind detector (SUN and FLAG symbol on the Telis Soliris RC)<br>
+0xA -&gt; Disable sun detector (FLAG symbol on the Telis Soliris RC)</p>
+<p>Good luck,</p>
+<p>Gerrit</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=24#respond" onclick='return addComment.moveForm( "comment-24", "24", "respond", "2" )' aria-label="Reply to Gerrit">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment byuser comment-author-pushstack bypostauthor even depth-2 highlander-comment" id="li-comment-27">
+		<article id="comment-27" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/42f19fe53e61dfb3d9016319ea16d6c8.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-42f19fe53e61dfb3d9016319ea16d6c8-7" width="23" height="23">					<cite class="fn"><a href="https://pushstack.wordpress.com/" rel="external nofollow" class="url">pushstack</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-27"><time pubdate="" datetime="2014-09-24T08:06:22+00:00">
+					September 24, 2014 at 8:06 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Thank you very much for the information. I will update the post with it.</p>
+<p>If I understand it correctly the My + Up and My + Down are used to 
+configure the upper and lower engine limits. Do you also know what Up + 
+Down means?</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=27#respond" onclick='return addComment.moveForm( "comment-27", "27", "respond", "2" )' aria-label="Reply to pushstack">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment byuser comment-author-gerardwr odd alt thread-even depth-1 highlander-comment" id="li-comment-29">
+		<article id="comment-29" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/6a28e05808c14447b9fc0cccf509b80e.png" class="avatar avatar-47 grav-hashed grav-hijack" id="grav-6a28e05808c14447b9fc0cccf509b80e-4" width="47" height="47">					<cite class="fn"><a href="http://gerardwr.wordpress.com/" rel="external nofollow" class="url">gerardwr</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-29"><time pubdate="" datetime="2014-09-24T08:40:50+00:00">
+					September 24, 2014 at 8:40 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>I found the following pdf very 
+useful, it describes the programming of the Somfy motors with the 
+remote, including the used button combo’s:<br>
+<a href="http://www.automatedshadeinc.com/files/motors/all-somfy-rts%20motors-programming-quick-guide-02-09.pdf" rel="nofollow">http://www.automatedshadeinc.com/files/motors/all-somfy-rts%20motors-programming-quick-guide-02-09.pdf</a>.</p>
+<p>Thanks for sharing.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=29#respond" onclick='return addComment.moveForm( "comment-29", "29", "respond", "2" )' aria-label="Reply to gerardwr">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-odd thread-alt depth-1 highlander-comment" id="li-comment-50">
+		<article id="comment-50" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/93fe1e39175d223e494899a7de16915e.png" class="avatar avatar-47 grav-hashed grav-hijack" id="grav-93fe1e39175d223e494899a7de16915e-0" width="47" height="47">					<cite class="fn">Samuele</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-50"><time pubdate="" datetime="2014-10-22T16:21:47+00:00">
+					October 22, 2014 at 4:21 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>How do you find the sequence of 
+rolling codes? I need to press the button (ok, I can make a circuit to 
+press the button :-)) on the remote 64k times?<br>
+Thanks.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=50#respond" onclick='return addComment.moveForm( "comment-50", "50", "respond", "2" )' aria-label="Reply to Samuele">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment byuser comment-author-pushstack bypostauthor odd alt depth-2 highlander-comment" id="li-comment-52">
+		<article id="comment-52" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/42f19fe53e61dfb3d9016319ea16d6c8.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-42f19fe53e61dfb3d9016319ea16d6c8-8" width="23" height="23">					<cite class="fn"><a href="https://pushstack.wordpress.com/" rel="external nofollow" class="url">pushstack</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-52"><time pubdate="" datetime="2014-10-25T08:44:30+00:00">
+					October 25, 2014 at 8:44 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>The sequence is very easy. Just +1 for every button press, eg. 1, 2, 3, 4, …..</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=52#respond" onclick='return addComment.moveForm( "comment-52", "52", "respond", "2" )' aria-label="Reply to pushstack">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1 highlander-comment" id="li-comment-57">
+		<article id="comment-57" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/08ed658092c24feb184a7a0529a95c4d.png" class="avatar avatar-47 grav-hashed grav-hijack" id="grav-08ed658092c24feb184a7a0529a95c4d-0" width="47" height="47">					<cite class="fn">nick</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-57"><time pubdate="" datetime="2014-11-21T12:30:07+00:00">
+					November 21, 2014 at 12:30 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Hi,<br>
+There’s a rather big community[1] around the CUL 433/868 devices[2]. 
+They implemented a (meanwhile) read only version of the somfy 
+protocol[3]. </p>
+<p>Your Blog is great, lead me into the basics of the protocol. <img draggable="false" class="emoji" alt="🙂" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/1f642.svg"></p>
+<p>1. <a href="http://culfw.de/culfw.html#Features" rel="nofollow">http://culfw.de/culfw.html#Features</a><br>
+2. <a href="http://busware.de/tiki-index.php?page=CUL" rel="nofollow">http://busware.de/tiki-index.php?page=CUL</a><br>
+3. <a href="http://sourceforge.net/p/culfw/code/HEAD/tree/trunk/culfw/clib/somfy_rts.c" rel="nofollow">http://sourceforge.net/p/culfw/code/HEAD/tree/trunk/culfw/clib/somfy_rts.c</a></p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=57#respond" onclick='return addComment.moveForm( "comment-57", "57", "respond", "2" )' aria-label="Reply to nick">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1 highlander-comment" id="li-comment-75">
+		<article id="comment-75" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/1e30ab9efb9c52c13961d0a9669f5a45.png" class="avatar avatar-47 grav-hashed grav-hijack" id="grav-1e30ab9efb9c52c13961d0a9669f5a45-0" width="47" height="47">					<cite class="fn">jondoe</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-75"><time pubdate="" datetime="2015-01-05T10:20:53+00:00">
+					January 5, 2015 at 10:20 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Hi there!</p>
+<p>is the registration-process of a new remote device mandatory?</p>
+<p>Yet I don’t see the point where it should be necessary, since we’re not sending a “sender-device-id”, correct?</p>
+<p>@pushstack: thx for reverse engineering! <img draggable="false" class="emoji" alt="🙂" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/1f642.svg"></p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=75#respond" onclick='return addComment.moveForm( "comment-75", "75", "respond", "2" )' aria-label="Reply to jondoe">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment byuser comment-author-gerardwr even depth-2 highlander-comment" id="li-comment-76">
+		<article id="comment-76" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/6a28e05808c14447b9fc0cccf509b80e_002.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-6a28e05808c14447b9fc0cccf509b80e-5" width="23" height="23">					<cite class="fn"><a href="http://gerardwr.wordpress.com/" rel="external nofollow" class="url">gerardwr</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-76"><time pubdate="" datetime="2015-01-05T15:04:07+00:00">
+					January 5, 2015 at 3:04 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>No, the address of a new remote is 
+sent when adding a new remote, have look at the  “payload” : “Address: 
+24-bit identifier of sending device (little-endian)”.</p>
+<p>When the new remote is added for every command the Address is sent too.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=76#respond" onclick='return addComment.moveForm( "comment-76", "76", "respond", "2" )' aria-label="Reply to gerardwr">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment odd alt depth-3 highlander-comment" id="li-comment-77">
+		<article id="comment-77" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/1e30ab9efb9c52c13961d0a9669f5a45_002.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-1e30ab9efb9c52c13961d0a9669f5a45-1" width="23" height="23">					<cite class="fn">jondoe</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-77"><time pubdate="" datetime="2015-01-05T16:21:08+00:00">
+					January 5, 2015 at 4:21 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Oh sorry, I should learn how to read 
+:). Well I guess I have a hardware issue here because the payload i’ve 
+sent should be correct. Iam using most of the code of the arduino forum 
+thread mentoined above… <img class="wp-smiley emoji" draggable="false" alt=":-/" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/uneasy.svg" style="height: 1em; max-height: 1em;" width="16" height="16"></p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=77#respond" onclick='return addComment.moveForm( "comment-77", "77", "respond", "2" )' aria-label="Reply to jondoe">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment byuser comment-author-gerardwr even depth-4 highlander-comment" id="li-comment-79">
+		<article id="comment-79" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/6a28e05808c14447b9fc0cccf509b80e_002.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-6a28e05808c14447b9fc0cccf509b80e-6" width="23" height="23">					<cite class="fn"><a href="http://gerardwr.wordpress.com/" rel="external nofollow" class="url">gerardwr</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-79"><time pubdate="" datetime="2015-01-05T17:45:09+00:00">
+					January 5, 2015 at 5:45 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Did you use the proper procedure?<br>
+1 – set the Somfy shade with an original remote in “learn” mode, the shade “jogs”.<br>
+2 – have the Arduino send the datagram for “program a new remote”, the shade “jogs”<br>
+3 – then the Arduin can send up/down datagrams, the shade (hopefully) moves up or down</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=79#respond" onclick='return addComment.moveForm( "comment-79", "79", "respond", "2" )' aria-label="Reply to gerardwr">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment odd alt depth-5 highlander-comment" id="li-comment-81">
+		<article id="comment-81" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/1e30ab9efb9c52c13961d0a9669f5a45_002.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-1e30ab9efb9c52c13961d0a9669f5a45-2" width="23" height="23">					<cite class="fn">jondoe</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-81"><time pubdate="" datetime="2015-01-05T17:58:58+00:00">
+					January 5, 2015 at 5:58 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>No, thats why i asked if the 
+registration is mandatory. I just tried to resend a frame of an existing
+ device with a new rolling-code (which didn’t work, and i’d like to 
+figure out why).</p>
+<p>I will try to do the registration process.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=81#respond" onclick='return addComment.moveForm( "comment-81", "81", "respond", "2" )' aria-label="Reply to jondoe">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+
+	<li class="comment even depth-5 highlander-comment" id="li-comment-84">
+		<article id="comment-84" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/1e30ab9efb9c52c13961d0a9669f5a45_002.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-1e30ab9efb9c52c13961d0a9669f5a45-3" width="23" height="23">					<cite class="fn">jondoe</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-84"><time pubdate="" datetime="2015-01-05T22:01:35+00:00">
+					January 5, 2015 at 10:01 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Mhpf, it didn’t work either, 3rd 
+Action doesn’t happen. But I also noticed that while using my current 
+device, the MSB of the “key”-Byte is rolling with the roll-code (as u 
+mentioned). Maybe that must be sync with the “arbitrary”-value of the 
+rolling_code while registering? <img class="wp-smiley emoji" draggable="false" alt=":-/" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/uneasy.svg" style="height: 1em; max-height: 1em;" width="16" height="16"></p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=84#respond" onclick='return addComment.moveForm( "comment-84", "84", "respond", "2" )' aria-label="Reply to jondoe">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment byuser comment-author-gerardwr odd alt depth-6 highlander-comment" id="li-comment-85">
+		<article id="comment-85" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/6a28e05808c14447b9fc0cccf509b80e_002.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-6a28e05808c14447b9fc0cccf509b80e-7" width="23" height="23">					<cite class="fn"><a href="http://gerardwr.wordpress.com/" rel="external nofollow" class="url">gerardwr</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-85"><time pubdate="" datetime="2015-01-05T22:29:26+00:00">
+					January 5, 2015 at 10:29 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>No, as I understand it, this “extra” is ignored by the Somfy receiver.</p>
+<p>Did the shade “jog” at step 1 AND step 2? When YES, then I assume the shade accepted your “new” remote.</p>
+<p>Verify that:<br>
+– shade “jogs” at step 2<br>
+– increase the “rolling code” by 1, at every transmission<br>
+– (sometimes) the receiver only responds to the reception of multiple 
+datagrams. Sometimes 1 datagram is OK, sometimes sending the same 
+datagram 2,3,4 times seems to be required.</p>
+<p>Good luck.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=85#respond" onclick='return addComment.moveForm( "comment-85", "85", "respond", "2" )' aria-label="Reply to gerardwr">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment even depth-7 highlander-comment" id="li-comment-86">
+		<article id="comment-86" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/1e30ab9efb9c52c13961d0a9669f5a45_002.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-1e30ab9efb9c52c13961d0a9669f5a45-4" width="23" height="23">					<cite class="fn">jondoe</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-86"><time pubdate="" datetime="2015-01-05T23:02:35+00:00">
+					January 5, 2015 at 11:02 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>No, the shade “jogged” only during step 1. <img draggable="false" class="emoji" alt="😦" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/1f626.svg"></p>
+<p>I sent the frame in step 2 about a 100 times….</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=86#respond" onclick='return addComment.moveForm( "comment-86", "86", "respond", "2" )' aria-label="Reply to jondoe">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment byuser comment-author-gerardwr odd alt depth-8 highlander-comment" id="li-comment-87">
+		<article id="comment-87" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/6a28e05808c14447b9fc0cccf509b80e_002.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-6a28e05808c14447b9fc0cccf509b80e-8" width="23" height="23">					<cite class="fn"><a href="http://gerardwr.wordpress.com/" rel="external nofollow" class="url">gerardwr</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-87"><time pubdate="" datetime="2015-01-05T23:26:56+00:00">
+					January 5, 2015 at 11:26 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>My conclusion is that the frame is not recognized by the receiver.</p>
+<p>If the frame is not correct sending it a million times will not help <img draggable="false" class="emoji" alt="😉" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/1f609.svg"></p>
+<p>Not sure how I can help you anymore.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=87#respond" onclick='return addComment.moveForm( "comment-87", "87", "respond", "2" )' aria-label="Reply to gerardwr">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment even depth-9 highlander-comment" id="li-comment-88">
+		<article id="comment-88" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/1e30ab9efb9c52c13961d0a9669f5a45_002.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-1e30ab9efb9c52c13961d0a9669f5a45-5" width="23" height="23">					<cite class="fn">jondoe</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-88"><time pubdate="" datetime="2015-01-05T23:34:20+00:00">
+					January 5, 2015 at 11:34 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Maybe you could take a look at my code/wiring diagram. <img class="wp-smiley emoji" draggable="false" alt=":/" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/uneasy.svg" style="height: 1em; max-height: 1em;" width="16" height="16"></p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=88#respond" onclick='return addComment.moveForm( "comment-88", "88", "respond", "2" )' aria-label="Reply to jondoe">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment byuser comment-author-gerardwr odd alt depth-10 highlander-comment" id="li-comment-89">
+		<article id="comment-89" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/6a28e05808c14447b9fc0cccf509b80e_002.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-6a28e05808c14447b9fc0cccf509b80e-9" width="23" height="23">					<cite class="fn"><a href="http://gerardwr.wordpress.com/" rel="external nofollow" class="url">gerardwr</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-89"><time pubdate="" datetime="2015-01-05T23:39:34+00:00">
+					January 5, 2015 at 11:39 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Sure, tell me where I can see it.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment even depth-9 highlander-comment" id="li-comment-95">
+		<article id="comment-95" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/1e30ab9efb9c52c13961d0a9669f5a45_002.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-1e30ab9efb9c52c13961d0a9669f5a45-6" width="23" height="23">					<cite class="fn">jondoe</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-95"><time pubdate="" datetime="2015-01-06T13:55:15+00:00">
+					January 6, 2015 at 1:55 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Here is my wiring: <a href="http://i57.tinypic.com/33maa1y.jpg" rel="nofollow">http://i57.tinypic.com/33maa1y.jpg</a><br>
+Here is the Code: <a href="http://pastebin.com/sJgWRPkh" rel="nofollow">http://pastebin.com/sJgWRPkh</a></p>
+<p>I provided a link to my used RF-modules in the code-header. Receiving works brilliant, but transmitting not.<br>
+I send via serial a cmd like “P100,0x123456#” which actually sends a 
+Programm frame. But as I said, the shade doesn’t “jog” when it is in 
+programming mode.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=95#respond" onclick='return addComment.moveForm( "comment-95", "95", "respond", "2" )' aria-label="Reply to jondoe">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment odd alt depth-10 highlander-comment" id="li-comment-307">
+		<article id="comment-307" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/3dc0acca9f9cc11a94c0feaaa2aff82a.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-3dc0acca9f9cc11a94c0feaaa2aff82a-0" width="23" height="23">					<cite class="fn">Henrique</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-307"><time pubdate="" datetime="2017-01-04T13:31:44+00:00">
+					January 4, 2017 at 1:31 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Did you succeed?</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1 highlander-comment" id="li-comment-78">
+		<article id="comment-78" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/55ec5afc33f1e4cc889c9a53800affc7_002.png" class="avatar avatar-47 grav-hashed grav-hijack" id="grav-55ec5afc33f1e4cc889c9a53800affc7-0" width="47" height="47">					<cite class="fn">Reich</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-78"><time pubdate="" datetime="2015-01-05T17:20:21+00:00">
+					January 5, 2015 at 5:20 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Hey,</p>
+<p>was anyone able to transfer the described protocol to the Telis 4 
+remote? Due to a mass of measurements I’m still not able to find a 
+solution. I found a fixed key including the count in front of the code 
+of all channels and pairs of addresses for the controles. The described 
+Rolling Code and Address(A0|A1|A3) area is a mystery to me including the
+ indication for the selected channel.</p>
+<p>Has anyone a final code in C# .net or equal?</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=78#respond" onclick='return addComment.moveForm( "comment-78", "78", "respond", "2" )' aria-label="Reply to Reich">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment byuser comment-author-gerardwr odd alt depth-2 highlander-comment" id="li-comment-80">
+		<article id="comment-80" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/6a28e05808c14447b9fc0cccf509b80e_002.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-6a28e05808c14447b9fc0cccf509b80e-10" width="23" height="23">					<cite class="fn"><a href="http://gerardwr.wordpress.com/" rel="external nofollow" class="url">gerardwr</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-80"><time pubdate="" datetime="2015-01-05T17:50:17+00:00">
+					January 5, 2015 at 5:50 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Have a look here and catch up on your French <img draggable="false" class="emoji" alt="😉" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/1f609.svg"></p>
+<p><a href="http://forum.arduino.cc/index.php?topic=208346.msg1840140#msg1840140" rel="nofollow">http://forum.arduino.cc/index.php?topic=208346.msg1840140#msg1840140</a></p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=80#respond" onclick='return addComment.moveForm( "comment-80", "80", "respond", "2" )' aria-label="Reply to gerardwr">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment even depth-3 highlander-comment" id="li-comment-82">
+		<article id="comment-82" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/55ec5afc33f1e4cc889c9a53800affc7.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-55ec5afc33f1e4cc889c9a53800affc7-1" width="23" height="23">					<cite class="fn">Reich</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-82"><time pubdate="" datetime="2015-01-05T18:42:52+00:00">
+					January 5, 2015 at 6:42 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>thx a lot. Receiving works. Am I 
+correct that this code id also able to transmit? This level of 
+programming is far away from my skills.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=82#respond" onclick='return addComment.moveForm( "comment-82", "82", "respond", "2" )' aria-label="Reply to Reich">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment byuser comment-author-gerardwr odd alt depth-4 highlander-comment" id="li-comment-83">
+		<article id="comment-83" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/6a28e05808c14447b9fc0cccf509b80e_002.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-6a28e05808c14447b9fc0cccf509b80e-11" width="23" height="23">					<cite class="fn"><a href="http://gerardwr.wordpress.com/" rel="external nofollow" class="url">gerardwr</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-83"><time pubdate="" datetime="2015-01-05T21:19:41+00:00">
+					January 5, 2015 at 9:19 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>You’re welcome!</p>
+<p>I assume that you mean the code id that your Somfy remote transmits?</p>
+<p>Using the same “address” as a Somfy remote will probably get you into
+ trouble, because  at each transfer the “rolling code” is increased and 
+checked by the receiver. You will probably get into trouble, the 
+receiver not recognizing your original remote anymore, and needs 
+initialization.</p>
+<p>Using a new code for transmission seems a better way.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=83#respond" onclick='return addComment.moveForm( "comment-83", "83", "respond", "2" )' aria-label="Reply to gerardwr">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment even depth-5 highlander-comment" id="li-comment-91">
+		<article id="comment-91" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/55ec5afc33f1e4cc889c9a53800affc7.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-55ec5afc33f1e4cc889c9a53800affc7-2" width="23" height="23">					<cite class="fn">Reich</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-91"><time pubdate="" datetime="2015-01-06T10:26:28+00:00">
+					January 6, 2015 at 10:26 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>sry. The “d” should be a “s”. I’m not sure how to use the code to transmit data. I don’t know how to send commands. </p>
+<p>To the other point you had. If I disconnected my blinds from power 
+and use my remote, the “rolling code” increases. But after I connected 
+the blinds again, everything works fine. Are you sure the revicer is 
+smart enough handle the “rolling code”? I thought it is more or less a 
+kind of filter to avoid doubble commands!</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=91#respond" onclick='return addComment.moveForm( "comment-91", "91", "respond", "2" )' aria-label="Reply to Reich">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment byuser comment-author-gerardwr odd alt depth-6 highlander-comment" id="li-comment-92">
+		<article id="comment-92" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/6a28e05808c14447b9fc0cccf509b80e_002.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-6a28e05808c14447b9fc0cccf509b80e-12" width="23" height="23">					<cite class="fn"><a href="http://gerardwr.wordpress.com/" rel="external nofollow" class="url">gerardwr</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-92"><time pubdate="" datetime="2015-01-06T11:09:48+00:00">
+					January 6, 2015 at 11:09 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Yes I’m sure that the receiver checks
+ that the rolling code is increased by 1 (it believe to “tolerates” a 
+slightly larger increase).</p>
+<p>In my setup I had some HW troubles where the “rolling code” was 
+increased, but the datagram was never sent. When the HW problem was 
+corrected the receiver did not recognize my datagrams (wit a tool large 
+rolling code increase) anymore, and I had to re-program my “remote” 
+anew.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=92#respond" onclick='return addComment.moveForm( "comment-92", "92", "respond", "2" )' aria-label="Reply to gerardwr">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment even thread-odd thread-alt depth-1 highlander-comment" id="li-comment-93">
+		<article id="comment-93" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/a061b2cd2ffc758640d9529ebf2566c0.png" class="avatar avatar-47 grav-hashed grav-hijack" id="grav-a061b2cd2ffc758640d9529ebf2566c0-3" width="47" height="47">					<cite class="fn">creamers</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-93"><time pubdate="" datetime="2015-01-06T11:32:49+00:00">
+					January 6, 2015 at 11:32 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>The receiver accepts a window of 
+codes. So using the remote when the shutter is powered down should not 
+matter, unless you press is alot of times pushing it outside this 
+‘window’<br>
+I have the same problem sending. Receiving works and analysing the raw 
+codes gives me no other clues. It should work, but I use 433,9mhz with 
+very new somfy shutters so probably it won’t accept / receive it 
+correctly. (somfy uses 433.4mhz)</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=93#respond" onclick='return addComment.moveForm( "comment-93", "93", "respond", "2" )' aria-label="Reply to creamers">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment byuser comment-author-gerardwr odd alt depth-2 highlander-comment" id="li-comment-94">
+		<article id="comment-94" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/6a28e05808c14447b9fc0cccf509b80e_002.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-6a28e05808c14447b9fc0cccf509b80e-13" width="23" height="23">					<cite class="fn"><a href="http://gerardwr.wordpress.com/" rel="external nofollow" class="url">gerardwr</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-94"><time pubdate="" datetime="2015-01-06T12:12:04+00:00">
+					January 6, 2015 at 12:12 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>My Somfy shades are older, maybe 5 
+years, and I have had virtually few troubles sending working datagrams. 
+Working now every day since a couple on months.</p>
+<p>You’re the “plight” guy, right? Tell me if I can help you.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=94#respond" onclick='return addComment.moveForm( "comment-94", "94", "respond", "2" )' aria-label="Reply to gerardwr">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment even depth-3 highlander-comment" id="li-comment-98">
+		<article id="comment-98" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/a061b2cd2ffc758640d9529ebf2566c0_002.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-a061b2cd2ffc758640d9529ebf2566c0-4" width="23" height="23">					<cite class="fn">creamers</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-98"><time pubdate="" datetime="2015-01-11T12:35:58+00:00">
+					January 11, 2015 at 12:35 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Hi Gerardwr,<br>
+Just a pilight user ,CurlyMo is ‘the pilight guy’ <img draggable="false" class="emoji" alt="😉" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/1f609.svg">
+ but very busy with other things at the moment, but willing to test your
+ setup with my somfy shutters if possible? Send me a private message 
+through forum pilight org if possible…</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=98#respond" onclick='return addComment.moveForm( "comment-98", "98", "respond", "2" )' aria-label="Reply to creamers">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-even depth-1 highlander-comment" id="li-comment-97">
+		<article id="comment-97" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/1e30ab9efb9c52c13961d0a9669f5a45.png" class="avatar avatar-47 grav-hashed grav-hijack" id="grav-1e30ab9efb9c52c13961d0a9669f5a45-7" width="47" height="47">					<cite class="fn"><a href="http://gravatar.com/dadaurka" rel="external nofollow" class="url">dadaurka</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-97"><time pubdate="" datetime="2015-01-11T12:23:41+00:00">
+					January 11, 2015 at 12:23 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Hey gerardwr! My post somehow disappeared or wasn’t approved by pushstack, maybe you could write me an email to <a href="mailto:dada@jondoe.de">dada@jondoe.de</a>. Thanks in advance!</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=97#respond" onclick='return addComment.moveForm( "comment-97", "97", "respond", "2" )' aria-label="Reply to dadaurka">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+
+	<li class="comment byuser comment-author-ruizprogelio even thread-odd thread-alt depth-1 highlander-comment" id="li-comment-101">
+		<article id="comment-101" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/efd0a201d16dc28f8a0e58008f6bd3f0.png" class="avatar avatar-47 grav-hashed grav-hijack" id="grav-efd0a201d16dc28f8a0e58008f6bd3f0-0" width="47" height="47">					<cite class="fn"><a href="http://ruizprogelio.wordpress.com/" rel="external nofollow" class="url">ruizprogelio</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-101"><time pubdate="" datetime="2015-01-23T01:07:21+00:00">
+					January 23, 2015 at 1:07 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Hi, i am very interested in getting 
+this work, to this point I am able to receive and send successful 
+datagrams with an arduino, I know this only because I have 2 arduinos 
+(sender, receiver) and can decode what I am sending through the arduino 
+sender with the arduino receiver, I can’t make my motors recognize those
+ commands though, my mail is <a href="mailto:rogelio@601.mx">rogelio@601.mx</a>. I used very cheap 433.92 modules, hope anyone can help me.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=101#respond" onclick='return addComment.moveForm( "comment-101", "101", "respond", "2" )' aria-label="Reply to ruizprogelio">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment byuser comment-author-pushstack bypostauthor odd alt depth-2 highlander-comment" id="li-comment-102">
+		<article id="comment-102" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/42f19fe53e61dfb3d9016319ea16d6c8.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-42f19fe53e61dfb3d9016319ea16d6c8-9" width="23" height="23">					<cite class="fn"><a href="https://pushstack.wordpress.com/" rel="external nofollow" class="url">pushstack</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-102"><time pubdate="" datetime="2015-01-24T11:22:33+00:00">
+					January 24, 2015 at 11:22 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>I do think the 433.92 vs. 433.42 MHz 
+mismatch does cause problems. Initially I also used a 433.92 MHz 
+transmitter, but with this transmitter I had very limited range and some
+ of the blinds I tested with didn’t react at all, or only if I placed 
+the antenna in a very specific sweet spot.</p>
+<p>I can only suggest to use a transmitter that can send on 433.42 MHz. 
+Like my Si4010 based solution or a CUL(see Nick’s comment) or other 
+CC11xx based solution. It might also be possible to modify your 433.92 
+MHz transmitter by replacing some capacitors/crystal. But I didn’t had 
+much success with that.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=102#respond" onclick='return addComment.moveForm( "comment-102", "102", "respond", "2" )' aria-label="Reply to pushstack">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1 highlander-comment" id="li-comment-104">
+		<article id="comment-104" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/77a79e8b3831ef23d5c7dcb34dca245e.png" class="avatar avatar-47 grav-hashed grav-hijack" id="grav-77a79e8b3831ef23d5c7dcb34dca245e-0" width="47" height="47">					<cite class="fn">T</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-104"><time pubdate="" datetime="2015-02-17T11:44:35+00:00">
+					February 17, 2015 at 11:44 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Could you post your code if it’s operational</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=104#respond" onclick='return addComment.moveForm( "comment-104", "104", "respond", "2" )' aria-label="Reply to T">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment byuser comment-author-pushstack bypostauthor odd alt depth-2 highlander-comment" id="li-comment-106">
+		<article id="comment-106" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/42f19fe53e61dfb3d9016319ea16d6c8.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-42f19fe53e61dfb3d9016319ea16d6c8-10" width="23" height="23">					<cite class="fn"><a href="https://pushstack.wordpress.com/" rel="external nofollow" class="url">pushstack</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-106"><time pubdate="" datetime="2015-02-18T10:19:44+00:00">
+					February 18, 2015 at 10:19 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>What I currently use is a Si4010 with
+ my own _ser4010_ firmware and the accompanying _ser4010-rts_ tool. This
+ works very stable and has a good range. All required sources are 
+available on GitHub: <a href="https://github.com/dimhoff/ser4010" rel="nofollow">https://github.com/dimhoff/ser4010</a></p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=106#respond" onclick='return addComment.moveForm( "comment-106", "106", "respond", "2" )' aria-label="Reply to pushstack">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment even thread-odd thread-alt depth-1 highlander-comment" id="li-comment-110">
+		<article id="comment-110" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/e1bd7367d2a4f79af958c2cdba749ba3.png" class="avatar avatar-47 grav-hashed grav-hijack" id="grav-e1bd7367d2a4f79af958c2cdba749ba3-0" width="47" height="47">					<cite class="fn">Johannes</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-110"><time pubdate="" datetime="2015-02-28T23:22:15+00:00">
+					February 28, 2015 at 11:22 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Great job and excellent investigation! Finally I could decode my Somfy signals with the information found here!</p>
+<p>One topic was unclear to me. When I look at patent US7860481 B2 it 
+describes a format of 56bits in 71.68ms. With the fixed bit length for 
+the 56bits, this would result in 1.28 ms per bit (or 1280us). For my 
+tests taking this as bit length (and therefore 640us for a half bit) 
+improves my reception substantially. Have you found another source for 
+the 1208us in the doc here or have you found this by inspecting the 
+signal?</p>
+<p>Again, great stuff and thanks for providing all this information!</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=110#respond" onclick='return addComment.moveForm( "comment-110", "110", "respond", "2" )' aria-label="Reply to Johannes">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment byuser comment-author-pushstack bypostauthor odd alt depth-2 highlander-comment" id="li-comment-111">
+		<article id="comment-111" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/42f19fe53e61dfb3d9016319ea16d6c8.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-42f19fe53e61dfb3d9016319ea16d6c8-11" width="23" height="23">					<cite class="fn"><a href="https://pushstack.wordpress.com/" rel="external nofollow" class="url">pushstack</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-111"><time pubdate="" datetime="2015-03-01T10:00:52+00:00">
+					March 1, 2015 at 10:00 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>The 1208 us come from the signal 
+traces I made from “Somfy Smoove Origin RTS”. I also noticed the 
+difference with the patent and the surprising resemblance between the 
+two numbers(eg. the 8 and 0 being swapped). I haven’t redone my 
+measurement, So it could be that I just fucked up somewhere.</p>
+<p>What I did for my own decoding software is to logged the actual 
+sample counts between edges and used these values. So I probably didn’t 
+really use the 1208us value there.</p>
+<p>Thanks for you feedback, If I have some time i’ll redo my calculations.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=111#respond" onclick='return addComment.moveForm( "comment-111", "111", "respond", "2" )' aria-label="Reply to pushstack">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1 highlander-comment" id="li-comment-123">
+		<article id="comment-123" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/eb507991400aa319c2b24ed9fc131642.png" class="avatar avatar-47 grav-hashed grav-hijack" id="grav-eb507991400aa319c2b24ed9fc131642-0" width="47" height="47">					<cite class="fn"><a href="http://gravatar.com/s0k33t" rel="external nofollow" class="url">s0k33t</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-123"><time pubdate="" datetime="2015-05-22T17:19:36+00:00">
+					May 22, 2015 at 5:19 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Hello Pushstack,</p>
+<p>The control code 0x07have the following function:<br>
+0x07 -&gt; My &amp;&amp; Up &amp;&amp; Down(pressed at the same time).</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=123#respond" onclick='return addComment.moveForm( "comment-123", "123", "respond", "2" )' aria-label="Reply to s0k33t">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1 highlander-comment" id="li-comment-139">
+		<article id="comment-139" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/56b7b98b8041442bd5fdb4e88dd536e8.png" class="avatar avatar-47 grav-hashed grav-hijack" id="grav-56b7b98b8041442bd5fdb4e88dd536e8-0" width="47" height="47">					<cite class="fn">Sparx23</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-139"><time pubdate="" datetime="2015-09-04T08:28:45+00:00">
+					September 4, 2015 at 8:28 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Just wanted to let you know that I 
+got a RFM23BP working as a Somfy transmitter. I didn’t even start to try
+ the direct mode as this seems to be pretty complicated but used the 
+normal OOK FIFO mode and set the bitrate so that one bit is 
+(aproximately) 604us The longer periods are now just a multiple of that 
+(E.g. HW Sync 4 x ‘1’, 4 x ‘0’, and so on). I basically adapted the code
+ from: <a href="http://www.mike-stirling.com/2013/02/implementing-the-elv-fht-protocol-with-an-rfm23/" rel="nofollow">http://www.mike-stirling.com/2013/02/implementing-the-elv-fht-protocol-with-an-rfm23/</a><br>
+I only transmit signals, didn’t try it as a receiver.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=139#respond" onclick='return addComment.moveForm( "comment-139", "139", "respond", "2" )' aria-label="Reply to Sparx23">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1 highlander-comment" id="li-comment-181">
+		<article id="comment-181" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/a75accf4fee41f975e82cb68d385f5b5.png" class="avatar avatar-47 grav-hashed grav-hijack" id="grav-a75accf4fee41f975e82cb68d385f5b5-0" width="47" height="47">					<cite class="fn">RTS lover</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-181"><time pubdate="" datetime="2015-11-29T21:33:08+00:00">
+					November 29, 2015 at 9:33 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Hello,</p>
+<p>A big massive thank you for your work, it was a good foundation for 
+my own effort understanding why the Somfy Eolis 3d wirefree shake 
+detector does not work with Somfy micro module rts relays for blinds.</p>
+<p>The outcome is this: the Eolis sends 0xE command code on shake detection, rather than 0x2 (up).</p>
+<p>Why is that, no clue, and it makes the Somfy statement “The Eolis 3D 
+Wirefree RTS is compatible with RTS motors, RTS remote controls and RTS 
+sensors from Somfy” (from <a href="https://www.somfy.ch/downloads/ch/eolis_3d_de_fr_en.pdf" rel="nofollow">https://www.somfy.ch/downloads/ch/eolis_3d_de_fr_en.pdf</a>) a plain lie: the Eolis will only work with Somfy’s 1810860 type blinds relay, as they admit here :<br>
+<a href="http://forum.somfy.fr/questions/892610-probleme-eolis-3d-rts" rel="nofollow">http://forum.somfy.fr/questions/892610-probleme-eolis-3d-rts</a></p>
+<p>So now, more hacking in sight: either force the Eolis to send 0x2, or
+ force the standard RTS blinds relay micro module to accept 0xF as Up 
+command <img draggable="false" class="emoji" alt="🙂" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/1f642.svg"></p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=181#respond" onclick='return addComment.moveForm( "comment-181", "181", "respond", "2" )' aria-label="Reply to RTS lover">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+
+	<li class="post pingback">
+		<p>Pingback: <a href="http://wiert.me/2016/05/24/somfy-smoove-origin-rts-protocol-pushstack/" rel="external nofollow" class="url">Somfy Smoove Origin RTS Protocol | PushStack « The Wiert Corner – irregular stream of stuff</a></p>
+
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1 highlander-comment" id="li-comment-271">
+		<article id="comment-271" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/fc83f8e867c5fdc28a693864105cd2be.png" class="avatar avatar-47 grav-hashed grav-hijack" id="grav-fc83f8e867c5fdc28a693864105cd2be-0" width="47" height="47">					<cite class="fn">vsky279</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-271"><time pubdate="" datetime="2016-05-24T21:05:52+00:00">
+					May 24, 2016 at 9:05 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>This is great post. Thanks for it.<br>
+Does anyone have experience with sending the additional info data (as described in the patent US 8189620 <a href="https://www.google.ch/patents/US8189620" rel="nofollow">https://www.google.ch/patents/US8189620</a>)?<br>
+My remote is SOMFY Telis 5 RTS Modulis Handheld Remote (the one with the
+ “wheel”) and it uses the additional info data to communicate with 
+blinds. Using the old protocal the Up command just moves blinds one step
+ up.<br>
+I am not able to understand the additional info data, to deobfuscate it properly.<br>
+In order to fully close blinds I would need to send tens of Down commands which is not very elegant…</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=271#respond" onclick='return addComment.moveForm( "comment-271", "271", "respond", "2" )' aria-label="Reply to vsky279">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment even depth-2 highlander-comment" id="li-comment-549">
+		<article id="comment-549" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/fbb2310b77451ad65cecf0b8c2c9bea7.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-fbb2310b77451ad65cecf0b8c2c9bea7-0" width="23" height="23">					<cite class="fn">z4nD4R</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-549"><time pubdate="" datetime="2018-03-04T18:47:10+00:00">
+					March 4, 2018 at 6:47 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Hello,</p>
+<p>did you solve the problem? I’m searching for the same solution. In my
+ case the UP and DOWN commands will close/the blinds completly, but I’m 
+unagle to move with them by “step”.</p>
+<p>Thx.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=549#respond" onclick='return addComment.moveForm( "comment-549", "549", "respond", "2" )' aria-label="Reply to z4nD4R">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment odd alt depth-3 highlander-comment" id="li-comment-550">
+		<article id="comment-550" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/c28510f711cb99fa45461bfcac2af256.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-c28510f711cb99fa45461bfcac2af256-0" width="23" height="23">					<cite class="fn">vsky279</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-550"><time pubdate="" datetime="2018-03-04T18:57:10+00:00">
+					March 4, 2018 at 6:57 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Hi,<br>
+I’m still not able to use the additional info data.<br>
+But I realized that when I send the down command repeated twice the blinds go down by a single step.<br>
+When I send the down command multiple times (I am using 16x) the blinds go down completely.<br>
+So try not to repeat the command too many times. Of course the same applies for the up command too.<br>
+Rgds</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=550#respond" onclick='return addComment.moveForm( "comment-550", "550", "respond", "2" )' aria-label="Reply to vsky279">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment even depth-4 highlander-comment" id="li-comment-552">
+		<article id="comment-552" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/f2229b97fb6a66795d1e879034de4eb2.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-f2229b97fb6a66795d1e879034de4eb2-0" width="23" height="23">					<cite class="fn">z4nD4R</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-552"><time pubdate="" datetime="2018-03-05T08:37:22+00:00">
+					March 5, 2018 at 8:37 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Hi,</p>
+<p>well it works quiete different in my case. When I send the UP 
+command, the blindes are comming up completely and when I send DOWN 
+command the blinds goes completly down. So I’m not able to move by 
+single step.</p>
+<p>Y</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=552#respond" onclick='return addComment.moveForm( "comment-552", "552", "respond", "2" )' aria-label="Reply to z4nD4R">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+
+	<li class="comment odd alt depth-5 highlander-comment" id="li-comment-567">
+		<article id="comment-567" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/c28510f711cb99fa45461bfcac2af256.png" class="avatar avatar-23 grav-hashed grav-hijack" id="grav-c28510f711cb99fa45461bfcac2af256-1" width="23" height="23">					<cite class="fn">vsky279</cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-567"><time pubdate="" datetime="2018-04-26T20:39:23+00:00">
+					April 26, 2018 at 8:39 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Can’t you find a command that stops the blinds? You would issue UP/DOWN and immediately after a stop command.</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=567#respond" onclick='return addComment.moveForm( "comment-567", "567", "respond", "2" )' aria-label="Reply to vsky279">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1 highlander-comment" id="li-comment-314">
+		<article id="comment-314" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/7d35cecae1973619caf95cca9212c425.png" class="avatar avatar-47 grav-hashed grav-hijack" id="grav-7d35cecae1973619caf95cca9212c425-0" width="47" height="47">					<cite class="fn"><a href="http://centraldetoldosbh.com.br/" rel="external nofollow" class="url">Toldos</a></cite>
+				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a class="comment-time" href="https://pushstack.wordpress.com/somfy-rts-protocol/#comment-314"><time pubdate="" datetime="2017-02-23T15:30:35+00:00">
+					February 23, 2017 at 3:30 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Having read this I believed it was very enlightening.</p>
+<p>I appreciate you spending some time and energy to put this informative article together.</p>
+<p>I once again find myself personally spending a<br>
+lot of time both reading and posting comments. But so what, it<br>
+was still worthwhile!</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/?replytocom=314#respond" onclick='return addComment.moveForm( "comment-314", "314", "respond", "2" )' aria-label="Reply to Toldos">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol>
+
+		
+	
+	
+		<div id="respond" class="comment-respond js">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://pushstack.wordpress.com/somfy-rts-protocol/#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="https://pushstack.wordpress.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<input id="highlander_comment_nonce" name="highlander_comment_nonce" value="6b29f60723" type="hidden"><input name="_wp_http_referer" value="/somfy-rts-protocol/" type="hidden">
+<input name="hc_post_as" id="hc_post_as" value="guest" type="hidden">
+
+<div class="comment-form-field comment-textarea">
+	
+	<div id="comment-form-comment"><textarea tabindex="-1" style="position: absolute; top: -999px; left: 0px; right: auto; bottom: auto; border: 0px none; padding: 0px; box-sizing: content-box; overflow-wrap: break-word; height: 0px ! important; min-height: 0px ! important; overflow: hidden; transition: none 0s ease 0s ; font-family: Arial,Helvetica,Tahoma,Verdana,sans-serif; font-size: 14px; font-weight: 400; font-style: normal; letter-spacing: 0px; text-transform: none; text-decoration: none; word-spacing: 0px; text-indent: 0px; line-height: 22.6167px; width: 724.267px;" class="autosizejs ">Enter your comment here...</textarea><textarea id="comment" name="comment" title="Enter your comment here..." placeholder="Enter your comment here..." style="height: 43px; overflow: hidden; overflow-wrap: break-word; resize: none;"></textarea></div>
+</div>
+
+<div id="comment-form-identity" style="display: none;">
+	<div id="comment-form-nascar">
+		<p>Fill in your details below or click an icon to log in:</p>
+		<ul>
+			<li class="selected" style="display:none;">
+				<a href="#comment-form-guest" id="postas-guest" class="nascar-signin-link" title="Login via Guest">
+									</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:WordPress.com" id="postas-wordpress" class="nascar-signin-link" title="Login via WordPress.com">
+					<svg xmlns="http://www.w3.org/2000/svg" role="presentation" viewBox="0 0 24 24"><rect x="0" fill="none" width="24" height="24"></rect><g><path fill="#0087be" d="M12.158 12.786l-2.698 7.84c.806.236 1.657.365 2.54.365 1.047 0 2.05-.18 2.986-.51-.024-.037-.046-.078-.065-.123l-2.762-7.57zM3.008 12c0 3.56 2.07 6.634 5.068 8.092L3.788 8.342c-.5 1.117-.78 2.354-.78 3.658zm15.06-.454c0-1.112-.398-1.88-.74-2.48-.456-.74-.883-1.368-.883-2.11 0-.825.627-1.595 1.51-1.595.04 0 .078.006.116.008-1.598-1.464-3.73-2.36-6.07-2.36-3.14 0-5.904 1.613-7.512 4.053.21.008.41.012.58.012.94 0 2.395-.114 2.395-.114.484-.028.54.684.057.74 0 0-.487.058-1.03.086l3.275 9.74 1.968-5.902-1.4-3.838c-.485-.028-.944-.085-.944-.085-.486-.03-.43-.77.056-.742 0 0 1.484.114 2.368.114.94 0 2.397-.114 2.397-.114.486-.028.543.684.058.74 0 0-.488.058-1.03.086l3.25 9.665.897-2.997c.456-1.17.684-2.137.684-2.907zm1.82-3.86c.04.286.06.593.06.924 0 .912-.17 1.938-.683 3.22l-2.746 7.94c2.672-1.558 4.47-4.454 4.47-7.77 0-1.564-.4-3.033-1.1-4.314zM12 22C6.486 22 2 17.514 2 12S6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"></path></g></svg>				</a>
+			</li>
+			<li>
+			<iframe id="googleplus-sign-in" name="googleplus-sign-in" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/a.html" scrolling="no" allowtransparency="true" seamless="seamless" frameborder="0" width="24" height="24"></iframe>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:Twitter" id="postas-twitter" class="nascar-signin-link" title="Login via Twitter">
+					<svg xmlns="http://www.w3.org/2000/svg" role="presentation" viewBox="0 0 24 24"><rect x="0" fill="none" width="24" height="24"></rect><g><path fill="#1DA1F2" d="M22.23 5.924c-.736.326-1.527.547-2.357.646.847-.508 1.498-1.312 1.804-2.27-.793.47-1.67.812-2.606.996C18.325 4.498 17.258 4 16.078 4c-2.266 0-4.103 1.837-4.103 4.103 0 .322.036.635.106.935-3.41-.17-6.433-1.804-8.457-4.287-.353.607-.556 1.312-.556 2.064 0 1.424.724 2.68 1.825 3.415-.673-.022-1.305-.207-1.86-.514v.052c0 1.988 1.415 3.647 3.293 4.023-.344.095-.707.145-1.08.145-.265 0-.522-.026-.773-.074.522 1.63 2.038 2.817 3.833 2.85-1.404 1.1-3.174 1.757-5.096 1.757-.332 0-.66-.02-.98-.057 1.816 1.164 3.973 1.843 6.29 1.843 7.547 0 11.675-6.252 11.675-11.675 0-.178-.004-.355-.012-.53.802-.578 1.497-1.3 2.047-2.124z"></path></g></svg>				</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:Facebook" id="postas-facebook" class="nascar-signin-link" title="Login via Facebook">
+					<svg xmlns="http://www.w3.org/2000/svg" role="presentation" viewBox="0 0 24 24"><rect x="0" fill="none" width="24" height="24"></rect><g><path fill="#3B5998" d="M20.007 3H3.993C3.445 3 3 3.445 3 3.993v16.013c0 .55.445.994.993.994h8.62v-6.97H10.27V11.31h2.346V9.31c0-2.325 1.42-3.59 3.494-3.59.993 0 1.847.073 2.096.106v2.43h-1.438c-1.128 0-1.346.537-1.346 1.324v1.734h2.69l-.35 2.717h-2.34V21h4.587c.548 0 .993-.445.993-.993V3.993c0-.548-.445-.993-.993-.993z"></path></g></svg>				</a>
+			</li>
+		</ul>
+	</div>
+
+	<div id="comment-form-guest" class="comment-form-service selected">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+<a href="https://gravatar.com/site/signup/" target="_blank">				<img src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Gravatar" class="no-grav" width="25">
+</a>			</div>
+
+				<div class="comment-form-fields">
+				<div class="comment-form-field comment-form-email">
+					<label for="email">Email <span class="required">(required)</span> <span class="nopublish">(Address never made public)</span></label>
+					<div class="comment-form-input"><input id="email" name="email" type="email"></div>
+				</div>
+				<div class="comment-form-field comment-form-author">
+					<label for="author">Name <span class="required">(required)</span></label>
+					<div class="comment-form-input"><input id="author" name="author" type="text"></div>
+				</div>
+				<div class="comment-form-field comment-form-url">
+					<label for="url">Website</label>
+					<div class="comment-form-input"><input id="url" name="url" type="url"></div>
+				</div>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-wordpress" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/ad516503a11cd5ca435acc9bb6523536.png" alt="WordPress.com Logo" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="wp_avatar" id="wordpress-avatar" class="comment-meta-wordpress" value="" type="hidden">
+				<input name="wp_user_id" id="wordpress-user_id" class="comment-meta-wordpress" value="" type="hidden">
+				<input name="wp_access_token" id="wordpress-access_token" class="comment-meta-wordpress" value="" type="hidden">
+						<p class="comment-form-posting-as pa-wordpress">
+			<strong></strong>
+			You are commenting using your <span class="skimlinks-unlinked">WordPress.com</span> account.			<span class="comment-form-log-out">
+				(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout(%20'wordpress'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;
+				<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)
+			</span>
+			<span class="pa-icon"><svg xmlns="http://www.w3.org/2000/svg" role="presentation" viewBox="0 0 24 24"><rect x="0" fill="none" width="24" height="24"></rect><g><path fill="#0087be" d="M12.158 12.786l-2.698 7.84c.806.236 1.657.365 2.54.365 1.047 0 2.05-.18 2.986-.51-.024-.037-.046-.078-.065-.123l-2.762-7.57zM3.008 12c0 3.56 2.07 6.634 5.068 8.092L3.788 8.342c-.5 1.117-.78 2.354-.78 3.658zm15.06-.454c0-1.112-.398-1.88-.74-2.48-.456-.74-.883-1.368-.883-2.11 0-.825.627-1.595 1.51-1.595.04 0 .078.006.116.008-1.598-1.464-3.73-2.36-6.07-2.36-3.14 0-5.904 1.613-7.512 4.053.21.008.41.012.58.012.94 0 2.395-.114 2.395-.114.484-.028.54.684.057.74 0 0-.487.058-1.03.086l3.275 9.74 1.968-5.902-1.4-3.838c-.485-.028-.944-.085-.944-.085-.486-.03-.43-.77.056-.742 0 0 1.484.114 2.368.114.94 0 2.397-.114 2.397-.114.486-.028.543.684.058.74 0 0-.488.058-1.03.086l3.25 9.665.897-2.997c.456-1.17.684-2.137.684-2.907zm1.82-3.86c.04.286.06.593.06.924 0 .912-.17 1.938-.683 3.22l-2.746 7.94c2.672-1.558 4.47-4.454 4.47-7.77 0-1.564-.4-3.033-1.1-4.314zM12 22C6.486 22 2 17.514 2 12S6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"></path></g></svg></span>
+		</p>
+					</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-googleplus" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Google+ photo" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="googleplus_avatar" id="googleplus-avatar" class="comment-meta-googleplus" value="" type="hidden">
+				<input name="googleplus_user_id" id="googleplus-user_id" class="comment-meta-googleplus" value="" type="hidden">
+				<input name="googleplus_access_token" id="googleplus-access_token" class="comment-meta-googleplus" value="" type="hidden">
+						<p class="comment-form-posting-as pa-googleplus">
+			<strong></strong>
+			You are commenting using your Google+ account.			<span class="comment-form-log-out">
+				(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout(%20'googleplus'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;
+				<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)
+			</span>
+			<span class="pa-icon"><svg xmlns="http://www.w3.org/2000/svg" role="presentation" x="0px" y="0px" viewBox="0 0 60 60"><path fill="#519bf7" d="M56.3,30c0,-1.6 -0.2,-3.4 -0.6,-5h-3.1H42.2H30v10.6h14.8C44,39.3 42,42 39.1,43.9l8.8,6.8C53,46 56.3,39 56.3,30z"></path><path fill="#3db366" d="M30,57.5c6.7,0 13.1,-2.4 17.9,-6.8l-8.8,-6.8c-2.5,1.6 -5.6,2.4 -9.1,2.4c-7.2,0 -13.3,-4.7 -15.4,-11.2l-9.3,7.1C9.8,51.3 19.1,57.5 30,57.5z"></path><path fill="#fdc600" d="M5.3,42.2l9.3,-7.1c-0.5,-1.6 -0.8,-3.3 -0.8,-5.1s0.3,-3.5 0.8,-5.1l-9.3,-7.1C3.5,21.5 2.5,25.6 2.5,30S3.5,38.5 5.3,42.2z"></path><path fill="#f15b44" d="M40.1,17.4l8,-8C43.3,5.1 37,2.5 30,2.5C19.1,2.5 9.8,8.7 5.3,17.8l9.3,7.1c2.1,-6.5 8.2,-11.1 15.4,-11.1C33.9,13.7 37.4,15.1 40.1,17.4z"></path></svg></span>
+		</p>
+					</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-twitter" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Twitter picture" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="twitter_avatar" id="twitter-avatar" class="comment-meta-twitter" value="" type="hidden">
+				<input name="twitter_user_id" id="twitter-user_id" class="comment-meta-twitter" value="" type="hidden">
+				<input name="twitter_access_token" id="twitter-access_token" class="comment-meta-twitter" value="" type="hidden">
+						<p class="comment-form-posting-as pa-twitter">
+			<strong></strong>
+			You are commenting using your Twitter account.			<span class="comment-form-log-out">
+				(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout(%20'twitter'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;
+				<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)
+			</span>
+			<span class="pa-icon"><svg xmlns="http://www.w3.org/2000/svg" role="presentation" viewBox="0 0 24 24"><rect x="0" fill="none" width="24" height="24"></rect><g><path fill="#1DA1F2" d="M22.23 5.924c-.736.326-1.527.547-2.357.646.847-.508 1.498-1.312 1.804-2.27-.793.47-1.67.812-2.606.996C18.325 4.498 17.258 4 16.078 4c-2.266 0-4.103 1.837-4.103 4.103 0 .322.036.635.106.935-3.41-.17-6.433-1.804-8.457-4.287-.353.607-.556 1.312-.556 2.064 0 1.424.724 2.68 1.825 3.415-.673-.022-1.305-.207-1.86-.514v.052c0 1.988 1.415 3.647 3.293 4.023-.344.095-.707.145-1.08.145-.265 0-.522-.026-.773-.074.522 1.63 2.038 2.817 3.833 2.85-1.404 1.1-3.174 1.757-5.096 1.757-.332 0-.66-.02-.98-.057 1.816 1.164 3.973 1.843 6.29 1.843 7.547 0 11.675-6.252 11.675-11.675 0-.178-.004-.355-.012-.53.802-.578 1.497-1.3 2.047-2.124z"></path></g></svg></span>
+		</p>
+					</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-facebook" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Facebook photo" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="fb_avatar" id="facebook-avatar" class="comment-meta-facebook" value="" type="hidden">
+				<input name="fb_user_id" id="facebook-user_id" class="comment-meta-facebook" value="" type="hidden">
+				<input name="fb_access_token" id="facebook-access_token" class="comment-meta-facebook" value="" type="hidden">
+						<p class="comment-form-posting-as pa-facebook">
+			<strong></strong>
+			You are commenting using your Facebook account.			<span class="comment-form-log-out">
+				(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout(%20'facebook'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;
+				<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)
+			</span>
+			<span class="pa-icon"><svg xmlns="http://www.w3.org/2000/svg" role="presentation" viewBox="0 0 24 24"><rect x="0" fill="none" width="24" height="24"></rect><g><path fill="#3B5998" d="M20.007 3H3.993C3.445 3 3 3.445 3 3.993v16.013c0 .55.445.994.993.994h8.62v-6.97H10.27V11.31h2.346V9.31c0-2.325 1.42-3.59 3.494-3.59.993 0 1.847.073 2.096.106v2.43h-1.438c-1.128 0-1.346.537-1.346 1.324v1.734h2.69l-.35 2.717h-2.34V21h4.587c.548 0 .993-.445.993-.993V3.993c0-.548-.445-.993-.993-.993z"></path></g></svg></span>
+		</p>
+		w
+			</div>
+	
+		</div>
+	</div>
+
+
+	<div id="comment-form-load-service" class="comment-form-service">
+		<div class="comment-form-posting-as-cancel"><a href="javascript:HighlanderComments.cancelExternalWindow();">Cancel</a></div>
+		<p>Connecting to %s</p>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+var highlander_expando_javascript = function(){
+	var input = document.createElement( 'input' ),
+	    comment = jQuery( '#comment' );
+
+	if ( 'placeholder' in input ) {
+		comment.attr( 'placeholder', jQuery( '.comment-textarea label' ).remove().text() );
+	}
+
+	// Expando Mode: start small, then auto-resize on first click + text length
+	jQuery( '#comment-form-identity' ).hide();
+	jQuery( '#comment-form-subscribe' ).hide();
+	jQuery( '#commentform .form-submit' ).hide();
+
+	comment.css( { 'height':'10px' } ).one( 'focus', function() {
+		var timer = setInterval( HighlanderComments.resizeCallback, 10 )
+		jQuery( this ).animate( { 'height': HighlanderComments.initialHeight } ).delay( 100 ).queue( function(n) { clearInterval( timer ); HighlanderComments.resizeCallback(); n(); } );
+		jQuery( '#comment-form-identity' ).slideDown();
+		jQuery( '#comment-form-subscribe' ).slideDown();
+		jQuery( '#commentform .form-submit' ).slideDown();
+	});
+}
+jQuery(document).ready( highlander_expando_javascript );
+</script>
+
+<div id="comment-form-subscribe" style="display: none;">
+	<p class="comment-subscription-form"><input name="subscribe" id="subscribe" value="subscribe" style="width: auto;" type="checkbox"> <label class="subscribe-label" id="subscribe-label" for="subscribe" style="display: inline;">Notify me of new comments via email.</label></p><p class="post-subscription-form"><input name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto;" type="checkbox"> <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog" style="display: inline;">Notify me of new posts via email.</label></p></div>
+
+
+
+
+<p class="form-submit" style="display: none;"><input name="submit" id="comment-submit" class="submit" value="Post Comment" type="submit"> <input name="comment_post_ID" value="2" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+</p><p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="20499a864b" type="hidden"></p>
+<input name="genseq" value="1526201983" type="hidden">
+<p style="display: none;"></p>			<input id="ak_js" name="ak_js" value="1526201985218" type="hidden"></form>
+			</div><!-- #respond -->
+	<div style="clear: both"></div>
+</div><!-- #comments -->
+
+				
+			</div><!-- #content -->
+		</div><!-- #primary -->
+
+
+
+	</div><!-- #main -->
+
+	<footer id="colophon" role="contentinfo">
+		
+		<div id="site-info">
+						<a href="https://wordpress.com/?ref=footer_website">Create a free website or blog at WordPress.com.</a>
+			
+					</div>
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<!--  -->
+<script type="text/javascript" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/gprofiles.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/wpgroho.js"></script>
+
+	<script>
+		//initialize and attach hovercards to all gravatars
+		jQuery( document ).ready( function( $ ) {
+
+			if (typeof Gravatar === "undefined"){
+				return;
+			}
+
+			if ( typeof Gravatar.init !== "function" ) {
+				return;
+			}			
+
+			Gravatar.profile_cb = function( hash, id ) {
+				WPGroHo.syncProfileData( hash, id );
+			};
+			Gravatar.my_hash = WPGroHo.my_hash;
+			Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+		});
+	</script>
+
+		<div style="display:none">
+	<div class="grofile-hash-map-020af01b9b620aec8de177fc9dfaef46">
+	</div>
+	<div class="grofile-hash-map-42f19fe53e61dfb3d9016319ea16d6c8">
+	</div>
+	<div class="grofile-hash-map-ec7b85dc77089a92e2d35ef2cee68929">
+	</div>
+	<div class="grofile-hash-map-d58e7b70e112d9ee115ce502482e1d08">
+	</div>
+	<div class="grofile-hash-map-6a28e05808c14447b9fc0cccf509b80e">
+	</div>
+	<div class="grofile-hash-map-a061b2cd2ffc758640d9529ebf2566c0">
+	</div>
+	<div class="grofile-hash-map-cbffafde646c122a9bdf560b3bb7cb24">
+	</div>
+	<div class="grofile-hash-map-6a28e05808c14447b9fc0cccf509b80e">
+	</div>
+	<div class="grofile-hash-map-21588e63be7235a01a3cf7c4224dfe34">
+	</div>
+	<div class="grofile-hash-map-93fe1e39175d223e494899a7de16915e">
+	</div>
+	<div class="grofile-hash-map-08ed658092c24feb184a7a0529a95c4d">
+	</div>
+	<div class="grofile-hash-map-1e30ab9efb9c52c13961d0a9669f5a45">
+	</div>
+	<div class="grofile-hash-map-3dc0acca9f9cc11a94c0feaaa2aff82a">
+	</div>
+	<div class="grofile-hash-map-55ec5afc33f1e4cc889c9a53800affc7">
+	</div>
+	<div class="grofile-hash-map-efd0a201d16dc28f8a0e58008f6bd3f0">
+	</div>
+	<div class="grofile-hash-map-77a79e8b3831ef23d5c7dcb34dca245e">
+	</div>
+	<div class="grofile-hash-map-e1bd7367d2a4f79af958c2cdba749ba3">
+	</div>
+	<div class="grofile-hash-map-eb507991400aa319c2b24ed9fc131642">
+	</div>
+	<div class="grofile-hash-map-56b7b98b8041442bd5fdb4e88dd536e8">
+	</div>
+	<div class="grofile-hash-map-a75accf4fee41f975e82cb68d385f5b5">
+	</div>
+	<div class="grofile-hash-map-fc83f8e867c5fdc28a693864105cd2be">
+	</div>
+	<div class="grofile-hash-map-fbb2310b77451ad65cecf0b8c2c9bea7">
+	</div>
+	<div class="grofile-hash-map-c28510f711cb99fa45461bfcac2af256">
+	</div>
+	<div class="grofile-hash-map-f2229b97fb6a66795d1e879034de4eb2">
+	</div>
+	<div class="grofile-hash-map-7d35cecae1973619caf95cca9212c425">
+	</div>
+	</div>
+<script type="text/javascript">
+/* <![CDATA[ */
+var HighlanderComments = {"loggingInText":"Logging In\u2026","submittingText":"Posting Comment\u2026","postCommentText":"Post Comment","connectingToText":"Connecting to %s","commentingAsText":"%1$s: You are commenting using your %2$s account.","logoutText":"Log Out","loginText":"Log In","connectURL":"https:\/\/pushstack.wordpress.com\/public.api\/connect\/?action=request","logoutURL":"https:\/\/pushstack.wordpress.com\/wp-login.php?action=logout&_wpnonce=61febd032e","homeURL":"https:\/\/pushstack.wordpress.com\/","postID":"2","gravDefault":"identicon","enterACommentError":"Please enter a comment","enterEmailError":"Please enter your email address here","invalidEmailError":"Invalid email address","enterAuthorError":"Please enter your name here","gravatarFromEmail":"This picture will show whenever you leave a comment. Click to customize it.","logInToExternalAccount":"Log in to use details from one of these accounts.","change":"Change","changeAccount":"Change Account","comment_registration":"","userIsLoggedIn":"","isJetpack":"","text_direction":"ltr"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/a"></script>
+
+	<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"https:\/\/pushstack.wordpress.com\/somfy-rts-protocol\/":2};
+	</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var actionbardata = {"siteID":"66861887","siteName":"PushStack","siteURL":"http:\/\/pushstack.wordpress.com","icon":"<img alt='' src='https:\/\/s2.wp.com\/i\/logo\/wpcom-gray-white.png' class='avatar avatar-50' height='50' width='50' \/>","canManageOptions":"","canCustomizeSite":"","isFollowing":"","themeSlug":"pub\/reddle","signupURL":"https:\/\/wordpress.com\/start\/","loginURL":"https:\/\/pushstack.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Fpushstack.wordpress.com%2Fsomfy-rts-protocol%2F","themeURL":"","xhrURL":"https:\/\/pushstack.wordpress.com\/wp-admin\/admin-ajax.php","nonce":"ac923934c4","isSingular":"1","isFolded":"","isLoggedIn":"","isMobile":"","subscribeNonce":"<input type=\"hidden\" id=\"_wpnonce\" name=\"_wpnonce\" value=\"b459912f0a\" \/>","referer":"https:\/\/pushstack.wordpress.com\/somfy-rts-protocol\/","canFollow":"1","feedID":"19790179","statusMessage":"","customizeLink":"https:\/\/pushstack.wordpress.com\/wp-admin\/customize.php?url=https%3A%2F%2Fpushstack.wordpress.com%2Fsomfy-rts-protocol%2F","postID":"2","shortlink":"https:\/\/wp.me\/P4wxPx-2","canEditPost":"","editLink":"https:\/\/wordpress.com\/page\/pushstack.wordpress.com\/2","statsLink":"https:\/\/wordpress.com\/stats\/post\/2\/pushstack.wordpress.com","i18n":{"view":"View site","follow":"Follow","following":"Following","edit":"Edit","login":"Log in","signup":"Sign up","customize":"Customize","report":"Report this content","themeInfo":"Get theme: Reddle","shortlink":"Copy shortlink","copied":"Copied","followedText":"New posts from this site will now appear in your <a href=\"https:\/\/wordpress.com\/\">Reader<\/a>","foldBar":"Collapse this bar","unfoldBar":"Expand this bar","editSubs":"Manage subscriptions","viewReader":"View site in Reader","viewReadPost":"View post in Reader","subscribe":"Sign me up","enterEmail":"Enter your email address","followers":"Join 27 other followers","alreadyUser":"Already have a WordPress.com account? <a href=\"https:\/\/pushstack.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Fpushstack.wordpress.com%2Fsomfy-rts-protocol%2F\">Log in now.<\/a>","stats":"Stats"}};
+/* ]]> */
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/a_002"></script><div id="actionbar" class="actnbr-pub-reddle actnbr-has-follow"><ul><li class="actnbr-btn actnbr-hidden"> 			    	<a class="actnbr-action actnbr-actn-follow" href=""><svg class="gridicon gridicon__follow" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M23 16v2h-3v3h-2v-3h-3v-2h3v-3h2v3h3zM20 2v9h-4v3h-3v4H4c-1.1 0-2-.9-2-2V2h18zM8 13v-1H4v1h4zm3-3H4v1h7v-1zm0-2H4v1h7V8zm7-4H4v2h14V4z"></path></g></svg><span>Follow</span></a> 			    	<div class="actnbr-popover tip tip-top-left actnbr-notice"> 			    		<div class="tip-arrow"></div> 			    		<div class="tip-inner actnbr-follow-bubble"></div> 			    	</div> 			    </li><li class="actnbr-ellipsis actnbr-hidden"> 			  <svg class="gridicon gridicon__ellipsis" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><circle cx="5" cy="12" r="2"></circle><circle cx="19" cy="12" r="2"></circle><circle cx="12" cy="12" r="2"></circle></g></svg> 			  <div class="actnbr-popover tip tip-top-left actnbr-more"> 			  	<div class="tip-arrow"></div> 			  	<div class="tip-inner"> 				  <ul> 				    <li class="actnbr-sitename actnbr-hidden"><a href="http://pushstack.wordpress.com/"><img alt="" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/wpcom-gray-white.png" class="avatar avatar-50" width="50" height="50"> PushStack</a></li> 				   	<li class="actnbr-folded-customize actnbr-hidden"><a href="https://pushstack.wordpress.com/wp-admin/customize.php?url=https%3A%2F%2Fpushstack.wordpress.com%2Fsomfy-rts-protocol%2F"><svg class="gridicon gridicon__customize" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M2 6c0-1.505.78-3.08 2-4 0 .845.69 2 2 2 1.657 0 3 1.343 3 3 0 .386-.08.752-.212 1.09.74.594 1.476 1.19 2.19 1.81L8.9 11.98c-.62-.716-1.214-1.454-1.807-2.192C6.753 9.92 6.387 10 6 10c-2.21 0-4-1.79-4-4zm12.152 6.848l1.34-1.34c.607.304 1.283.492 2.008.492 2.485 0 4.5-2.015 4.5-4.5 0-.725-.188-1.4-.493-2.007L18 9l-2-2 3.507-3.507C18.9 3.188 18.225 3 17.5 3 15.015 3 13 5.015 13 7.5c0 .725.188 1.4.493 2.007L3 20l2 2 6.848-6.848c1.885 1.928 3.874 3.753 5.977 5.45l1.425 1.148 1.5-1.5-1.15-1.425c-1.695-2.103-3.52-4.092-5.448-5.977z" data-reactid=".2.1.1:0.1b.0"></path></g></svg><span>Customize<span></span></span></a></li> 				    <li class="actnbr-folded-follow actnbr-hidden"><a class="actnbr-action actnbr-actn-follow" href=""><svg class="gridicon gridicon__follow" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M23 16v2h-3v3h-2v-3h-3v-2h3v-3h2v3h3zM20 2v9h-4v3h-3v4H4c-1.1 0-2-.9-2-2V2h18zM8 13v-1H4v1h4zm3-3H4v1h7v-1zm0-2H4v1h7V8zm7-4H4v2h14V4z"></path></g></svg><span>Follow</span></a></li> 					<li class="actnbr-signup actnbr-hidden"><a href="https://wordpress.com/start/">Sign up</a></li> 				    <li class="actnbr-login actnbr-hidden"><a href="https://pushstack.wordpress.com/wp-login.php?redirect_to=https%3A%2F%2Fpushstack.wordpress.com%2Fsomfy-rts-protocol%2F">Log in</a></li> 				     				    <li class="actnbr-shortlink actnbr-hidden"><a href="https://wp.me/P4wxPx-2">Copy shortlink</a></li> 				    <li class="flb-report actnbr-hidden"><a href="http://en.wordpress.com/abuse/">Report this content</a></li> 				     				     				    <li class="actnbr-subs actnbr-hidden"><a href="https://subscribe.wordpress.com/">Manage subscriptions</a></li> 				    <li class="actnbr-fold actnbr-hidden"><a href="">Collapse this bar</a></li> 			      </ul> 			    </div> 		      </div> 		    </li> 	      </ul></div>
+<script type="text/javascript">
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-twitter', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-facebook', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-google-plus-1', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomgoogle-plus-1', 'menubar=1,resizable=1,width=480,height=550' );
+				return false;
+			});
+</script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script>	<script type="text/javascript">
+	var skimlinks_pub_id = "725X584219"
+	var skimlinks_sitename = "pushstack.wordpress.com";
+	</script>
+	<script type="text/javascript" defer="defer" src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/725X1342.bin"></script>		<iframe src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/master.html" scrolling="no" id="likes-master" name="likes-master" style="display:none;"></iframe>
+		<div id="likes-other-gravatars"><div class="likes-text"><span>%d</span> bloggers like this:</div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+<script src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/w.js" type="text/javascript" async="" defer="defer"></script>
+<script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', {'blog_id':'66861887','blog_tz':'0','user_lang':'en','blog_lang':'en','user_id':'0'}]);
+_stq.push(['view', {'blog':'66861887','v':'wpcom','tz':'0','user_id':'0','post':'2','subd':'pushstack'}]);
+_stq.push(['extra', {'crypt':'UE5XaGUuOTlwaD85flAmcm1mcmZsaDhkV11YdWFnNncxc1tjZG9XVXhRZS03JixXRU5XS21oQ0hxOXdqZkJBUUxYJVZoeG5pWF9pSk09R1JjNnQ9UUM2VUJsL3Z+Z0NFcUxBPzZXPU9nbGR0UTVda0hlQitQQyV3SmFnQkd3TC5mM01bVi5GbHRMRTdSfCtBXWtobmpwZGhrQjFdTGs0akJEQT9UX2lTOC5YV3FtSWdNY3c2ZmssalpfZjVOWXpCSHZ4MmFGJkQ3NllOPSZDNEJaX0JJ'}]);
+_stq.push([ 'clickTrackerInit', '66861887', '2' ]);
+	</script>
+<noscript><img src="https://pixel.wp.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /></noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+
+<img src="Somfy%20Smoove%20Origin%20RTS%20Protocol%20%7C%20PushStack_files/g.gif" alt=":)" id="wpstats"></body></html>

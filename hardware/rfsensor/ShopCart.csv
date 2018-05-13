@@ -1,0 +1,16 @@
+﻿N° de ligne,Code Commande,Conforme RoHS ?,Remarques,Qté :,Référence du fabricant,Nom du fabricant,Fabricant / Description,Disponibilité,Prix unitaire,Prix,Prix avec remise
+1,9406204,YES,,50.0,"MCT0603F104ZCT",MULTICOMP,"Boîtier de condensateur Céramique:0603 [1608 Metric]; Capacité:0.1µF; Tension:25V; Tolérance de capacité:+80%, -20%; Diélectrique:Y5V; Gamme de produit:Série MCT; Type de packaging:B",86784,0.0138,0.69,,
+2,1833825,YES,,20.0,"12063D106KAT2A",AVX,"Boîtier de condensateur Céramique:1206 [3216 Metric]; Capacité:10µF; Tension:25V; Tolérance de capacité:± 10%; Diélectrique:X5R; Gamme de produit:AVX 1206 MLCC; Type de packaging:Band",32378,0.2100,4.20,,
+3,1465991,YES,,10.0,"5988070107F",DIALIGHT,"Couleur de LED:Vert; Montage LED:CMS; Taille de l'ampoule:0.8mm x 1.1mm; Courant, direct, If:20mA; Tension, direct à  If:2V; Longueur d'onde typ.:570nm; Intensité lumineuse:20mcd; Angle, vision:140°; Forme",30872,0.3100,3.10,,
+4,1715486,YES,,10.0,"ATMEGA328P-AU",MICROCHIP,"Famille / Série de contrôleur:ATmega; Vitesse de processeur:20MHz; Taille de mémoire programme:32KB; Taille mémoire, RAM:2KB; Nombre de broches:32Broche(s); Type de boîtier MCU:TQFP; No",4154,1.7600,17.60,,
+5,2473670,YES,,3.0,"SI7021-A20-GM",SILICON LABS,"Type de sortie CI:Numérique; Gamme de précision de détection:± 0.4°C; Capture de température min.:-40°C; Capture de température max..:85°C; Type de boîtier de capteur CI:DFN; Nomb",330,3.2900,9.87,,
+6,2443270,YES,,10.0,"CSTCE8M00G55-R0",MURATA,"Fréquence:8MHz; Montage d'oscillateur:CMS; Nbre de broches:3 broches; Impédance de résonance:40ohm; Tolérance en fréquence:± 0.5%; Gamme de produit:-; Stabilité en fréquence:-; Température ",10253,0.4330,4.33,,
+7,1469746,Y-EX,,10.0,"CRCW06031M00FKEA",VISHAY,"Résistance:1Mohm; Tension:75V; Type de résistance:Couche épaisse; Type de boîtier de résistance:0603 [1608 Metric]; Puissance:100mW; Tolérance de résistance:± 1%; Gamme de produit",48119,0.0466,0.47,,
+8,1469748,Y-EX,,30.0,"CRCW060310K0FKEA",VISHAY,"Résistance:10kohm; Tension:75V; Type de résistance:Couche épaisse; Type de boîtier de résistance:0603 [1608 Metric]; Puissance:100mW; Tolérance de résistance:± 1%; Gamme de produit:Sé",540925,0.0466,1.40,,
+9,1469803,Y-EX,,10.0,"CRCW0603330RFKEA",VISHAY,"Résistance:330ohm; Tension:75V; Type de résistance:Couche épaisse; Type de boîtier de résistance:0603 [1608 Metric]; Puissance:100mW; Tolérance de résistance:± 1%; Gamme de produit:S",13978,0.0466,0.47,,
+
+,,,,,,,Sous-total,42.12
+,,,,,,,Total des marchandises,42.12
+,,,,,,,Livraison de base,0.00
+,,,,,,,TVA,Inconnu
+,,,,,,,Total,42.12

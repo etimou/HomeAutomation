@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name rfbase)(type KiCad)(uri "$(KIPRJMOD)")(options "")(descr ""))
+)
