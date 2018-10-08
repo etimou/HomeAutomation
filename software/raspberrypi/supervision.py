@@ -6,7 +6,7 @@ import os
 import time
 import sqlite3
 
-conn = sqlite3.connect('/home/eti/MyHouse.db')
+conn = sqlite3.connect('/home/eti/HomeAutomation/software/raspberrypi/MyHouse.db')
 c = conn.cursor()
 
 db = c.execute('SELECT * FROM sensors ORDER BY ID')
