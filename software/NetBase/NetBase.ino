@@ -252,7 +252,7 @@ void loop() {
               }
             }
             else{
-              send(address, 24, PIN_TX, RETRIES);  
+              if (command==ON) send(address, 24, PIN_TX, RETRIES);  
             }
           }
           else if (protocol==PROTOCOL_SOMFY){
