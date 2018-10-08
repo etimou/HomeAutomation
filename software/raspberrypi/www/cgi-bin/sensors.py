@@ -24,7 +24,7 @@ print "<td>InAlarmHome</td>"
 print "<td>InAlarmAway</td>"
 print "</tr>"
 
-conn = sqlite3.connect('/home/eti/MyHouse.db')
+conn = sqlite3.connect('/home/eti/HomeAutomation/software/raspberrypi/MyHouse.db')
 c = conn.cursor()
 
 for row in c.execute('SELECT * FROM sensors ORDER BY ID'):
