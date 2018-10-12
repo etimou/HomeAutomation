@@ -5,6 +5,7 @@ import datetime
 import os
 import time
 import sqlite3
+import socket
 
 conn = sqlite3.connect('/home/eti/HomeAutomation/software/raspberrypi/MyHouse.db')
 conn.row_factory = sqlite3.Row
@@ -14,7 +15,13 @@ db = c.execute('SELECT * FROM sensors ORDER BY ID')
 for row in db:
 	print row
 
+
+
+
+
 #____________________________________________________________________________________
+#
+# Recover alarm status from database
 
 db = c.execute('select * from alarm')
 [alarmActivationStatus, alarmIntrusionStatus, alarmAddressOnHome, alarmAddressOnAway, alarmAddressOff] = db.fetchone()
@@ -25,13 +32,20 @@ print "Alarm activation status : "+  alarmActivationStatus
 #____________________________________________________________________________________
 
 
-ser = serial.Serial('/dev/ttyUSB0', 57600)
+
+ser = serial.Serial('/dev/ttyUSB0', 57600, timeout=2)
 
 while (1):
+
+  #recover the alarm activation status from db in case it was modified externally
+  alarmActivationStatus = c.execute('select * from alarm').fetchone()["ActivationStatus"]
+
+  # read serial port, loop again if empty
   read=ser.readline()
   command = read.split(";")
   if len(command)<4:
 	continue
+
   address = command[3][3:]
   address = int(address, 16)
   time = str(datetime.datetime.now())[:-3]
@@ -39,25 +53,35 @@ while (1):
   print sql
   c.execute(sql)
 
+
+
   if (address == alarmAddressOnHome):
 	print ("Setting Alarm ON HOME")
-	c.execute('UPDATE alarm SET activationStatus = "ON HOME"')
-	alarmActivationStatus = "ON HOME"
+	c.execute('UPDATE alarm SET activationStatus = "ON_HOME"')
+	alarmActivationStatus = "ON_HOME"
   elif (address == alarmAddressOnAway):
 	print ("Setting Alarm ON AWAY")
-	c.execute('UPDATE alarm SET activationStatus = "ON AWAY"')
-	alarmActivationStatus = "ON AWAY"
+	c.execute('UPDATE alarm SET activationStatus = "ON_AWAY"')
+	alarmActivationStatus = "ON_AWAY"
   elif (address == alarmAddressOff):
 	print ("Setting Alarm OFF")
 	c.execute('UPDATE alarm SET activationStatus = "OFF"')
+	c.execute('UPDATE alarm SET intrusionStatus = "NO"')
 	alarmActivationStatus = "OFF"
 	alarmIntrusionStatus = "NO"
+
+
+
+
+
+
   
   sql ='SELECT * FROM sensors WHERE address = ' + str(address)
   db = c.execute(sql)
   db = db.fetchone()
-  if (alarmActivationStatus == "ON HOME" and db["InAlarmHome"]) or (alarmActivationStatus == "ON AWAY" and db["InAlarmAway"]):
+  if (alarmActivationStatus == "ON_HOME" and db["InAlarmHome"]) or (alarmActivationStatus == "ON_AWAY" and db["InAlarmAway"]):
   	print "intrusion detectee"
+	c.execute('UPDATE alarm SET intrusionStatus = "YES"')
   	alarmIntrusionStatus = "YES"
 
   conn.commit()
