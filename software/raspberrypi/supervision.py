@@ -59,18 +59,22 @@ while (1):
 	print ("Setting Alarm ON HOME")
 	c.execute('UPDATE alarm SET activationStatus = "ON_HOME"')
 	alarmActivationStatus = "ON_HOME"
+	ser.write("10;NewKaku;FFFFFE;1;ON\r\n")
   elif (address == alarmAddressOnAway):
 	print ("Setting Alarm ON AWAY")
 	c.execute('UPDATE alarm SET activationStatus = "ON_AWAY"')
 	alarmActivationStatus = "ON_AWAY"
+	ser.write("10;NewKaku;FFFFFE;1;ON\r\n")
+
+
   elif (address == alarmAddressOff):
 	print ("Setting Alarm OFF")
 	c.execute('UPDATE alarm SET activationStatus = "OFF"')
 	c.execute('UPDATE alarm SET intrusionStatus = "NO"')
 	alarmActivationStatus = "OFF"
 	alarmIntrusionStatus = "NO"
-
-
+	ser.write("10;NewKaku;FFFFFE;1;OFF\r\n")
+	ser.write("10;NewKaku;FFFFFF;1;OFF\r\n")
 
 
 
@@ -83,6 +87,7 @@ while (1):
   	print "intrusion detectee"
 	c.execute('UPDATE alarm SET intrusionStatus = "YES"')
   	alarmIntrusionStatus = "YES"
+	ser.write("10;NewKaku;FFFFFF;1;ON\r\n")
 
   conn.commit()
 
