@@ -7,7 +7,8 @@ import os
 
 command= os.environ['QUERY_STRING']
 if len(command)>=8:
-	command = 'echo "' + command[8:].replace('%3B',';') + '" > /home/eti/HomeAutomation/software/raspberrypi/out.log'
+	#command = 'echo "' + command[8:].replace('%3B',';') + '" > /home/eti/HomeAutomation/software/raspberrypi/out.log'
+        command = 'echo "' + command[8:].replace('%3B',';') + '" > /dev/ttyUSB0'
 	os.system(command)
 
 
