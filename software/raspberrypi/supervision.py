@@ -43,7 +43,7 @@ while (1):
   # read serial port, loop again if empty
   read=ser.readline()
   command = read.split(";")
-  if len(command)<4:
+  if len(command)<5:
 	continue
 
   address = command[3][3:]
