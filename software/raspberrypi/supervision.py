@@ -7,7 +7,7 @@ import time
 import sqlite3
 import socket
 
-conn = sqlite3.connect('/home/eti/HomeAutomation/software/raspberrypi/MyHouse.db')
+conn = sqlite3.connect((os.environ['HOME']) +'/HomeAutomation/software/raspberrypi/MyHouse.db')
 conn.row_factory = sqlite3.Row
 c = conn.cursor()
 
