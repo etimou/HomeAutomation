@@ -30,7 +30,7 @@ print "<td>Action 2</td>"
 print "<td>Action 3</td>"
 print "</tr>"
 
-conn = sqlite3.connect('home/pi/HomeAutomation/software/raspberrypi/MyHouse.db')
+conn = sqlite3.connect('/home/pi/HomeAutomation/software/raspberrypi/MyHouse.db')
 c = conn.cursor()
 
 for row in c.execute('SELECT * FROM actuators ORDER BY ID'):
