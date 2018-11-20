@@ -10,7 +10,7 @@ command = os.environ['QUERY_STRING'][8:]
 
 
 
-conn = sqlite3.connect((os.environ['HOME']) +'/HomeAutomation/software/raspberrypi/MyHouse.db')
+conn = sqlite3.connect('/home/pi/HomeAutomation/software/raspberrypi/MyHouse.db')
 conn.row_factory = sqlite3.Row
 c = conn.cursor()
 

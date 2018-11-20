@@ -2,6 +2,7 @@
 #
 from topbar import printTopBar
 import sqlite3
+import os
 
 print "Content-Type: text/html\n\n"
 print '<html><head><meta content="text/html; charset=UTF-8" />'
@@ -24,7 +25,7 @@ print "<td>InAlarmHome</td>"
 print "<td>InAlarmAway</td>"
 print "</tr>"
 
-conn = sqlite3.connect((os.environ['HOME']) +'/HomeAutomation/software/raspberrypi/MyHouse.db')
+conn = sqlite3.connect('/home/pi/HomeAutomation/software/raspberrypi/MyHouse.db')
 c = conn.cursor()
 
 for row in c.execute('SELECT * FROM sensors ORDER BY ID'):
