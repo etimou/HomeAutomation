@@ -18,10 +18,8 @@ Installation on Raspberrypi
                                ".py"  => "/usr/bin/python",
                                ".php" => "/usr/bin/php-cgi" )
 
-5. chmod o+w /home/pi/HomeAutomation/software/raspberrypi/MyHouse.db
-6. chmod o+x /home/pi/HomeAutomation/software/raspberrypi/www/cgi-bin/*.py
-7. sudo usermod -aG dialout www-data
-8. sudo service lighttpd restart
+5. sudo usermod -aG dialout www-data
+6. sudo service lighttpd restart
 
 
 
