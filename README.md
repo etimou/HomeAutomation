@@ -17,8 +17,9 @@ Installation on Raspberrypi
                                ".erb" => "/usr/bin/eruby",
                                ".py"  => "/usr/bin/python",
                                ".php" => "/usr/bin/php-cgi" )
+  change port from 80 to 8181
 
-5. sudo usermod -aG dialout www-data
-6. sudo service lighttpd restart
+5. sudo service lighttpd restart
+6. sudo usermod -aG dialout www-data
 7. chmod o+w /home/pi/HomeAutomation/software/raspberrypi/MyHouse.db
 8. chmod o+w /home/pi/HomeAutomation/software/raspberrypi/
