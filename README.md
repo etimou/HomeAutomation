@@ -20,6 +20,5 @@ Installation on Raspberrypi
 
 5. sudo usermod -aG dialout www-data
 6. sudo service lighttpd restart
-
-
-
+7. chmod o+w /home/pi/HomeAutomation/software/raspberrypi/MyHouse.db
+8. chmod o+w /home/pi/HomeAutomation/software/raspberrypi/
