@@ -21,6 +21,12 @@ if command in ["ON_AWAY","ON_HOME","OFF"]:
 	if command == "OFF":
 		c.execute('UPDATE alarm SET intrusionStatus = "NO"')
 	conn.commit()
+	
+	if command == "OFF":
+		os.system('echo "10;NewKaku;FFFFFE;1;OFF" > /dev/ttyUSB0')
+		
+	else:
+		os.system('echo "10;NewKaku;FFFFFE;1;ON" > /dev/ttyUSB0')
 
 
 
