@@ -46,10 +46,29 @@ while (1):
   if len(command)<5:
 	continue
 
+  # get the address
   address = command[3][3:]
   address = int(address, 16)
+
+  # get sensor info from database
+  sql ='SELECT * FROM sensors WHERE address = ' + str(address)
+  db = c.execute(sql)
+  db = db.fetchone()
+
+  if db==None:
+  	print "Received message from unknown address " , address
+  	continue
+
+  # get the rest of the message
+  status = command[5][4:].upper()
   time = str(datetime.datetime.now())[:-3]
-  sql = 'UPDATE sensors SET LastSeen ="'+ time + '" WHERE address = ' + str(address)
+
+  type = db["type"]
+  if type=="Simple433":
+  	status=None
+  
+  # update the database with date and status
+  sql = 'UPDATE sensors SET LastSeen ="'+ time + '"'+ ', Status="'+ str(status) + '" WHERE address = ' + str(address)
   print sql
   c.execute(sql)
 
@@ -78,12 +97,7 @@ while (1):
 
 
 
-
-  
-  sql ='SELECT * FROM sensors WHERE address = ' + str(address)
-  db = c.execute(sql)
-  db = db.fetchone()
-  if (alarmActivationStatus == "ON_HOME" and db["InAlarmHome"]) or (alarmActivationStatus == "ON_AWAY" and db["InAlarmAway"]):
+  if (status in [None, "ON"]) and ((alarmActivationStatus == "ON_HOME" and db["InAlarmHome"]) or (alarmActivationStatus == "ON_AWAY" and db["InAlarmAway"])):
   	print "intrusion detectee"
 	c.execute('UPDATE alarm SET intrusionStatus = "YES"')
   	alarmIntrusionStatus = "YES"
