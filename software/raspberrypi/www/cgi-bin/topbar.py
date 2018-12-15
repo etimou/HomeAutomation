@@ -23,6 +23,13 @@ def printTopBar():
 	print '</form>'
         print "</td>"
 
+        print "<td>"
+        print '<form name="input" action="log.py" method="get">'
+        print '<input style="font-size:200%;" type="submit" value="Log">'
+        print '</form>'
+        print "</td>"
+
+
 	#print "</tr>"
 	print "</table>" 
 

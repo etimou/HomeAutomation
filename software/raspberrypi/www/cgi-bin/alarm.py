@@ -3,6 +3,26 @@
 from topbar import printTopBar
 import sqlite3
 import os
+import logging
+from logging.handlers import RotatingFileHandler
+
+# create logger
+logger = logging.getLogger('simple_example')
+logger.setLevel(logging.DEBUG)
+
+# create console handler and set level to debug
+ch = RotatingFileHandler('/home/pi/HomeAutomation/software/raspberrypi/logging2.log', maxBytes=1024)
+ch.setLevel(logging.DEBUG)
+
+# create formatter
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+
+# add formatter to ch
+ch.setFormatter(formatter)
+
+# add ch to logger
+logger.addHandler(ch)
+
 
 
 
@@ -28,6 +48,7 @@ if command in ["ON_AWAY","ON_HOME","OFF"]:
 	else:
 		os.system('echo "10;NewKaku;FFFFFE;1;ON" > /dev/ttyUSB0')
 
+	logger.info("Set alarm status from Web interface " + command)
 
 
 db = c.execute('select * from alarm')

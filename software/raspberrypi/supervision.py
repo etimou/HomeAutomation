@@ -5,7 +5,27 @@ import datetime
 import os
 import time
 import sqlite3
-import socket
+import logging
+from logging.handlers import RotatingFileHandler
+
+# create logger
+logger = logging.getLogger('simple_example')
+logger.setLevel(logging.DEBUG)
+
+# create console handler and set level to debug
+ch = RotatingFileHandler('/home/pi/HomeAutomation/software/raspberrypi/logging.log', maxBytes=1024)
+ch.setLevel(logging.DEBUG)
+
+# create formatter
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+
+# add formatter to ch
+ch.setFormatter(formatter)
+
+# add ch to logger
+logger.addHandler(ch)
+
+
 
 conn = sqlite3.connect('/home/pi/HomeAutomation/software/raspberrypi/MyHouse.db')
 conn.row_factory = sqlite3.Row
@@ -22,12 +42,11 @@ for row in db:
 #____________________________________________________________________________________
 #
 # Recover alarm status from database
-
 db = c.execute('select * from alarm')
 [alarmActivationStatus, alarmIntrusionStatus, alarmAddressOnHome, alarmAddressOnAway, alarmAddressOff] = db.fetchone()
 
-print "Alarm activation status : "+  alarmActivationStatus
-
+#print "Alarm activation status : "+  alarmActivationStatus
+logger.info("Alarm activation status at startup : "+  alarmActivationStatus)
 
 #____________________________________________________________________________________
 
@@ -56,7 +75,8 @@ while (1):
   db = db.fetchone()
 
   if db==None:
-  	print "Received message from unknown address " , address
+  	#print "Received message from unknown address " , address
+  	logger.info("Received message from unknown address " + str(address))
   	continue
 
   # get the rest of the message
@@ -69,25 +89,29 @@ while (1):
   
   # update the database with date and status
   sql = 'UPDATE sensors SET LastSeen ="'+ time + '"'+ ', Status="'+ str(status) + '" WHERE address = ' + str(address)
-  print sql
+  #print sql
+  logger.info("Sensor "+ str(address)+ " status " + str(status) )
   c.execute(sql)
 
 
 
   if (address == alarmAddressOnHome):
-	print ("Setting Alarm ON HOME")
+	#print ("Setting Alarm ON HOME")
+  	logger.info("Setting Alarm ON HOME")
 	c.execute('UPDATE alarm SET activationStatus = "ON_HOME"')
 	alarmActivationStatus = "ON_HOME"
 	ser.write("10;NewKaku;FFFFFE;1;ON\r\n")
   elif (address == alarmAddressOnAway):
-	print ("Setting Alarm ON AWAY")
+	#print ("Setting Alarm ON AWAY")
+  	logger.info("Setting Alarm ON AWAY")
 	c.execute('UPDATE alarm SET activationStatus = "ON_AWAY"')
 	alarmActivationStatus = "ON_AWAY"
 	ser.write("10;NewKaku;FFFFFE;1;ON\r\n")
 
 
   elif (address == alarmAddressOff):
-	print ("Setting Alarm OFF")
+	#print ("Setting Alarm OFF")
+  	logger.info("Setting Alarm OFF")
 	c.execute('UPDATE alarm SET activationStatus = "OFF"')
 	c.execute('UPDATE alarm SET intrusionStatus = "NO"')
 	alarmActivationStatus = "OFF"
@@ -98,7 +122,8 @@ while (1):
 
 
   if (status in [None, "ON"]) and ((alarmActivationStatus == "ON_HOME" and db["InAlarmHome"]) or (alarmActivationStatus == "ON_AWAY" and db["InAlarmAway"])):
-  	print "intrusion detectee"
+  	#print "intrusion detectee"
+  	logger.info("intrusion detectee")
 	c.execute('UPDATE alarm SET intrusionStatus = "YES"')
   	alarmIntrusionStatus = "YES"
 	ser.write("10;NewKaku;FFFFFF;1;ON\r\n")
