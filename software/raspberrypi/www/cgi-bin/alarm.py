@@ -3,28 +3,7 @@
 from topbar import printTopBar
 import sqlite3
 import os
-import logging
-from logging.handlers import RotatingFileHandler
-
-# create logger
-logger = logging.getLogger('simple_example')
-logger.setLevel(logging.DEBUG)
-
-# create console handler and set level to debug
-ch = RotatingFileHandler('/home/pi/HomeAutomation/software/raspberrypi/logging2.log', maxBytes=1024)
-ch.setLevel(logging.DEBUG)
-
-# create formatter
-formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-
-# add formatter to ch
-ch.setFormatter(formatter)
-
-# add ch to logger
-logger.addHandler(ch)
-
-
-
+import socket
 
 command = os.environ['QUERY_STRING'][8:]
 
@@ -33,28 +12,22 @@ command = os.environ['QUERY_STRING'][8:]
 conn = sqlite3.connect('/home/pi/HomeAutomation/software/raspberrypi/MyHouse.db')
 conn.row_factory = sqlite3.Row
 c = conn.cursor()
-
-
-if command in ["ON_AWAY","ON_HOME","OFF"]:
-	sql = 'UPDATE alarm SET activationStatus = "' + command +'"'
-	c.execute(sql)
-	if command == "OFF":
-		c.execute('UPDATE alarm SET intrusionStatus = "NO"')
-	conn.commit()
-	
-	if command == "OFF":
-		os.system('echo "10;NewKaku;FFFFFE;1;OFF" > /dev/ttyUSB0')
-		
-	else:
-		os.system('echo "10;NewKaku;FFFFFE;1;ON" > /dev/ttyUSB0')
-
-	logger.info("Set alarm status from Web interface " + command)
-
-
 db = c.execute('select * from alarm')
 [alarmActivationStatus, alarmIntrusionStatus, alarmAddressOnHome, alarmAddressOnAway, alarmAddressOff] = db.fetchone()
-
 conn.close()
+
+if command in ["ON_AWAY","ON_HOME","OFF"]:
+	alarmActivationStatus = command
+	if command == "OFF":
+		alarmIntrusionStatus = "NO"
+	
+	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	s.connect(('localhost', 50000))
+	s.sendall(command + '\n')
+	data = s.recv(1024)
+	s.close()
+		
+
 
 fgcolor = "#505050"
 if alarmActivationStatus in ["ON_HOME", "ON_AWAY"]:

@@ -3,14 +3,19 @@
 from topbar import printTopBar
 import sqlite3
 import os
+import socket
 
 
 command= os.environ['QUERY_STRING']
 if len(command)>=8:
 	#command = 'echo "' + command[8:].replace('%3B',';') + '" > /home/eti/HomeAutomation/software/raspberrypi/out.log'
-        command = 'echo "' + command[8:].replace('%3B',';') + '" > /dev/ttyUSB0'
-	os.system(command)
-
+        #command = 'echo "' + command[8:].replace('%3B',';') + '" > /dev/ttyUSB0'
+	#os.system(command)
+	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	s.connect(('localhost', 50000))
+	s.sendall(command[8:].replace('%3B',';') + '\n')
+	data = s.recv(1024)
+	s.close()
 
 print "Content-Type: text/html\n\n"
 print '<html><head><meta content="text/html; charset=UTF-8" />'
