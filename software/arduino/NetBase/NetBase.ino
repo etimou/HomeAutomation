@@ -1,16 +1,18 @@
-
-
-
-/*
-* Getting Started example sketch for nRF24L01+ radios
-* This is a very basic example of how to send data from one node to another
-* Updated: Dec 2014 by TMRh20
-*/
-
-#include <SPI.h>
-#include "RF24.h"
 #include <EEPROM.h>
 #include <RCSwitch.h>
+#include <SPI.h>
+#include <RF24.h>
+
+const byte numChars = 128;
+char receivedChars[numChars];   // an array to store the received data
+char tempChars[numChars];        // temporary array for use when parsing
+byte frame[7]; // frame for Somfy protocol
+unsigned char msg_counter=0;
+
+unsigned char protocolName=0; //data to be parsed
+unsigned long deviceAddress=0;
+unsigned char buttonNumber=0;
+unsigned char actionCommand=0;
 
 #define PROTOCOL_SOMFY 1
 #define PROTOCOL_HOMEEASY 2
@@ -22,6 +24,7 @@
 #define PROG 0x8
 #define ON 0x3
 #define OFF 0x5
+
 #define PIN_TXS 4
 #define PIN_TX 5
 #define PIN_ALARM 7
@@ -30,29 +33,16 @@
 #define REMOTE 0x121300    //<-- Change it!
 #define SYMBOL 640
 
-
-/* Hardware configuration: Set up nRF24L01 radio on SPI bus plus pins 7 & 8 */
-RF24 radio(10,9);
-/**********************************************************/
-
+/* RC Switch */
 RCSwitch mySwitch = RCSwitch();
 
+/* RF24 Hardware configuration: Set up nRF24L01 radio on SPI bus plus pins 10 & 9 */
+RF24 radio(10,9);
 byte addresses[6] = "1Node";
-unsigned char msg_counter=0;
-
-char cmd[128];
-char nbReadBytes=0;
-char protocol=0;
-unsigned long address=0;
-int code=0;
-char command=0;
-byte frame[7];
-byte checksum;
-
 
 void setup() {
   Serial.begin(57600);
-  //printf_begin();
+
   pinMode(PIN_TX, OUTPUT);
   digitalWrite(PIN_TX, LOW);
   pinMode(PIN_TXS, OUTPUT);
@@ -60,365 +50,370 @@ void setup() {
   pinMode(PIN_ALARM, OUTPUT);
   digitalWrite(PIN_ALARM, LOW);
 
-  unsigned int code;
+  // RC Switch
+  mySwitch.enableReceive(0);  // Receiver on interrupt 0 => that is pin #2
 
-  for (int i=0; i<16; i++) {
-    //Serial.print("Simulated remote number : "); Serial.println(REMOTE+i, HEX);
-    EEPROM.get(EEPROM_ADDRESS+2*i, code);
-    //Serial.print("Current rolling code    : "); Serial.println(code);   
-  }
-
+  // RF24
   radio.begin();
-
   // Set the PA Level low to prevent power supply related issues since this is a
   // getting_started sketch, and the likelihood of close proximity of the devices. RF24_PA_MAX is default.
   radio.setPALevel(RF24_PA_LOW);
   radio.setDataRate(RF24_250KBPS);
   radio.setChannel(108);
   radio.setPayloadSize(4);
-
   //radio.printDetails();
-
   radio.openReadingPipe(1,addresses);
-  
   // Start the radio listening for data
   radio.startListening();
 
-  // RC Switch
-  mySwitch.enableReceive(0);  // Receiver on interrupt 0 => that is pin #2
-  
-  
-  Serial.println("20;00;Etimou RadioFrequencyLink - RFLink Gateway Clone V0.0;");
+  // Welcome message
+  Serial.println("20;00;Etimou RadioFrequencyLink - RFLink Gateway Clone V1.0;");
 }
 
 void loop() {
+
+  /*main loop, waiting for events*/
   
-  
-/****************** Pong Back Role ***************************/
-
-
-    byte received_data[4];
-
-    
-    
-    if( radio.available()){
-                                                                    // Variable for the received timestamp
-      while (radio.available()) {                                   // While there is data ready
-        radio.read( received_data, sizeof(unsigned long) );         // Get the payload
-      }
-
-      Serial.print("20;");
-      Serial.print(msg_counter++, HEX);
-      Serial.print(";Kaku;");
-      
-      Serial.print("ID=");
-      Serial.print(received_data[0]), HEX;
-      Serial.print(";");
-
-
-      Serial.print("SWITCH=");
-      //Serial.print(received_data[3]);  
-      Serial.print("1");  
-      Serial.print(";");
-      
-
-      Serial.print("CMD=");
-      if (received_data[1]) Serial.print("ON;");
-      else Serial.print("OFF;");
-
-      //Serial.print("VOLT=");
-      //Serial.print(received_data[2]);
-      //Serial.print(";");    
-
-      Serial.println("");
-
-
-      Serial.print("20;");
-      Serial.print(msg_counter++, HEX);
-      Serial.print(";Kaku;");
-      
-      Serial.print("ID=");
-      Serial.print(received_data[0]+1), HEX;
-      Serial.print(";");
-
-
-      Serial.print("SWITCH=");
-      //Serial.print(received_data[3]);  
-      Serial.print("1");  
-      Serial.print(";");
-      
-      Serial.print("VOLT=");
-      Serial.print(received_data[2]*10, HEX);
-      Serial.print(";");    
-
-      Serial.println("");
-
-      
-   
+  if (recvWithEndMarker()){ //event from serial
+    if (parseData() != -1){
+      processCommand();
     }
+  }
 
-  //10;NewKaku;99CE3C;3;DOWN  
-  //10;NewKaku;90151C;3;DOWN  
-  //10;NewKaku;96D6B0;3;DOWN
-  //10;NewKaku;93E890;3;DOWN
-  
-  //10;RTS;000000;1;ON
-
-  //10;HomeEasy;71B6E3F2;2;ON
-    if (Serial.available()>0){
-     
-      char rec = (char)Serial.read();
-      if ((rec == '\n') or (rec == '\r')) rec=0;
-      
-      cmd[nbReadBytes]=rec;
-      if ((nbReadBytes<125)&&(rec!=0)) nbReadBytes++;
-      else {
-        nbReadBytes =0;
-        //Serial.println(cmd);
-        protocol=0;
-        command=0;
-
-        char * pch;
-        char index =0;
-        pch = strtok (cmd,";");
-        while (pch != NULL)
-        {
-
-
-          if (!strcmp(pch, "10")) index=1;
-          //Serial.println(index, DEC);
-
-          if (index==2){
-            //Serial.println(pch);
-            if (!strcmp(pch, "RTS")) protocol=PROTOCOL_SOMFY;
-            else if (!strcmp(pch, "X10")) protocol=PROTOCOL_SOMFY;
-            else if (!strcmp(pch, "HomeEasy")) protocol=PROTOCOL_HOMEEASY;
-            else if (!strcmp(pch, "NewKaku")) protocol=PROTOCOL_NEWKAKU;
-            else if (!strcmp(pch, "PING")) protocol=PROTOCOL_PING; 
-          }
-          if (index==3){
-            address=strtol(pch, NULL, 16);
-            if (protocol==PROTOCOL_HOMEEASY){
-              address=address & 0x00FFFFFF;
-            }
-
-          }
-          if (index==4){
-            code=(int)strtol(pch, NULL, 16)-1;
-         
-          }
-          if (index==5){
-            if (!strcmp(pch, "ON")) command=ON;
-            else if (!strcmp(pch, "OFF")) command=OFF;
-            else if (!strcmp(pch, "UP")) command=UP;
-            else if (!strcmp(pch, "DOWN")) command=DOWN;
-            else if (!strcmp(pch, "STOP")) command=STOP;
-            else if (!strcmp(pch, "PROG")) command=PROG;
-            
-          }
-
-          pch = strtok (NULL, ";");          
-          if (index >=1) index++;
-        
-        }
-        if (index==6 || protocol==PROTOCOL_PING)
-        {
-
-          if (protocol==PROTOCOL_HOMEEASY){
-
-            sendHomeEasy(address, code, PIN_TX, RETRIES, command==ON);
-            
-          }
-          else if (protocol==PROTOCOL_NEWKAKU){
-            
-            if (address == 0xFFFFFF){
-              digitalWrite(PIN_ALARM, command==ON);
-            }
-            else if (address == 0xFFFFFE){
-              if (command == ON)
-              {
-                digitalWrite(PIN_ALARM, HIGH);
-                delay(150);
-                digitalWrite(PIN_ALARM, LOW);
-                delay(300);
-                digitalWrite(PIN_ALARM, HIGH);
-                delay(150);
-                digitalWrite(PIN_ALARM, LOW);                
-              }
-              else{
-                digitalWrite(PIN_ALARM, HIGH);
-                delay(150);
-                digitalWrite(PIN_ALARM, LOW);
-              }
-            }
-            else{
-              if (command==ON) send(address, 24, PIN_TX, RETRIES);  
-            }
-          }
-          else if (protocol==PROTOCOL_SOMFY){
-            BuildFrame(frame, command, (byte)code);
-            SendCommand(frame, 2);
-            for(int i = 0; i<2; i++) {
-              SendCommand(frame, 7);
-            }
-          }
-          Serial.print("20;");
-          Serial.print(msg_counter++, HEX);
-          Serial.print(";OK;");
-          Serial.println();
-        }
-      }
-    }
-/*
- * 
- */
-  if (mySwitch.available()) {
-    
-    unsigned long value = mySwitch.getReceivedValue();
-    
-    if (value == 0) {
-      return;
-    } else {
-
-      Serial.print("20;");
-      Serial.print(msg_counter++, HEX);
-      Serial.print(";Kaku;");
-      
-      Serial.print("ID=");
-      Serial.print(value, HEX);
-      Serial.print(";");
-
-
-      Serial.print("SWITCH="); 
-      Serial.print("1");  
-      Serial.print(";");
-      
-      Serial.print("CMD=ON;");
-      Serial.println("");
-
-    }
-
+  if (mySwitch.available()) { //event from RC switch
+    processRC();
     mySwitch.resetAvailable();
   }
 
-
-} // Loop
-
-
-
-/*HomeEasy protocol
- 
-Data 0 = High 275uS, Low 275uS, High 275uS, Low 1225uS
-Data 1 = High 275uS, Low 1225uS, High 275uS, Low 275uS
-A preamble is sent before each command which is High 275uS, Low 2675uS 
-When sending a dim level a special bit is placed in bit 27
-
-Dim bit 27 = High 275uS, Low 275uS, High 275uS, Low 275uS. This seems a bit odd, and goes agianst the manchester coding specification !
-Each packet is sent 4 of 5 times with a 10mS space in between each.]
-*/
-
-void sendHomeEasyOne(int pinTx)
-{
-   digitalWrite(pinTx, HIGH);
-   delayMicroseconds(275);
-   digitalWrite(pinTx, LOW);
-   delayMicroseconds(1225);
-   digitalWrite(pinTx, HIGH);
-   delayMicroseconds(275);
-   digitalWrite(pinTx, LOW);
-   delayMicroseconds(275);
-}
-void sendHomeEasyZero(int pinTx)
-{
-   digitalWrite(pinTx, HIGH);
-   delayMicroseconds(275);
-   digitalWrite(pinTx, LOW);
-   delayMicroseconds(275);
-   digitalWrite(pinTx, HIGH);
-   delayMicroseconds(275);
-   digitalWrite(pinTx, LOW);
-   delayMicroseconds(1225);
+  if (radio.available()){ // event from nRF24l01
+    processRF24();
+  }
+      
 }
 
-
-
-void sendHomeEasy(unsigned long address, int code, int pinTx, int nbOfRetries, bool state)
-{
-  for (int n=0; n<nbOfRetries; n++)
-  {
-    digitalWrite(pinTx, HIGH);
-    delayMicroseconds(275);
-    digitalWrite(pinTx, LOW);
-    delayMicroseconds(2675);  
-  
-    //address 
-    for (int i = 25; i >= 0; i--) {
-      if (address & (1L << i)) sendHomeEasyOne(pinTx);
-      else sendHomeEasyZero(pinTx);
-
-    }
-    //group flag, not managed
-    sendHomeEasyZero(pinTx);
-
-    //command 0 or 1
-    if (state) sendHomeEasyOne(pinTx);
-    else sendHomeEasyZero(pinTx); 
-
-    //device code
-    for (int i = 3; i >= 0; i--) {
-      if (code & (1L << i)) sendHomeEasyOne(pinTx);
-      else sendHomeEasyZero(pinTx);
-
-    }
-    //end
-   digitalWrite(pinTx, HIGH);
-   delayMicroseconds(275);
-   digitalWrite(pinTx, LOW);
-     
-    delay(10);
-    }
-
+bool recvWithEndMarker() {
+    static byte ndx = 0;
+    char rc;
+    boolean newData = false;
     
+    while (Serial.available() > 0) {
+        rc = Serial.read();
+
+        if (rc != '\n' && rc != '\r') {
+            receivedChars[ndx] = rc;
+            ndx++;
+            if (ndx >= numChars) {
+                ndx = numChars - 1;
+            }
+        }
+        else {
+            if (ndx > 0) {
+                receivedChars[ndx] = '\0'; // terminate the string
+                ndx = 0;
+                newData = true;
+                Serial.println(receivedChars);
+            }
+        }
+    }
+    return newData;
 }
 
-void send(unsigned long data, int dataLength, int pinTx, int nbOfRetries)
+int parseData() {
+    
+    protocolName=0;//set default values before start
+    deviceAddress=0;
+    buttonNumber=0;
+    actionCommand=0;
+    
+    strcpy(tempChars, receivedChars); //copy the received string 
+    
+    char * strtokIndx; // this is used by strtok() as an index
+
+    strtokIndx = strstr(tempChars, "10");
+    if (strlen(strtokIndx) <= 2) {
+      return -1;
+    }
+
+        
+    strtokIndx = strtok(strtokIndx,";");      // get the first part
+    if (strtokIndx==NULL)
+      return -1;
+
+
+    strtokIndx = strtok(NULL,";");
+    if (strtokIndx==NULL)
+      return -1;    
+
+  
+    if (!strcmp(strtokIndx, "RTS")) protocolName=PROTOCOL_SOMFY;
+    else if (!strcmp(strtokIndx, "X10")) protocolName=PROTOCOL_SOMFY;
+    else if (!strcmp(strtokIndx, "HomeEasy")) protocolName=PROTOCOL_HOMEEASY;
+    else if (!strcmp(strtokIndx, "NewKaku")) protocolName=PROTOCOL_NEWKAKU;
+    else if (!strcmp(strtokIndx, "Kaku")) protocolName=PROTOCOL_NEWKAKU;
+    else if (!strcmp(strtokIndx, "PING")) {protocolName=PROTOCOL_PING; return 0;}
+    else return -1;
+
+    strtokIndx = strtok(NULL,";");
+    if (strtokIndx==NULL)
+      return -1; 
+
+    deviceAddress=strtol(strtokIndx, NULL, 16);
+    if (deviceAddress==0)
+      return -1;        
+    if (protocolName==PROTOCOL_HOMEEASY){
+              deviceAddress=deviceAddress & 0x00FFFFFF;
+            }
+    
+    strtokIndx = strtok(NULL,";");
+    if (strtokIndx==NULL)
+      return -1; 
+
+    buttonNumber=(int)strtol(strtokIndx, NULL, 16)-1;
+
+    strtokIndx = strtok(NULL,";");
+    if (strtokIndx==NULL)
+    return -1; 
+
+
+    if (!strcmp(strtokIndx, "ON")) actionCommand=ON;
+    else if (!strcmp(strtokIndx, "OFF")) actionCommand=OFF;
+    else if (!strcmp(strtokIndx, "UP")) actionCommand=UP;
+    else if (!strcmp(strtokIndx, "DOWN")) actionCommand=DOWN;
+    else if (!strcmp(strtokIndx, "STOP")) actionCommand=STOP;
+    else if (!strcmp(strtokIndx, "PROG")) actionCommand=PROG;
+    else return -1;
+
+    return 0;
+         
+   
+}
+
+void processRC()
 {
-  for (int n=0; n<nbOfRetries; n++)
+  unsigned long value = mySwitch.getReceivedValue();
+    
+  if (value == 0) {
+    return;
+  }
+  else {
+
+    Serial.print("20;");
+    Serial.print(msg_counter++, HEX);
+    Serial.print(";Kaku;");
+    
+    Serial.print("ID=");
+    Serial.print(value, HEX);
+    Serial.print(";");
+
+
+    Serial.print("SWITCH="); 
+    Serial.print("1");  
+    Serial.print(";");
+    
+    Serial.print("CMD=ON;");
+    Serial.println("");
+
+  }
+}
+
+void processRF24()
+{
+  byte received_data[4];
+                                                                // Variable for the received timestamp
+  while (radio.available()) {                                   // While there is data ready
+    radio.read( received_data, sizeof(unsigned long) );         // Get the payload
+  }
+
+  Serial.print("20;");
+  Serial.print(msg_counter++, HEX);
+  Serial.print(";Kaku;");
+  
+  Serial.print("ID=");
+  Serial.print(received_data[0]), HEX;
+  Serial.print(";");
+
+
+  Serial.print("SWITCH=");
+  //Serial.print(received_data[3]);  
+  Serial.print("1");  
+  Serial.print(";");
+  
+
+  Serial.print("CMD=");
+  if (received_data[1]) Serial.print("ON;");
+  else Serial.print("OFF;");
+
+  //Serial.print("VOLT=");
+  //Serial.print(received_data[2]);
+  //Serial.print(";");    
+
+  Serial.println("");
+
+
+  Serial.print("20;");
+  Serial.print(msg_counter++, HEX);
+  Serial.print(";Kaku;");
+  
+  Serial.print("ID=");
+  Serial.print(received_data[0]+1), HEX;
+  Serial.print(";");
+
+
+  Serial.print("SWITCH=");
+  //Serial.print(received_data[3]);  
+  Serial.print("1");  
+  Serial.print(";");
+  
+  Serial.print("VOLT=");
+  Serial.print(received_data[2]*10, HEX);
+  Serial.print(";");    
+
+  Serial.println(""); 
+  
+}
+
+void processCommand(){
+  
+  if (protocolName==PROTOCOL_HOMEEASY){
+    sendHomeEasy();
+  }
+  else if (protocolName==PROTOCOL_NEWKAKU){
+    if (deviceAddress == 0xFFFFFF){
+      digitalWrite(PIN_ALARM, actionCommand==ON);
+    }
+    else if (deviceAddress == 0xFFFFFE){
+      if (actionCommand == ON)
+      {
+        digitalWrite(PIN_ALARM, HIGH);
+        delay(150);
+        digitalWrite(PIN_ALARM, LOW);
+        delay(300);
+        digitalWrite(PIN_ALARM, HIGH);
+        delay(150);
+        digitalWrite(PIN_ALARM, LOW);                
+      }
+      else{
+        digitalWrite(PIN_ALARM, HIGH);
+        delay(150);
+        digitalWrite(PIN_ALARM, LOW);
+      }
+    }
+    else{
+      if (actionCommand==ON) sendSimple433();  
+    }
+  }
+  else if (protocolName==PROTOCOL_SOMFY){
+    sendSomfy();
+  }
+  
+  Serial.print("20;");
+  Serial.print(msg_counter++, HEX);
+  Serial.print(";OK;");
+  Serial.println();
+}
+ 
+void sendSimple433()
+{
+  int dataLength = 24;
+  for (int n=0; n<RETRIES; n++)
   {
-    digitalWrite(pinTx, HIGH);
+    digitalWrite(PIN_TX, HIGH);
     delayMicroseconds(2000);
-    digitalWrite(pinTx, LOW);
+    digitalWrite(PIN_TX, LOW);
     delayMicroseconds(2000);  
   
   
     for (int i = dataLength-1; i >= 0; i--) {
-      if (data & (1L << i))
+      if (deviceAddress & (1L << i))
       {
-        digitalWrite(pinTx, HIGH);
+        digitalWrite(PIN_TX, HIGH);
         delayMicroseconds(1020);
-        digitalWrite(pinTx, LOW);
+        digitalWrite(PIN_TX, LOW);
         delayMicroseconds(510);
       } 
       else
       {
-        digitalWrite(pinTx, HIGH);
+        digitalWrite(PIN_TX, HIGH);
         delayMicroseconds(510);
-        digitalWrite(pinTx, LOW);
+        digitalWrite(PIN_TX, LOW);
         delayMicroseconds(1020);
       }
     }
   }
 }
-void BuildFrame(byte *frame, byte button, byte remoteNumber) {
+
+void sendHomeEasyOne()
+{
+   digitalWrite(PIN_TX, HIGH);
+   delayMicroseconds(275);
+   digitalWrite(PIN_TX, LOW);
+   delayMicroseconds(1225);
+   digitalWrite(PIN_TX, HIGH);
+   delayMicroseconds(275);
+   digitalWrite(PIN_TX, LOW);
+   delayMicroseconds(275);
+}
+void sendHomeEasyZero()
+{
+   digitalWrite(PIN_TX, HIGH);
+   delayMicroseconds(275);
+   digitalWrite(PIN_TX, LOW);
+   delayMicroseconds(275);
+   digitalWrite(PIN_TX, HIGH);
+   delayMicroseconds(275);
+   digitalWrite(PIN_TX, LOW);
+   delayMicroseconds(1225);
+}
+
+
+
+void sendHomeEasy()
+{
+  for (int n=0; n<RETRIES; n++)
+  {
+    digitalWrite(PIN_TX, HIGH);
+    delayMicroseconds(275);
+    digitalWrite(PIN_TX, LOW);
+    delayMicroseconds(2675);  
+  
+    //address 
+    for (int i = 25; i >= 0; i--) {
+      if (deviceAddress & (1L << i)) sendHomeEasyOne();
+      else sendHomeEasyZero();
+
+    }
+    //group flag, not managed
+    sendHomeEasyZero();
+
+    //command 0 or 1
+    if (actionCommand==ON) sendHomeEasyOne();
+    else sendHomeEasyZero(); 
+
+    //device code
+    for (int i = 3; i >= 0; i--) {
+      if (buttonNumber & (1L << i)) sendHomeEasyOne();
+      else sendHomeEasyZero();
+
+    }
+    //end
+   digitalWrite(PIN_TX, HIGH);
+   delayMicroseconds(275);
+   digitalWrite(PIN_TX, LOW);
+     
+    delay(10);
+  }   
+}
+
+void buildFrameSomfy() {
   unsigned int Code;
-  EEPROM.get(EEPROM_ADDRESS+2*remoteNumber, Code);
+  EEPROM.get(EEPROM_ADDRESS+2*buttonNumber, Code);
   frame[0] = 0xA7; // Encryption key. Doesn't matter much
-  frame[1] = button << 4;  // Which button did  you press? The 4 LSB will be the checksum
+  frame[1] = actionCommand << 4;  // Which button did  you press? The 4 LSB will be the checksum
   frame[2] = Code >> 8;    // Rolling code (big endian)
   frame[3] = Code;         // Rolling code
-  frame[4] = REMOTE+remoteNumber >> 16; // Remote address
-  frame[5] = REMOTE+remoteNumber >>  8; // Remote address
-  frame[6] = REMOTE+remoteNumber;       // Remote address
+  frame[4] = REMOTE+buttonNumber >> 16; // Remote address
+  frame[5] = REMOTE+buttonNumber >>  8; // Remote address
+  frame[6] = REMOTE+buttonNumber;       // Remote address
 
   //Serial.print("Frame         : ");
   for(byte i = 0; i < 7; i++) {
@@ -429,7 +424,7 @@ void BuildFrame(byte *frame, byte button, byte remoteNumber) {
   }
   
 // Checksum calculation: a XOR of all the nibbles
-  checksum = 0;
+  byte checksum = 0;
   for(byte i = 0; i < 7; i++) {
     checksum = checksum ^ frame[i] ^ (frame[i] >> 4);
   }
@@ -463,37 +458,31 @@ void BuildFrame(byte *frame, byte button, byte remoteNumber) {
   }
   //Serial.println("");
   //Serial.print("Rolling Code  : "); Serial.println(code);
-  EEPROM.put(EEPROM_ADDRESS+2*remoteNumber, Code + 1); //  We store the value of the rolling code in the
+  EEPROM.put(EEPROM_ADDRESS+2*buttonNumber, Code + 1); //  We store the value of the rolling code in the
                                         // EEPROM. It should take up to 2 adresses but the
                                         // Arduino function takes care of it.
 }
 
-void SendCommand(byte *frame, byte sync) {
+void sendCommandSomfy(byte sync) {
   if(sync == 2) { // Only with the first frame.
   //Wake-up pulse & Silence
-    //PORTD |= 1<<PORT_TX;
     digitalWrite(PIN_TXS, HIGH);
     delayMicroseconds(9415);
-    //PORTD &= !(1<<PORT_TX);
     digitalWrite(PIN_TXS, LOW);
     delayMicroseconds(89565);
   }
 
 // Hardware sync: two sync for the first frame, seven for the following ones.
   for (int i = 0; i < sync; i++) {
-    //PORTD |= 1<<PORT_TX;
     digitalWrite(PIN_TXS, HIGH);
     delayMicroseconds(4*SYMBOL);
-    //PORTD &= !(1<<PORT_TX);
     digitalWrite(PIN_TXS, LOW);
     delayMicroseconds(4*SYMBOL);
   }
 
 // Software sync
-  //PORTD |= 1<<PORT_TX;
   digitalWrite(PIN_TXS, HIGH);
   delayMicroseconds(4550);
-  //PORTD &= !(1<<PORT_TX);
   digitalWrite(PIN_TXS, LOW);
   delayMicroseconds(SYMBOL);
   
@@ -501,25 +490,31 @@ void SendCommand(byte *frame, byte sync) {
 //Data: bits are sent one by one, starting with the MSB.
   for(byte i = 0; i < 56; i++) {
     if(((frame[i/8] >> (7 - (i%8))) & 1) == 1) {
-      //PORTD &= !(1<<PORT_TX);
       digitalWrite(PIN_TXS, LOW);
       delayMicroseconds(SYMBOL);
-      //PORTD ^= 1<<5;
       digitalWrite(PIN_TXS, HIGH);
       delayMicroseconds(SYMBOL);
     }
     else {
-      //PORTD |= (1<<PORT_TX);
       digitalWrite(PIN_TXS, HIGH);
       delayMicroseconds(SYMBOL);
-      //PORTD ^= 1<<5;
       digitalWrite(PIN_TXS, LOW);
       delayMicroseconds(SYMBOL);
     }
   }
   
-  //PORTD &= !(1<<PORT_TX);
   digitalWrite(PIN_TXS, LOW);
   delayMicroseconds(30415); // Inter-frame silence
+}
+
+void sendSomfy(){
+
+  buildFrameSomfy();
+  sendCommandSomfy(2);
+  for(int i = 0; i<2; i++) {
+    sendCommandSomfy(7);
+  }
+
+  
 }
 
