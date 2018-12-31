@@ -91,7 +91,7 @@ def processAlarmActivation(address):
 	return 1
 
 def processCommandFromSerial(data):
-	print data
+	#print data
 	global alarmActivationStatus, alarmIntrusionStatus, alarmAddressOnHome, alarmAddressOnAway, alarmAddressOff
   	command = data.split(";")
   	if len(command)<5:
