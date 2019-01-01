@@ -1,118 +1,90 @@
-#define MY_CORE_ONLY
-
-#include <MySensors.h> // for the sleep function only
+#include "MyHwAVR.h"
 #include <SPI.h>
-#include "RF24.h"
+#include <RF24.h>
+#include <EEPROM.h>
 
 //#define DOOR_SENSOR
-#define MOTION_SENSOR
+//#define MOTION_SENSOR
+
+#define PRIMARY_BUTTON_PIN 2   // Arduino Digital I/O pin for button/reed switch
+#define SECONDARY_BUTTON_PIN 3 // Arduino Digital I/O pin for button/reed switch
+#define LED_PIN 13
 
 #define SLEEP_TIME 3600000L
 
 
 /* Hardware configuration: Set up nRF24L01 radio on SPI bus plus pins 9 & 8 */
 RF24 radio(9,8);
+byte addresses[6] = "1Node";
 /**********************************************************/
 
-byte addresses[6] = "1Node";
-//byte sensorID = 10;// first prototype
-//byte sensorID = 11;// second prototype
-byte sensorID = 12;//third prototype
 
+bool s=0;
+byte voltage=0;
+byte sensorID=0;
 
+unsigned long calib=0;
 
-#define PRIMARY_BUTTON_PIN 2   // Arduino Digital I/O pin for button/reed switch
-#define SECONDARY_BUTTON_PIN 3 // Arduino Digital I/O pin for button/reed switch
-#define LED_PIN 13
-
-#if (PRIMARY_BUTTON_PIN < 2 || PRIMARY_BUTTON_PIN > 3)
-#error PRIMARY_BUTTON_PIN must be either 2 or 3 for interrupts to work
-#endif
-#if (SECONDARY_BUTTON_PIN < 2 || SECONDARY_BUTTON_PIN > 3)
-#error SECONDARY_BUTTON_PIN must be either 2 or 3 for interrupts to work
-#endif
-#if (PRIMARY_BUTTON_PIN == SECONDARY_BUTTON_PIN)
-#error PRIMARY_BUTTON_PIN and BUTTON_PIN2 cannot be the same
-#endif
-
-//#define SECONDARY_BUTTON_IS_USED
-
-
-void setup()
-{
-	// Setup the buttons
-	pinMode(PRIMARY_BUTTON_PIN, INPUT_PULLUP);
-	pinMode(SECONDARY_BUTTON_PIN, INPUT_PULLUP);
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(57600);
+  
+  // Setup the buttons
+  pinMode(PRIMARY_BUTTON_PIN, INPUT_PULLUP);
+  pinMode(SECONDARY_BUTTON_PIN, INPUT_PULLUP);
   pinMode(LED_PIN, OUTPUT);
 
-  Serial.begin(9600);
-  Serial.println("Initialising..."); delay(100);
+  // get the device ID from EEPROM address 0
+  //EEPROM.write(0, 12);
+  sensorID = EEPROM.read(0);
+  Serial.print("Device ID=");
+  Serial.println(sensorID);
+
+  //get the calibration value
+  //EEPROM.put(1,1108835L);
+  EEPROM.get(1, calib);
+  Serial.print("Calibration value=");
+  Serial.println(calib);
+
+  delay(100);
   
-  pinMode(4, INPUT);
-  pinMode(5, INPUT);
-  pinMode(6, INPUT);
-  pinMode(A0, INPUT);
-  pinMode(A1, INPUT);
-  pinMode(A2, INPUT);
-  pinMode(A3, INPUT);
-  pinMode(A4, INPUT);
-  pinMode(A5, INPUT);
-  pinMode(A6, INPUT);
-  pinMode(A7, INPUT);
-  
-   //radio setup
-  radio.begin();
-  // Set the PA Level low to prevent power supply related issues since this is a
-  // getting_started sketch, and the likelihood of close proximity of the devices. RF24_PA_MAX is default.
-  //radio.setPALevel(RF24_PA_LOW);
-  radio.setPALevel(RF24_PA_MAX);
-  radio.setDataRate(RF24_250KBPS);
-  radio.setChannel(108);
-  //radio.setRetries(5,15);
-  radio.setPayloadSize(4);
-  
-  // Open a writing and reading pipe on each radio, with opposite addresses
-  radio.openWritingPipe(addresses);
-  radio.stopListening();
-  radio.powerDown();
+  //radio setup
+  radioSetup();
+
   
   Serial.println("Initialisation complete."); delay(100);
+
+}
+
+
+
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+  delay(100);
+  s= digitalRead(PRIMARY_BUTTON_PIN);
+
+  //Serial.println(s);
+  voltage = readVcc();
+
+  sendRadioData();
   
+  if (digitalRead(PRIMARY_BUTTON_PIN)==s){//go to sleep if status hasn't changed during data transmission
+    hwSleep(0, CHANGE, 1, CHANGE, SLEEP_TIME);
+  }
 }
 
-void presentation()
-{
-}
-
-// Loop will iterate on changes on the BUTTON_PINs
-void loop()
-{
-	uint8_t value;
-
-	// Short delay to allow buttons to properly settle
-	sleep(5);
-
-  //Read and sent the Button 1 status
-	value = digitalRead(PRIMARY_BUTTON_PIN);
-	
-  //Read and sent the Button 2 status
-#ifdef SECONDARY_BUTTON_IS_USED
-	value = digitalRead(SECONDARY_BUTTON_PIN);
-#endif
-  //////////////////////////////////////////////////////
-  /////////////////////////////////////////////////////
-  // Put here the code to be executed when the sensor is awaken
+void sendRadioData(){
     //Power up the radio
     radio.powerUp();
   
     Serial.print(F("Now sending"));
 
-    //unsigned long start_time = micros();                             // Take the time, and send it.  This will block until complete
-    byte voltage = readVcc();
     
     byte data_to_send[4];
     data_to_send[0]= sensorID;
-    data_to_send[1]= (byte)value;
+    data_to_send[1]= (byte)s;
     data_to_send[2]= voltage;
     data_to_send[3]= 0xAA ;
 
@@ -129,29 +101,12 @@ void loop()
 
     
      if (!radio.write( data_to_send, 4) ){
-       Serial.println(F("failed"));
+       Serial.println("failed");
      }
-        
+
+    //Power off the radio    
     radio.powerDown();
-
-
-
-  /////////////////////////////////////////////////////////
- /////////////////////////////////////////////////////////
-  if (digitalRead(PRIMARY_BUTTON_PIN)==value)
-  {
-    #if defined(MOTION_SENSOR)
-    if (value!=0)
-    {
-      //go to sleep first, with no possibility to wake up
-      sleep(180000L); 
-    }
-    #endif
-    
-    // Sleep until something happens with the sensor
-    sleep(PRIMARY_BUTTON_PIN-2, CHANGE, SECONDARY_BUTTON_PIN-2, CHANGE, SLEEP_TIME);
-    
-  }
+  
 }
 
 
@@ -168,7 +123,7 @@ byte readVcc() {
     ADMUX = _BV(REFS0) | _BV(MUX3) | _BV(MUX2) | _BV(MUX1);
   #endif  
 
-  delay(15); // Wait for Vref to settle
+  delay(70); // Wait for Vref to settle
   ADCSRA |= _BV(ADSC); // Start conversion
   while (bit_is_set(ADCSRA,ADSC)); // measuring
 
@@ -177,7 +132,7 @@ byte readVcc() {
 
   long result = (high<<8) | low;
 
-  result = 1125300L / result; // Calculate Vcc (in mV); 1125300 = 1.1*1023*1000 //ok for proto w/ intermediate PCB
+  result = calib / result; // Calculate Vcc (in mV); 1125300 = 1.1*1023*1000 //ok for proto w/ intermediate PCB
   //result = 1108835L / result; // calibration for sensor proto wired
   //result = 1151826L / result; // calibration for 1st, PCB proto
   
@@ -200,5 +155,20 @@ This calibrated value will be good for the AVR chip measured only, and may be su
 */
 }
 
-
+void radioSetup(){
+  radio.begin();
+  // Set the PA Level low to prevent power supply related issues since this is a
+  // getting_started sketch, and the likelihood of close proximity of the devices. RF24_PA_MAX is default.
+  //radio.setPALevel(RF24_PA_LOW);
+  radio.setPALevel(RF24_PA_MAX);
+  radio.setDataRate(RF24_250KBPS);
+  radio.setChannel(108);
+  //radio.setRetries(5,15);
+  radio.setPayloadSize(4);
+  
+  // Open a writing and reading pipe on each radio, with opposite addresses
+  radio.openWritingPipe(addresses);
+  radio.stopListening();
+  radio.powerDown(); 
+}
 
