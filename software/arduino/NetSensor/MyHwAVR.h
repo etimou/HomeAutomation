@@ -73,6 +73,7 @@ int8_t hwSleep(uint32_t ms);
 int8_t hwSleep(const uint8_t interrupt1, const uint8_t mode1, const uint8_t interrupt2,
                const uint8_t mode2,
                uint32_t ms);
+int8_t hwCPUTemperature(void);
 
 #ifndef DOXYGEN
 #define MY_CRITICAL_SECTION     ATOMIC_BLOCK(ATOMIC_RESTORESTATE)

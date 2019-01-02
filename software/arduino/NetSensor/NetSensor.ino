@@ -22,6 +22,7 @@ byte addresses[6] = "1Node";
 bool s=0;
 byte voltage=0;
 byte sensorID=0;
+byte temperature=0;
 
 unsigned long calib=0;
 
@@ -57,8 +58,6 @@ void setup() {
 }
 
 
-
-
 void loop() {
   // put your main code here, to run repeatedly:
 
@@ -67,6 +66,8 @@ void loop() {
 
   //Serial.println(s);
   voltage = readVcc();
+
+  temperature=GetTemp();
 
   sendRadioData();
   
@@ -86,7 +87,7 @@ void sendRadioData(){
     data_to_send[0]= sensorID;
     data_to_send[1]= (byte)s;
     data_to_send[2]= voltage;
-    data_to_send[3]= 0xAA ;
+    data_to_send[3]= temperature;
 
     
     Serial.print("...");
@@ -170,5 +171,47 @@ void radioSetup(){
   radio.openWritingPipe(addresses);
   radio.stopListening();
   radio.powerDown(); 
+}
+
+byte GetTemp(void)
+{
+  unsigned int wADC;
+  double t;
+  double TEMPERATURE_OFFSET= 341.04;
+  double TEMPERATURE_GAIN= 1.22;
+
+  // The internal temperature has to be used
+  // with the internal reference of 1.1V.
+  // Channel 8 can not be selected with
+  // the analogRead function yet.
+
+  // Set the internal reference and mux.
+  ADMUX = (_BV(REFS1) | _BV(REFS0) | _BV(MUX3));
+  ADCSRA |= _BV(ADEN);  // enable the ADC
+
+  delay(20);            // wait for voltages to become stable.
+
+  ADCSRA |= _BV(ADSC);  // Start the ADC
+
+  // Detect end-of-conversion
+  while (bit_is_set(ADCSRA,ADSC));
+
+  // Reading register "ADCW" takes care of how to read ADCL and ADCH.
+  wADC = ADCW;
+
+  // The offset of 324.31 could be wrong. It is just an indication.
+  t = (wADC - TEMPERATURE_OFFSET ) / TEMPERATURE_GAIN;
+  // The temperature is in degrees Celsius.
+
+  if (t<=-10){
+    return 0;
+  }
+  else if (t>=40){
+    return 255;
+  }
+  else{
+    t=(byte) ((t+10.0)/0.2);
+    return (t);
+  }
 }
 
