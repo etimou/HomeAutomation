@@ -249,6 +249,32 @@ void processRF24()
 
   Serial.println("");
 
+  Serial.print("20;");
+  Serial.print(msg_counter++, HEX);
+  Serial.print(";Kaku;");
+  
+  Serial.print("ID=");
+  Serial.print(received_data[0]), HEX;
+  Serial.print(";");
+
+
+  Serial.print("SWITCH=");
+  //Serial.print(received_data[3]);  
+  Serial.print("1");  
+  Serial.print(";");
+  
+
+  Serial.print("CMD=");
+  if (received_data[1]<16) Serial.print('0');
+  Serial.print(received_data[1], HEX);
+  if (received_data[2]<16) Serial.print('0');
+  Serial.print(received_data[2], HEX);
+  if (received_data[3]<16) Serial.print('0');
+  Serial.print(received_data[3], HEX);
+
+
+  Serial.println("");
+
 
   Serial.print("20;");
   Serial.print(msg_counter++, HEX);
@@ -517,4 +543,3 @@ void sendSomfy(){
 
   
 }
-

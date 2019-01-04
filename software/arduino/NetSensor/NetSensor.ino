@@ -1,7 +1,9 @@
+#include <Adafruit_Si7021.h>
 #include "MyHwAVR.h"
 #include <SPI.h>
 #include <RF24.h>
 #include <EEPROM.h>
+
 
 //#define DOOR_SENSOR
 //#define MOTION_SENSOR
@@ -17,7 +19,8 @@
 RF24 radio(9,8);
 byte addresses[6] = "1Node";
 /**********************************************************/
-
+Adafruit_Si7021 tempSensor = Adafruit_Si7021();
+bool tempSensorAvailable = 0;
 
 bool s=0;
 byte voltage=0;
@@ -52,6 +55,9 @@ void setup() {
   //radio setup
   radioSetup();
 
+  // temperature sensor initialization
+  tempSensorAvailable = tempSensor.begin();
+
   
   Serial.println("Initialisation complete."); delay(100);
 
@@ -67,7 +73,9 @@ void loop() {
   //Serial.println(s);
   voltage = readVcc();
 
-  temperature=GetTemp();
+  temperature=getTemp();
+
+
 
   sendRadioData();
   
@@ -173,7 +181,28 @@ void radioSetup(){
   radio.powerDown(); 
 }
 
-byte GetTemp(void)
+byte getTemp(void){
+  double temp;
+  if (tempSensorAvailable){
+    temp = tempSensor.readTemperature();
+    //tempSensor.readHumidity();
+  }
+  else{
+    temp = getInternalTemp();
+  }
+
+  if (temp<=-10.){
+    return 0;
+  }
+  else if (temp>=40.){
+    return 255;
+  }
+  else{
+    return ((byte) ((temp+10.0)/0.2));
+  }
+}
+
+double getInternalTemp(void)
 {
   unsigned int wADC;
   double t;
@@ -203,15 +232,6 @@ byte GetTemp(void)
   t = (wADC - TEMPERATURE_OFFSET ) / TEMPERATURE_GAIN;
   // The temperature is in degrees Celsius.
 
-  if (t<=-10){
-    return 0;
-  }
-  else if (t>=40){
-    return 255;
-  }
-  else{
-    t=(byte) ((t+10.0)/0.2);
-    return (t);
-  }
-}
+  return (t);
 
+}
