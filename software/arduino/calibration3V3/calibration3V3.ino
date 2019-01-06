@@ -45,13 +45,13 @@ This calibrated value will be good for the AVR chip measured only, and may be su
   Serial.println("V");
 
 
-  if ((result<3200) || (result>3400)){
+  if ((result<3000) || (result>4000)){
     Serial.println("Voltage not in acceptable range for 3.3V calibration");
     return 0;
   }
   
   
-  unsigned long calib = long(1125300L * float(3300) / result);
+  unsigned long calib = long(1125300L * float(3670) / result); //write in float(...) the value you measure with a multimeter
 
   Serial.print("Storing calibration value in EEPROM: ");
   Serial.println(calib);

@@ -16,7 +16,7 @@
 
 
 /* Hardware configuration: Set up nRF24L01 radio on SPI bus plus pins 9 & 8 */
-RF24 radio(9,8);
+RF24 radio(10,9);
 byte addresses[6] = "1Node";
 /**********************************************************/
 Adafruit_Si7021 tempSensor = Adafruit_Si7021();
@@ -106,7 +106,7 @@ void sendRadioData(){
     Serial.print(data_to_send[2], HEX);
     Serial.print(" ");
     Serial.print(data_to_send[3], HEX);
-    Serial.println("%");
+    Serial.println("");
 
     
      if (!radio.write( data_to_send, 4) ){
@@ -146,7 +146,7 @@ byte readVcc() {
   //result = 1151826L / result; // calibration for 1st, PCB proto
   
   //from millivolt to percentage
-  result=map(result, 3000, 3400, 0, 100);//adjust 2nd value to get 80% at 3.3VDC connected to regulator 2nd proto
+  result=map(result, 3100, 3600, 0, 100); //3.1V->0% 3.6V->100%
 
   if (result >100) return 100;
   if (result <0) return 0;
@@ -188,7 +188,8 @@ byte getTemp(void){
     //tempSensor.readHumidity();
   }
   else{
-    temp = getInternalTemp();
+    //temp = getInternalTemp();
+    return 0;
   }
 
   if (temp<=-10.){
