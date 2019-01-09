@@ -178,11 +178,9 @@ byte readVcc() {
   long result = (high<<8) | low;
 
   result = calib / result; // Calculate Vcc (in mV); 1125300 = 1.1*1023*1000 //ok for proto w/ intermediate PCB
-  //result = 1108835L / result; // calibration for sensor proto wired
-  //result = 1151826L / result; // calibration for 1st, PCB proto
   
   //from millivolt to percentage
-  result=map(result, 3100, 3600, 0, 100); //3.1V->0% 3.6V->100%
+  result=map(result, 3000, 3400, 0, 100); //3.0V->0% 3.4V->100%
 
   if (result >100) return 100;
   if (result <0) return 0;
