@@ -272,6 +272,7 @@ double getInternalTemp(void)
 }
 
 void saveIdToEEPROM(byte IdValue){
+  sensorID = IdValue;
   Serial.print("Storing sensor ID value in EEPROM: ");
   Serial.println(IdValue);
   EEPROM.write(0, IdValue);
@@ -311,7 +312,7 @@ void calibrationVoltage(int milliVolt){
   }
   
   
-  unsigned long calib = long(1125300L * float(milliVolt) / result); //write in float(...) the value you measure with a multimeter
+  calib = (unsigned long)(1125300L * float(milliVolt) / result); //write in float(...) the value you measure with a multimeter
 
   Serial.print("Storing calibration value in EEPROM: ");
   Serial.println(calib);
