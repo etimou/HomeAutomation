@@ -14,6 +14,8 @@ unsigned long deviceAddress=0;
 unsigned char buttonNumber=0;
 unsigned char actionCommand=0;
 
+bool PIRstatus = 0;
+
 #define PROTOCOL_SOMFY 1
 #define PROTOCOL_HOMEEASY 2
 #define PROTOCOL_NEWKAKU 3
@@ -28,6 +30,7 @@ unsigned char actionCommand=0;
 #define PIN_TXS 4
 #define PIN_TX 5
 #define PIN_ALARM 7
+#define PIN_PIR 6
 #define RETRIES 5
 #define EEPROM_ADDRESS 0
 #define REMOTE 0x121300    //<-- Change it!
@@ -49,6 +52,7 @@ void setup() {
   digitalWrite(PIN_TXS, LOW);
   pinMode(PIN_ALARM, OUTPUT);
   digitalWrite(PIN_ALARM, LOW);
+  pinMode(PIN_PIR, INPUT_PULLUP);
 
   // RC Switch
   mySwitch.enableReceive(0);  // Receiver on interrupt 0 => that is pin #2
@@ -88,6 +92,8 @@ void loop() {
   if (radio.available()){ // event from nRF24l01
     processRF24();
   }
+
+  processLocal();
       
 }
 
@@ -111,7 +117,7 @@ bool recvWithEndMarker() {
                 receivedChars[ndx] = '\0'; // terminate the string
                 ndx = 0;
                 newData = true;
-                Serial.println(receivedChars);
+                //Serial.println(receivedChars);
             }
         }
     }
@@ -344,9 +350,9 @@ void sendSimple433()
   for (int n=0; n<RETRIES; n++)
   {
     digitalWrite(PIN_TX, HIGH);
-    delayMicroseconds(2000);
+    delayMicroseconds(510);
     digitalWrite(PIN_TX, LOW);
-    delayMicroseconds(2000);  
+    delayMicroseconds(2040);  
   
   
     for (int i = dataLength-1; i >= 0; i--) {
@@ -542,4 +548,33 @@ void sendSomfy(){
   }
 
   
+}
+void processLocal(){
+
+  if (digitalRead(PIN_PIR)!=PIRstatus)
+  {
+    PIRstatus = !PIRstatus;
+
+    Serial.print("20;");
+    Serial.print(msg_counter++, HEX);
+    Serial.print(";Kaku;");
+  
+    Serial.print("ID=");
+    Serial.print("FFFFFD");
+    Serial.print(";");
+
+
+    Serial.print("SWITCH="); 
+    Serial.print("1");  
+    Serial.print(";");
+  
+
+    Serial.print("CMD=");
+    if (PIRstatus) Serial.print("ON;");
+    else Serial.print("OFF;");
+
+    Serial.println("");
+    
+    
+  }
 }
