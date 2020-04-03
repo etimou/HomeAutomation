@@ -1,4 +1,5 @@
 #include <EEPROM.h>
+#include <LowPower.h>
 
 void setup() {
   // put your setup code here, to run once:
@@ -16,6 +17,9 @@ internal1.1Ref = 1.1 * Vcc1 (per voltmeter) / Vcc2 (per readVcc() function)
 This calibrated value will be good for the AVR chip measured only, and may be subject to temperature variation. Feel free to experiment with your own measurements.
 */
   Serial.begin(57600);
+
+  LowPower.powerDown(SLEEP_8S,ADC_OFF, BOD_OFF);
+  LowPower.powerDown(SLEEP_8S,ADC_OFF, BOD_OFF);
 
   // Read 1.1V reference against AVcc
   // set the reference to Vcc and the measurement to the internal 1.1V reference
@@ -51,7 +55,7 @@ This calibrated value will be good for the AVR chip measured only, and may be su
   }
   
   
-  unsigned long calib = long(1125300L * float(3670) / result); //write in float(...) the value you measure with a multimeter
+  unsigned long calib = long(1125300L * float(3320) / result); //write in float(...) the value you measure with a multimeter
 
   Serial.print("Storing calibration value in EEPROM: ");
   Serial.println(calib);
