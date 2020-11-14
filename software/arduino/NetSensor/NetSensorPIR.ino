@@ -107,8 +107,12 @@ void loop() {
   delay(100);
   sensor1= digitalRead(PRIMARY_BUTTON_PIN);
   lastSensor2= sensor2;
-  sensor2= digitalRead(SECONDARY_BUTTON_PIN);
 
+  sensor2= digitalRead(SECONDARY_BUTTON_PIN);
+  if (sensor2){//debounce
+    delay(100);
+    sensor2= digitalRead(SECONDARY_BUTTON_PIN);
+  }
 
 
   //Collect data
@@ -118,11 +122,11 @@ void loop() {
 #ifdef MOTION_SENSOR
   if (sensor2){
     sendRadioData();
-    hwSleep(0, CHANGE, 0xFFu, 0u, INTERVAL_PIR_DETECTION);
+    hwSleep(INTERVAL_PIR_DETECTION);
   }
   else{
     if (lastSensor2 == 0) sendRadioData(); 
-    hwSleep(0, CHANGE, 1, RISING, SLEEP_TIME);
+    hwSleep(0xFFu, 0u, 1, RISING, SLEEP_TIME);
   }
 #endif
 
@@ -163,7 +167,7 @@ void sendRadioData(){
     Serial.print(data_to_send[3], HEX);
     Serial.println("");
 
-    
+
      if (!radio.write( data_to_send, 4) ){
        Serial.println("failed");
      }
