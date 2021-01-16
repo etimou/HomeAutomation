@@ -216,7 +216,7 @@ void processRC()
     Serial.print("1");  
     Serial.print(";");
     
-    Serial.print("CMD=ON;");
+    Serial.print("CMD=010000;");
     Serial.println("");
 
   }
@@ -230,6 +230,7 @@ void processRF24()
     radio.read( received_data, sizeof(unsigned long) );         // Get the payload
   }
 
+  /*
   Serial.print("20;");
   Serial.print(msg_counter++, HEX);
   Serial.print(";Kaku;");
@@ -254,13 +255,15 @@ void processRF24()
   //Serial.print(";");    
 
   Serial.println("");
+  */
+  
 
   Serial.print("20;");
   Serial.print(msg_counter++, HEX);
   Serial.print(";Kaku;");
   
   Serial.print("ID=");
-  Serial.print(received_data[0]), HEX;
+  Serial.print(received_data[0], HEX);
   Serial.print(";");
 
 
@@ -280,14 +283,16 @@ void processRF24()
 
 
   Serial.println("");
+  
 
+  /*
 
   Serial.print("20;");
   Serial.print(msg_counter++, HEX);
   Serial.print(";Kaku;");
   
   Serial.print("ID=");
-  Serial.print(received_data[0]+1), HEX;
+  Serial.print(received_data[0]+1), HEX);
   Serial.print(";");
 
 
@@ -301,7 +306,7 @@ void processRF24()
   Serial.print(";");    
 
   Serial.println(""); 
-  
+  */
 }
 
 void processCommand(){
@@ -570,10 +575,10 @@ void processLocal(){
   
 
     Serial.print("CMD=");
-    if (PIRstatus) Serial.print("ON;");
-    else Serial.print("OFF;");
+    if (PIRstatus) Serial.print("01");
+    else Serial.print("00");
 
-    Serial.println("");
+    Serial.println("0000");
     
     
   }
