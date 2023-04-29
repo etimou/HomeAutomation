@@ -1,7 +1,4 @@
 #include <EEPROM.h>
-#include <RCSwitch.h>
-#include <SPI.h>
-#include <RF24.h>
 
 const byte numChars = 128;
 char receivedChars[numChars];   // an array to store the received data
@@ -36,12 +33,7 @@ bool PIRstatus = 0;
 #define REMOTE 0x121300    //<-- Change it!
 #define SYMBOL 640
 
-/* RC Switch */
-RCSwitch mySwitch = RCSwitch();
 
-/* RF24 Hardware configuration: Set up nRF24L01 radio on SPI bus plus pins 10 & 9 */
-RF24 radio(10,9);
-byte addresses[6] = "1Node";
 
 void setup() {
   Serial.begin(57600);
@@ -53,22 +45,6 @@ void setup() {
   pinMode(PIN_ALARM, OUTPUT);
   digitalWrite(PIN_ALARM, LOW);
   pinMode(PIN_PIR, INPUT_PULLUP);
-
-  // RC Switch
-  mySwitch.enableReceive(0);  // Receiver on interrupt 0 => that is pin #2
-
-  // RF24
-  radio.begin();
-  // Set the PA Level low to prevent power supply related issues since this is a
-  // getting_started sketch, and the likelihood of close proximity of the devices. RF24_PA_MAX is default.
-  radio.setPALevel(RF24_PA_LOW);
-  radio.setDataRate(RF24_250KBPS);
-  radio.setChannel(108);
-  radio.setPayloadSize(4);
-  //radio.printDetails();
-  radio.openReadingPipe(1,addresses);
-  // Start the radio listening for data
-  radio.startListening();
 
   // Welcome message
   Serial.println("20;00;Etimou RadioFrequencyLink - RFLink Gateway Clone V1.0;");
@@ -82,15 +58,6 @@ void loop() {
     if (parseData() != -1){
       processCommand();
     }
-  }
-
-  if (mySwitch.available()) { //event from RC switch
-    processRC();
-    mySwitch.resetAvailable();
-  }
-
-  if (radio.available()){ // event from nRF24l01
-    processRF24();
   }
 
   processLocal();
@@ -194,120 +161,7 @@ int parseData() {
    
 }
 
-void processRC()
-{
-  unsigned long value = mySwitch.getReceivedValue();
-    
-  if (value == 0) {
-    return;
-  }
-  else {
 
-    Serial.print("20;");
-    Serial.print(msg_counter++, HEX);
-    Serial.print(";Kaku;");
-    
-    Serial.print("ID=");
-    Serial.print(value, HEX);
-    Serial.print(";");
-
-
-    Serial.print("SWITCH="); 
-    Serial.print("1");  
-    Serial.print(";");
-    
-    Serial.print("CMD=010000;");
-    Serial.println("");
-
-  }
-}
-
-void processRF24()
-{
-  byte received_data[4];
-                                                                // Variable for the received timestamp
-  while (radio.available()) {                                   // While there is data ready
-    radio.read( received_data, sizeof(unsigned long) );         // Get the payload
-  }
-
-  /*
-  Serial.print("20;");
-  Serial.print(msg_counter++, HEX);
-  Serial.print(";Kaku;");
-  
-  Serial.print("ID=");
-  Serial.print(received_data[0]), HEX;
-  Serial.print(";");
-
-
-  Serial.print("SWITCH=");
-  //Serial.print(received_data[3]);  
-  Serial.print("1");  
-  Serial.print(";");
-  
-
-  Serial.print("CMD=");
-  if (received_data[1]) Serial.print("ON;");
-  else Serial.print("OFF;");
-
-  //Serial.print("VOLT=");
-  //Serial.print(received_data[2]);
-  //Serial.print(";");    
-
-  Serial.println("");
-  */
-  
-
-  Serial.print("20;");
-  Serial.print(msg_counter++, HEX);
-  Serial.print(";Kaku;");
-  
-  Serial.print("ID=");
-  Serial.print(received_data[0], HEX);
-  Serial.print(";");
-
-
-  Serial.print("SWITCH=");
-  //Serial.print(received_data[3]);  
-  Serial.print("1");  
-  Serial.print(";");
-  
-
-  Serial.print("CMD=");
-  if (received_data[1]<16) Serial.print('0');
-  Serial.print(received_data[1], HEX);
-  if (received_data[2]<16) Serial.print('0');
-  Serial.print(received_data[2], HEX);
-  if (received_data[3]<16) Serial.print('0');
-  Serial.print(received_data[3], HEX);
-
-
-  Serial.println("");
-  
-
-  /*
-
-  Serial.print("20;");
-  Serial.print(msg_counter++, HEX);
-  Serial.print(";Kaku;");
-  
-  Serial.print("ID=");
-  Serial.print(received_data[0]+1), HEX);
-  Serial.print(";");
-
-
-  Serial.print("SWITCH=");
-  //Serial.print(received_data[3]);  
-  Serial.print("1");  
-  Serial.print(";");
-  
-  Serial.print("VOLT=");
-  Serial.print(received_data[2]*10, HEX);
-  Serial.print(";");    
-
-  Serial.println(""); 
-  */
-}
 
 void processCommand(){
   
@@ -579,7 +433,5 @@ void processLocal(){
     else Serial.print("00");
 
     Serial.println("0000");
-    
-    
   }
 }
