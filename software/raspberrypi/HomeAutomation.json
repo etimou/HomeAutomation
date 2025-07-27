@@ -26,7 +26,7 @@
     {
         "id": "b4cdcf58.df6728",
         "type": "serial-port",
-        "serialport": "/dev/ttyUSB1",
+        "serialport": "/dev/Arduino",
         "serialbaud": "57600",
         "databits": "8",
         "parity": "none",
@@ -274,26 +274,6 @@
         "hidden": false
     },
     {
-        "id": "a1ce851c0ea74ad4",
-        "type": "ui_group",
-        "name": "Départ eau chaude",
-        "tab": "d9ce33c1dbcfe58b",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false
-    },
-    {
-        "id": "62fd0e689c033d46",
-        "type": "ui_group",
-        "name": "Schedule",
-        "tab": "d9ce33c1dbcfe58b",
-        "order": 2,
-        "disp": true,
-        "width": "6",
-        "collapse": false
-    },
-    {
         "id": "0f1846635b5eb38a",
         "type": "AnamicoAlarmPanel",
         "name": "battery",
@@ -304,9 +284,28 @@
         "type": "ui_group",
         "name": "Température",
         "tab": "d9ce33c1dbcfe58b",
-        "order": 3,
+        "order": 2,
         "disp": true,
         "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "683d258e4ceba180",
+        "type": "ui_tab",
+        "name": "Solisart",
+        "icon": "dashboard",
+        "order": 5,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "3e9b4e33c96f135e",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "683d258e4ceba180",
+        "order": 1,
+        "disp": true,
+        "width": "15",
         "collapse": false
     },
     {
@@ -440,12 +439,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
+        "x": 650,
         "y": 680,
         "wires": [
             [
-                "91ec40e0a40b6f5c",
-                "12697319f064f9de"
+                "91ec40e0a40b6f5c"
             ]
         ]
     },
@@ -632,14 +630,12 @@
         "name": "Porte buanderie",
         "panel": "2f5cdbd27ad8b3f6",
         "alarmStates": [
-            "0",
-            "1",
-            "2"
+            "1"
         ],
         "triggerType": null,
         "triggerCondition": "",
         "triggerConditionError": false,
-        "x": 1020,
+        "x": 1100,
         "y": 920,
         "wires": []
     },
@@ -688,7 +684,8 @@
         "wires": [
             [
                 "697ad3a8a61e647c",
-                "ef05b29983c44dcb"
+                "ef05b29983c44dcb",
+                "c9529a32b265e23e"
             ]
         ]
     },
@@ -891,9 +888,7 @@
         "x": 830,
         "y": 680,
         "wires": [
-            [
-                "36398d4e4157f3d4"
-            ]
+            []
         ]
     },
     {
@@ -908,24 +903,8 @@
         "triggerType": null,
         "triggerCondition": "",
         "triggerConditionError": false,
-        "x": 1020,
+        "x": 1100,
         "y": 680,
-        "wires": []
-    },
-    {
-        "id": "12697319f064f9de",
-        "type": "ui_text",
-        "z": "67d0549c2b9e5f0d",
-        "group": "257567244e8fa0b8",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Fenêtre cuisine",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 860,
-        "y": 720,
         "wires": []
     },
     {
@@ -953,12 +932,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
+        "x": 650,
         "y": 800,
         "wires": [
             [
-                "189838564daee135",
-                "086fe18fd5082d9e"
+                "189838564daee135"
             ]
         ]
     },
@@ -976,9 +954,7 @@
         "x": 830,
         "y": 800,
         "wires": [
-            [
-                "daa8b9baab06d083"
-            ]
+            []
         ]
     },
     {
@@ -995,24 +971,8 @@
         "triggerType": null,
         "triggerCondition": "",
         "triggerConditionError": false,
-        "x": 1020,
+        "x": 1100,
         "y": 800,
-        "wires": []
-    },
-    {
-        "id": "086fe18fd5082d9e",
-        "type": "ui_text",
-        "z": "67d0549c2b9e5f0d",
-        "group": "257567244e8fa0b8",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Porte véranda",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 860,
-        "y": 840,
         "wires": []
     },
     {
@@ -1026,7 +986,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
+        "x": 650,
         "y": 920,
         "wires": [
             [
@@ -1082,7 +1042,7 @@
         "triggerType": null,
         "triggerCondition": "",
         "triggerConditionError": false,
-        "x": 1020,
+        "x": 1100,
         "y": 1320,
         "wires": []
     },
@@ -1097,7 +1057,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 660,
+        "x": 640,
         "y": 1040,
         "wires": [
             [
@@ -1118,7 +1078,7 @@
         "triggerType": null,
         "triggerCondition": "",
         "triggerConditionError": false,
-        "x": 1030,
+        "x": 1090,
         "y": 1040,
         "wires": []
     },
@@ -1169,7 +1129,7 @@
         "outputAtStartup": true,
         "filterChanges": false,
         "enableMultiple": false,
-        "x": 470,
+        "x": 350,
         "y": 680,
         "wires": [
             [
@@ -1189,7 +1149,7 @@
         "outputAtStartup": true,
         "filterChanges": false,
         "enableMultiple": false,
-        "x": 470,
+        "x": 350,
         "y": 800,
         "wires": [
             [
@@ -1209,7 +1169,7 @@
         "outputAtStartup": true,
         "filterChanges": false,
         "enableMultiple": false,
-        "x": 470,
+        "x": 350,
         "y": 920,
         "wires": [
             [
@@ -1229,7 +1189,7 @@
         "outputAtStartup": true,
         "filterChanges": false,
         "enableMultiple": false,
-        "x": 450,
+        "x": 370,
         "y": 1040,
         "wires": [
             [
@@ -1381,7 +1341,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
+        "x": 650,
         "y": 1140,
         "wires": [
             [
@@ -1425,7 +1385,7 @@
         "triggerType": null,
         "triggerCondition": "",
         "triggerConditionError": false,
-        "x": 1010,
+        "x": 1110,
         "y": 1140,
         "wires": []
     },
@@ -1457,7 +1417,7 @@
         "outputAtStartup": true,
         "filterChanges": false,
         "enableMultiple": false,
-        "x": 410,
+        "x": 350,
         "y": 1120,
         "wires": [
             [
@@ -1775,7 +1735,8 @@
         "y": 120,
         "wires": [
             [
-                "37badabaa4f949ec"
+                "37badabaa4f949ec",
+                "c9529a32b265e23e"
             ]
         ]
     },
@@ -2013,7 +1974,7 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 500,
+        "x": 340,
         "y": 1320,
         "wires": [
             [
@@ -2082,6 +2043,45 @@
         ]
     },
     {
+        "id": "c9529a32b265e23e",
+        "type": "function",
+        "z": "67d0549c2b9e5f0d",
+        "name": "to ntfy cmd",
+        "func": "msg.payload = \"curl -H \\\"X-Priority: 5\\\" -d \\\"\" + msg.payload + \"\\\" ntfy.sh/etimou_home\"\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1050,
+        "y": 40,
+        "wires": [
+            [
+                "3759ea3a6b44ae3e"
+            ]
+        ]
+    },
+    {
+        "id": "3759ea3a6b44ae3e",
+        "type": "exec",
+        "z": "67d0549c2b9e5f0d",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 1230,
+        "y": 40,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
         "id": "11a82590e995941c",
         "type": "serial out",
         "z": "c52947d8cde69e13",
@@ -2100,7 +2100,7 @@
         "tooltip": "",
         "place": "",
         "group": "779970f0.f44b78",
-        "order": 0,
+        "order": 1,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -2140,7 +2140,7 @@
         "tooltip": "",
         "place": "",
         "group": "779970f0.f44b78",
-        "order": 0,
+        "order": 2,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -2180,7 +2180,7 @@
         "tooltip": "",
         "place": "",
         "group": "779970f0.f44b78",
-        "order": 0,
+        "order": 3,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -2220,7 +2220,7 @@
         "tooltip": "",
         "place": "",
         "group": "779970f0.f44b78",
-        "order": 0,
+        "order": 5,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -2279,7 +2279,7 @@
         "payload": "",
         "topic": "",
         "x": 640,
-        "y": 360,
+        "y": 460,
         "wires": [
             [
                 "11a82590e995941c"
@@ -2314,7 +2314,7 @@
         "payload": "",
         "topic": "",
         "x": 640,
-        "y": 400,
+        "y": 500,
         "wires": [
             [
                 "11a82590e995941c"
@@ -2349,7 +2349,7 @@
         "payload": "",
         "topic": "",
         "x": 670,
-        "y": 440,
+        "y": 540,
         "wires": [
             [
                 "11a82590e995941c"
@@ -2384,7 +2384,7 @@
         "payload": "",
         "topic": "",
         "x": 670,
-        "y": 480,
+        "y": 580,
         "wires": [
             [
                 "11a82590e995941c"
@@ -2415,9 +2415,7 @@
         "x": 160,
         "y": 100,
         "wires": [
-            [
-                "63e9cfac340895e1"
-            ]
+            []
         ]
     },
     {
@@ -2524,213 +2522,143 @@
         "x": 160,
         "y": 60,
         "wires": [
-            [
-                "63e9cfac340895e1"
-            ]
-        ]
-    },
-    {
-        "id": "d84c7f203c4882da",
-        "type": "ui_slider",
-        "z": "ebe6a6c575db3baa",
-        "name": "",
-        "label": "Manuel",
-        "tooltip": "",
-        "group": "a1ce851c0ea74ad4",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "end",
-        "topic": "",
-        "min": 0,
-        "max": "50",
-        "step": "5",
-        "x": 940,
-        "y": 480,
-        "wires": [
-            [
-                "29c1b60c8c97238f"
-            ]
-        ]
-    },
-    {
-        "id": "e510f4606d0e2464",
-        "type": "mqtt in",
-        "z": "ebe6a6c575db3baa",
-        "name": "",
-        "topic": "outTopic",
-        "qos": "0",
-        "datatype": "auto-detect",
-        "broker": "27655cfe.25e50c",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 140,
-        "y": 480,
-        "wires": [
-            [
-                "a679e6517f4f997d"
-            ]
-        ]
-    },
-    {
-        "id": "5bbb6edab18cd4ce",
-        "type": "function",
-        "z": "ebe6a6c575db3baa",
-        "name": "function 1",
-        "func": "msg.payload=Number(msg.payload.split(',')[0])\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 460,
-        "y": 480,
-        "wires": [
-            [
-                "32c97b50f9cdf64a",
-                "fab0998ad81b20e0"
-            ]
-        ]
-    },
-    {
-        "id": "32c97b50f9cdf64a",
-        "type": "ui_gauge",
-        "z": "ebe6a6c575db3baa",
-        "name": "",
-        "group": "a1ce851c0ea74ad4",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "gtype": "gage",
-        "title": "T°C",
-        "label": "°C",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "100",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 650,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "fab0998ad81b20e0",
-        "type": "ui_chart",
-        "z": "ebe6a6c575db3baa",
-        "name": "",
-        "group": "a1ce851c0ea74ad4",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "label": "T°C",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "dd HH:mm",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "0",
-        "ymax": "100",
-        "removeOlder": "5",
-        "removeOlderPoints": "1000",
-        "removeOlderUnit": "86400",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "useOldStyle": false,
-        "outputs": 1,
-        "x": 650,
-        "y": 520,
-        "wires": [
             []
         ]
     },
     {
-        "id": "0878d18fabc8cf70",
-        "type": "mqtt out",
-        "z": "ebe6a6c575db3baa",
+        "id": "1bcfdce09de5fe76",
+        "type": "ui_dropdown",
+        "z": "c52947d8cde69e13",
         "name": "",
-        "topic": "inTopic",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "27655cfe.25e50c",
-        "x": 1480,
-        "y": 480,
+        "label": "Volet Salon Ouest",
+        "tooltip": "",
+        "place": "",
+        "group": "779970f0.f44b78",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "options": [
+            {
+                "label": "Open",
+                "value": "10;X10;000041;4;UP",
+                "type": "str"
+            },
+            {
+                "label": "Close",
+                "value": "10;X10;000041;4;DOWN",
+                "type": "str"
+            },
+            {
+                "label": "Stop",
+                "value": "10;X10;000041;4;STOP",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "",
+        "x": 650,
+        "y": 340,
+        "wires": [
+            [
+                "11a82590e995941c"
+            ]
+        ]
+    },
+    {
+        "id": "2e61544f38a5061c",
+        "type": "ui_dropdown",
+        "z": "c52947d8cde69e13",
+        "name": "",
+        "label": "Volet Salon Nord",
+        "tooltip": "",
+        "place": "",
+        "group": "779970f0.f44b78",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "options": [
+            {
+                "label": "Open",
+                "value": "10;X10;000041;5;UP",
+                "type": "str"
+            },
+            {
+                "label": "Close",
+                "value": "10;X10;000041;5;DOWN",
+                "type": "str"
+            },
+            {
+                "label": "Stop",
+                "value": "10;X10;000041;5;STOP",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "",
+        "x": 650,
+        "y": 380,
+        "wires": [
+            [
+                "11a82590e995941c"
+            ]
+        ]
+    },
+    {
+        "id": "25fcb7b7343bacda",
+        "type": "zigbee2mqtt-out",
+        "z": "c52947d8cde69e13",
+        "name": "",
+        "server": "be058c0d9a6fb12a",
+        "friendly_name": "Salon2 (CCT5010-0001)",
+        "device_id": "0x3c2ef5fffe4af7ab",
+        "command": "state",
+        "commandType": "z2m_cmd",
+        "payload": "payload",
+        "payloadType": "msg",
+        "optionsValue": "",
+        "optionsType": "nothing",
+        "x": 1390,
+        "y": 420,
         "wires": []
     },
     {
-        "id": "29c1b60c8c97238f",
-        "type": "trigger",
-        "z": "ebe6a6c575db3baa",
+        "id": "cf52e6484a420250",
+        "type": "ui_switch",
+        "z": "c52947d8cde69e13",
         "name": "",
-        "op1": "",
-        "op2": "0",
-        "op1type": "pay",
-        "op2type": "str",
-        "duration": "-5",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "min",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 1110,
-        "y": 480,
+        "label": "switch salon",
+        "tooltip": "",
+        "group": "16b61bf9.538b74",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 1170,
+        "y": 420,
         "wires": [
             [
-                "7c6a4e90c17c004f"
+                "25fcb7b7343bacda"
             ]
         ]
     },
     {
-        "id": "7c6a4e90c17c004f",
-        "type": "function",
-        "z": "ebe6a6c575db3baa",
-        "name": "commande",
-        "func": "msg.payload = \"3,\"+String(msg.payload);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1310,
-        "y": 480,
-        "wires": [
-            [
-                "0878d18fabc8cf70"
-            ]
-        ]
-    },
-    {
-        "id": "73402be802c862b0",
+        "id": "dd9547a9ba86f7be",
         "type": "inject",
-        "z": "ebe6a6c575db3baa",
-        "name": "every hour",
+        "z": "c52947d8cde69e13",
+        "name": "",
         "props": [
             {
                 "p": "payload"
@@ -2741,117 +2669,43 @@
             }
         ],
         "repeat": "",
-        "crontab": "0 0-22 * * *",
+        "crontab": "00 20 * * *",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 210,
-        "y": 620,
+        "payload": "on",
+        "payloadType": "str",
+        "x": 970,
+        "y": 460,
         "wires": [
-            [
-                "7e19ac17c05cfd9f",
-                "c246c53387d7fbcc"
-            ]
+            []
         ]
     },
     {
-        "id": "7e19ac17c05cfd9f",
-        "type": "function",
-        "z": "ebe6a6c575db3baa",
-        "name": "heating value",
-        "func": "var mystate = global.get(\"heat_table\");\n\nmsg.payload=mystate.values[new Date().getHours()];\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 770,
-        "y": 620,
-        "wires": [
-            [
-                "d84c7f203c4882da"
-            ]
-        ]
-    },
-    {
-        "id": "c246c53387d7fbcc",
-        "type": "function",
-        "z": "ebe6a6c575db3baa",
-        "name": "to Text",
-        "func": "var mystate = global.get(\"heat_table\");\nvar heat_table = mystate.values;\nvar txt=\n\"00:00 - 01-00: \"+ heat_table[0].toString() + \"\\n\"+\n\"01:00 - 02-00: \" + heat_table[1].toString() + \"\\n\"+\n\"02:00 - 03-00: \" + heat_table[2].toString() + \"\\n\" +\n\"03:00 - 04-00: \" + heat_table[3].toString() + \"\\n\" +\n\"04:00 - 05-00: \" + heat_table[4].toString() + \"\\n\" +\n\"05:00 - 06-00: \" + heat_table[5].toString() + \"\\n\" +\n\"06:00 - 07-00: \" + heat_table[6].toString() + \"\\n\" +\n\"07:00 - 08-00: \" + heat_table[7].toString() + \"\\n\" +\n\"08:00 - 09-00: \" + heat_table[8].toString() + \"\\n\" +\n\"09:00 - 10-00: \" + heat_table[9].toString() + \"\\n\" +\n\"10:00 - 11-00: \" + heat_table[10].toString() + \"\\n\" +\n\"11:00 - 12-00: \" + heat_table[11].toString() + \"\\n\" +\n\"12:00 - 13-00: \" + heat_table[12].toString() + \"\\n\" +\n\"13:00 - 14-00: \" + heat_table[13].toString() + \"\\n\" +\n\"14:00 - 15-00: \" + heat_table[14].toString() + \"\\n\" +\n\"15:00 - 16-00: \" + heat_table[15].toString() + \"\\n\" +\n\"16:00 - 17-00: \" + heat_table[16].toString() + \"\\n\" +\n\"17:00 - 18-00: \" + heat_table[17].toString() + \"\\n\" +\n\"18:00 - 19-00: \" + heat_table[18].toString() + \"\\n\" +\n\"19:00 - 20-00: \" + heat_table[19].toString() + \"\\n\" +\n\"20:00 - 21-00: \" + heat_table[20].toString() + \"\\n\" +\n\"21:00 - 22-00: \" + heat_table[21].toString() + \"\\n\" +\n\"22:00 - 23-00: \" + heat_table[22].toString() + \"\\n\" +\n\"23:00 - 00-00: \" + heat_table[23].toString() + \"\\n\" \nmsg.payload =txt;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 950,
-        "y": 680,
-        "wires": [
-            [
-                "55800122a959d298"
-            ]
-        ]
-    },
-    {
-        "id": "55800122a959d298",
-        "type": "template",
-        "z": "ebe6a6c575db3baa",
+        "id": "d6776850e105503b",
+        "type": "inject",
+        "z": "c52947d8cde69e13",
         "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "<pre>{{payload}}</pre>",
-        "output": "str",
-        "x": 1080,
-        "y": 680,
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 05 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "off",
+        "payloadType": "str",
+        "x": 970,
+        "y": 560,
         "wires": [
-            [
-                "da0084355b52f7e4"
-            ]
-        ]
-    },
-    {
-        "id": "da0084355b52f7e4",
-        "type": "ui_text",
-        "z": "ebe6a6c575db3baa",
-        "group": "62fd0e689c033d46",
-        "order": 1,
-        "width": "1",
-        "height": "7",
-        "name": "",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 1210,
-        "y": 680,
-        "wires": []
-    },
-    {
-        "id": "a679e6517f4f997d",
-        "type": "delay",
-        "z": "ebe6a6c575db3baa",
-        "name": "",
-        "pauseType": "rate",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "10",
-        "rateUnits": "minute",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": true,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 300,
-        "y": 480,
-        "wires": [
-            [
-                "5bbb6edab18cd4ce"
-            ]
+            []
         ]
     },
     {
@@ -2866,8 +2720,8 @@
         "outputAtStartup": true,
         "filterChanges": false,
         "enableMultiple": false,
-        "x": 160,
-        "y": 740,
+        "x": 120,
+        "y": 100,
         "wires": [
             [
                 "b4cdac4512465e9e"
@@ -2883,1066 +2737,426 @@
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "°C",
+        "label": "Cuisine °C",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 310,
+        "x": 290,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "be4a2696021563c1",
+        "type": "zigbee2mqtt-in",
+        "z": "ebe6a6c575db3baa",
+        "name": "tempHum",
+        "server": "be058c0d9a6fb12a",
+        "friendly_name": "TempHum02 (WSD500A)",
+        "device_id": "0xa4c13896c72a82e3",
+        "state": "temperature",
+        "outputAtStartup": true,
+        "filterChanges": false,
+        "enableMultiple": false,
+        "x": 120,
+        "y": 180,
+        "wires": [
+            [
+                "148c8ec3dc498487"
+            ]
+        ]
+    },
+    {
+        "id": "148c8ec3dc498487",
+        "type": "ui_text",
+        "z": "ebe6a6c575db3baa",
+        "group": "a9cd4dfb2fda1c33",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Cave °C",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 280,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "e7bbf4a868801cdc",
+        "type": "zigbee2mqtt-in",
+        "z": "ebe6a6c575db3baa",
+        "name": "WaterLeakDetector",
+        "server": "be058c0d9a6fb12a",
+        "friendly_name": "WaterLeakDetector (TS0207_water_leak_detector_2)",
+        "device_id": "0xa4c1388709a2938a",
+        "state": "water_leak",
+        "outputAtStartup": true,
+        "filterChanges": false,
+        "enableMultiple": false,
+        "x": 150,
+        "y": 280,
+        "wires": [
+            [
+                "02c8b593995d5791"
+            ]
+        ]
+    },
+    {
+        "id": "02c8b593995d5791",
+        "type": "ui_text",
+        "z": "ebe6a6c575db3baa",
+        "group": "a9cd4dfb2fda1c33",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Fuite",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 430,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "656a3594c3719678",
+        "type": "zigbee2mqtt-in",
+        "z": "ebe6a6c575db3baa",
+        "name": "tempHum",
+        "server": "be058c0d9a6fb12a",
+        "friendly_name": "TempHum02 (WSD500A)",
+        "device_id": "0xa4c13896c72a82e3",
+        "state": "humidity",
+        "outputAtStartup": true,
+        "filterChanges": false,
+        "enableMultiple": false,
+        "x": 120,
+        "y": 380,
+        "wires": [
+            [
+                "b487c9a9d9a5bd88"
+            ]
+        ]
+    },
+    {
+        "id": "b487c9a9d9a5bd88",
+        "type": "ui_text",
+        "z": "ebe6a6c575db3baa",
+        "group": "a9cd4dfb2fda1c33",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Cave %hum",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 290,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "913895738b2f300e",
+        "type": "exec",
+        "z": "ebe6a6c575db3baa",
+        "command": "python3 /home/pi/solisart_appoint_off.py",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Appoint OFF",
+        "x": 250,
+        "y": 480,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "bef09c0b5ef6aaf5",
+        "type": "exec",
+        "z": "ebe6a6c575db3baa",
+        "command": "python3 /home/pi/solisart_appoint_on.py",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Appoint ON",
+        "x": 250,
+        "y": 580,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "15abf0d99c5b27e3",
+        "type": "inject",
+        "z": "ebe6a6c575db3baa",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "45 05 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7c02e0927458dd2e",
+        "type": "inject",
+        "z": "ebe6a6c575db3baa",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "50 05 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "85143ea4cf87b059",
+        "type": "inject",
+        "z": "ebe6a6c575db3baa",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "10 22 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "61a02d40d7b53697",
+        "type": "inject",
+        "z": "ebe6a6c575db3baa",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "15 22 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8ec2f51c9f966c61",
+        "type": "mqtt in",
+        "z": "ebe6a6c575db3baa",
+        "name": "",
+        "topic": "/solisart",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "27655cfe.25e50c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 740,
+        "wires": [
+            [
+                "fec61e043ab58b53"
+            ]
+        ]
+    },
+    {
+        "id": "fec61e043ab58b53",
+        "type": "function",
+        "z": "ebe6a6c575db3baa",
+        "name": "function 1",
+        "func": "var solisartdata = global.get(\"solisartdata\");\n\nfor (const [key, value] of Object.entries(msg.payload)) \n{\n   solisartdata[key]=value;\n}\n\nglobal.set(\"solisartdata\", solisartdata)\n\nmsg.payload = solisartdata\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 740,
+        "wires": [
+            [
+                "33cbd06a6ad3a901"
+            ]
+        ]
+    },
+    {
+        "id": "33cbd06a6ad3a901",
+        "type": "ui_text",
+        "z": "ebe6a6c575db3baa",
+        "group": "a9cd4dfb2fda1c33",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "solisart",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 480,
         "y": 740,
         "wires": []
     },
     {
-        "id": "6987557f019f9d59",
-        "type": "function",
+        "id": "4a1a69fb886d1841",
+        "type": "exec",
         "z": "ebe6a6c575db3baa",
-        "name": "heating value",
-        "func": "var mystate = global.get(\"heat_table\");\n\nmystate.values[0]=msg.payload;\nglobal.set(\"heat_table\", mystate); // to store a variable\n\nmsg.payload=0;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 880,
+        "command": "python3 /home/pi/solisart2.py",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": true,
+        "oldrc": false,
+        "name": "",
+        "x": 480,
+        "y": 800,
         "wires": [
-            [
-                "c246c53387d7fbcc"
-            ]
+            [],
+            [],
+            []
         ]
     },
     {
-        "id": "01ebdef41548566f",
-        "type": "ui_slider",
+        "id": "d80e2f4b36326aa7",
+        "type": "inject",
         "z": "ebe6a6c575db3baa",
         "name": "",
-        "label": "00:00-01:00",
-        "tooltip": "",
-        "group": "62fd0e689c033d46",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "end",
+        "props": [],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
         "topic": "",
-        "min": 0,
-        "max": "40",
-        "step": "5",
-        "x": 490,
-        "y": 880,
+        "x": 210,
+        "y": 800,
         "wires": [
             [
-                "6987557f019f9d59"
+                "4a1a69fb886d1841",
+                "7ab42a3027a8c51e"
             ]
         ]
     },
     {
-        "id": "3c8b24242cd406bd",
+        "id": "c4e354a3c3010ab9",
         "type": "function",
         "z": "ebe6a6c575db3baa",
-        "name": "heating value",
-        "func": "var mystate = global.get(\"heat_table\");\n\nmystate.values[1]=msg.payload;\nglobal.set(\"heat_table\", mystate); // to store a variable\n\nmsg.payload = 0;\nreturn msg;\n",
+        "name": "function 2",
+        "func": "var solisartdata = global.get(\"solisartdata\");\n\nmsg.payload = \"'\" + JSON.stringify(solisartdata) +\"'\" \n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 650,
+        "x": 540,
         "y": 920,
         "wires": [
             [
-                "c246c53387d7fbcc"
+                "0fd9fd233e0c4b48"
             ]
         ]
     },
     {
-        "id": "4986fda81c533062",
-        "type": "ui_slider",
+        "id": "0fd9fd233e0c4b48",
+        "type": "exec",
+        "z": "ebe6a6c575db3baa",
+        "command": "python3 /home/pi/displaygen/displaygen.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": true,
+        "oldrc": false,
+        "name": "",
+        "x": 850,
+        "y": 920,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "7ab42a3027a8c51e",
+        "type": "delay",
         "z": "ebe6a6c575db3baa",
         "name": "",
-        "label": "01:00-02:00",
-        "tooltip": "",
-        "group": "62fd0e689c033d46",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "end",
-        "topic": "",
-        "min": 0,
-        "max": "40",
-        "step": "5",
-        "x": 490,
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 360,
         "y": 920,
         "wires": [
             [
-                "3c8b24242cd406bd"
-            ]
-        ]
-    },
-    {
-        "id": "bab31b160ab358cf",
-        "type": "function",
-        "z": "ebe6a6c575db3baa",
-        "name": "heating value",
-        "func": "var mystate = global.get(\"heat_table\");\n\nmystate.values[2]=msg.payload;\nglobal.set(\"heat_table\", mystate); // to store a variable\n\nmsg.payload = 0;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 960,
-        "wires": [
-            [
-                "c246c53387d7fbcc"
-            ]
-        ]
-    },
-    {
-        "id": "db240a5b36704b5b",
-        "type": "ui_slider",
-        "z": "ebe6a6c575db3baa",
-        "name": "",
-        "label": "02:00-03:00",
-        "tooltip": "",
-        "group": "62fd0e689c033d46",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "end",
-        "topic": "",
-        "min": 0,
-        "max": "40",
-        "step": "5",
-        "x": 490,
-        "y": 960,
-        "wires": [
-            [
-                "bab31b160ab358cf"
-            ]
-        ]
-    },
-    {
-        "id": "4729229de186a93e",
-        "type": "function",
-        "z": "ebe6a6c575db3baa",
-        "name": "heating value",
-        "func": "var mystate = global.get(\"heat_table\");\n\nmystate.values[3]=msg.payload;\nglobal.set(\"heat_table\", mystate); // to store a variable\n\nmsg.payload = 0;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 1000,
-        "wires": [
-            [
-                "c246c53387d7fbcc"
-            ]
-        ]
-    },
-    {
-        "id": "254ba5cac19b58ef",
-        "type": "ui_slider",
-        "z": "ebe6a6c575db3baa",
-        "name": "",
-        "label": "03:00-04:00",
-        "tooltip": "",
-        "group": "62fd0e689c033d46",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "end",
-        "topic": "",
-        "min": 0,
-        "max": "40",
-        "step": "5",
-        "x": 490,
-        "y": 1000,
-        "wires": [
-            [
-                "4729229de186a93e"
-            ]
-        ]
-    },
-    {
-        "id": "37e3d47308531eb0",
-        "type": "function",
-        "z": "ebe6a6c575db3baa",
-        "name": "heating value",
-        "func": "var mystate = global.get(\"heat_table\");\n\nmystate.values[4]=msg.payload;\nglobal.set(\"heat_table\", mystate); // to store a variable\n\nmsg.payload = 0;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 1040,
-        "wires": [
-            [
-                "c246c53387d7fbcc"
-            ]
-        ]
-    },
-    {
-        "id": "c5f1b30e867dd396",
-        "type": "ui_slider",
-        "z": "ebe6a6c575db3baa",
-        "name": "",
-        "label": "04:00-05:00",
-        "tooltip": "",
-        "group": "62fd0e689c033d46",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "end",
-        "topic": "",
-        "min": 0,
-        "max": "40",
-        "step": "5",
-        "x": 490,
-        "y": 1040,
-        "wires": [
-            [
-                "37e3d47308531eb0"
-            ]
-        ]
-    },
-    {
-        "id": "c0f2a9be90010dae",
-        "type": "function",
-        "z": "ebe6a6c575db3baa",
-        "name": "heating value",
-        "func": "var mystate = global.get(\"heat_table\");\n\nmystate.values[5]=msg.payload;\nglobal.set(\"heat_table\", mystate); // to store a variable\n\nmsg.payload = 0;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 1080,
-        "wires": [
-            [
-                "c246c53387d7fbcc"
-            ]
-        ]
-    },
-    {
-        "id": "d780b53e358d0c0d",
-        "type": "ui_slider",
-        "z": "ebe6a6c575db3baa",
-        "name": "",
-        "label": "05:00-06:00",
-        "tooltip": "",
-        "group": "62fd0e689c033d46",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "end",
-        "topic": "",
-        "min": 0,
-        "max": "40",
-        "step": "5",
-        "x": 490,
-        "y": 1080,
-        "wires": [
-            [
-                "c0f2a9be90010dae"
-            ]
-        ]
-    },
-    {
-        "id": "962be4839f36ae63",
-        "type": "function",
-        "z": "ebe6a6c575db3baa",
-        "name": "heating value",
-        "func": "var mystate = global.get(\"heat_table\");\n\nmystate.values[6]=msg.payload;\nglobal.set(\"heat_table\", mystate); // to store a variable\n\nmsg.payload = 0;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 1120,
-        "wires": [
-            [
-                "c246c53387d7fbcc"
-            ]
-        ]
-    },
-    {
-        "id": "4cea7314620ec2f4",
-        "type": "ui_slider",
-        "z": "ebe6a6c575db3baa",
-        "name": "",
-        "label": "06:00-07:00",
-        "tooltip": "",
-        "group": "62fd0e689c033d46",
-        "order": 8,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "end",
-        "topic": "",
-        "min": 0,
-        "max": "40",
-        "step": "5",
-        "x": 490,
-        "y": 1120,
-        "wires": [
-            [
-                "962be4839f36ae63"
-            ]
-        ]
-    },
-    {
-        "id": "587a06ab4cb4881a",
-        "type": "function",
-        "z": "ebe6a6c575db3baa",
-        "name": "heating value",
-        "func": "var mystate = global.get(\"heat_table\");\n\nmystate.values[7]=msg.payload;\nglobal.set(\"heat_table\", mystate); // to store a variable\n\nmsg.payload = 0;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 1160,
-        "wires": [
-            [
-                "c246c53387d7fbcc"
-            ]
-        ]
-    },
-    {
-        "id": "641ea5d93e66c48e",
-        "type": "ui_slider",
-        "z": "ebe6a6c575db3baa",
-        "name": "",
-        "label": "07:00-08:00",
-        "tooltip": "",
-        "group": "62fd0e689c033d46",
-        "order": 9,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "end",
-        "topic": "",
-        "min": 0,
-        "max": "40",
-        "step": "5",
-        "x": 490,
-        "y": 1160,
-        "wires": [
-            [
-                "587a06ab4cb4881a"
-            ]
-        ]
-    },
-    {
-        "id": "bcdb821fca06fd9d",
-        "type": "function",
-        "z": "ebe6a6c575db3baa",
-        "name": "heating value",
-        "func": "var mystate = global.get(\"heat_table\");\n\nmystate.values[8]=msg.payload;\nglobal.set(\"heat_table\", mystate); // to store a variable\n\nmsg.payload = 0;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 1200,
-        "wires": [
-            [
-                "c246c53387d7fbcc"
-            ]
-        ]
-    },
-    {
-        "id": "a760de38588e608d",
-        "type": "ui_slider",
-        "z": "ebe6a6c575db3baa",
-        "name": "",
-        "label": "08:00-09:00",
-        "tooltip": "",
-        "group": "62fd0e689c033d46",
-        "order": 10,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "end",
-        "topic": "",
-        "min": 0,
-        "max": "40",
-        "step": "5",
-        "x": 490,
-        "y": 1200,
-        "wires": [
-            [
-                "bcdb821fca06fd9d"
-            ]
-        ]
-    },
-    {
-        "id": "7a20d33cb5996125",
-        "type": "function",
-        "z": "ebe6a6c575db3baa",
-        "name": "heating value",
-        "func": "var mystate = global.get(\"heat_table\");\n\nmystate.values[9]=msg.payload;\nglobal.set(\"heat_table\", mystate); // to store a variable\n\nmsg.payload = 0;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 1240,
-        "wires": [
-            [
-                "c246c53387d7fbcc"
-            ]
-        ]
-    },
-    {
-        "id": "df556c3422f1f688",
-        "type": "ui_slider",
-        "z": "ebe6a6c575db3baa",
-        "name": "",
-        "label": "09:00-10:00",
-        "tooltip": "",
-        "group": "62fd0e689c033d46",
-        "order": 11,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "end",
-        "topic": "",
-        "min": 0,
-        "max": "40",
-        "step": "5",
-        "x": 490,
-        "y": 1240,
-        "wires": [
-            [
-                "7a20d33cb5996125"
-            ]
-        ]
-    },
-    {
-        "id": "4ca69f2466619e2d",
-        "type": "function",
-        "z": "ebe6a6c575db3baa",
-        "name": "heating value",
-        "func": "var mystate = global.get(\"heat_table\");\n\nmystate.values[10]=msg.payload;\nglobal.set(\"heat_table\", mystate); // to store a variable\n\nmsg.payload = 0;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 1280,
-        "wires": [
-            [
-                "c246c53387d7fbcc"
-            ]
-        ]
-    },
-    {
-        "id": "0fa2d3a4f0609b8a",
-        "type": "ui_slider",
-        "z": "ebe6a6c575db3baa",
-        "name": "",
-        "label": "10:00-11:00",
-        "tooltip": "",
-        "group": "62fd0e689c033d46",
-        "order": 12,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "end",
-        "topic": "",
-        "min": 0,
-        "max": "40",
-        "step": "5",
-        "x": 490,
-        "y": 1280,
-        "wires": [
-            [
-                "4ca69f2466619e2d"
-            ]
-        ]
-    },
-    {
-        "id": "801945aebb9753ce",
-        "type": "function",
-        "z": "ebe6a6c575db3baa",
-        "name": "heating value",
-        "func": "var mystate = global.get(\"heat_table\");\n\nmystate.values[11]=msg.payload;\nglobal.set(\"heat_table\", mystate); // to store a variable\n\nmsg.payload = 0;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 1320,
-        "wires": [
-            [
-                "c246c53387d7fbcc"
-            ]
-        ]
-    },
-    {
-        "id": "7de99b091abd153f",
-        "type": "ui_slider",
-        "z": "ebe6a6c575db3baa",
-        "name": "",
-        "label": "11:00-12:00",
-        "tooltip": "",
-        "group": "62fd0e689c033d46",
-        "order": 13,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "end",
-        "topic": "",
-        "min": 0,
-        "max": "40",
-        "step": "5",
-        "x": 490,
-        "y": 1320,
-        "wires": [
-            [
-                "801945aebb9753ce"
-            ]
-        ]
-    },
-    {
-        "id": "2a691a45db15612c",
-        "type": "function",
-        "z": "ebe6a6c575db3baa",
-        "name": "heating value",
-        "func": "var mystate = global.get(\"heat_table\");\n\nmystate.values[12]=msg.payload;\nglobal.set(\"heat_table\", mystate); // to store a variable\n\nmsg.payload = 0;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 1360,
-        "wires": [
-            [
-                "c246c53387d7fbcc"
-            ]
-        ]
-    },
-    {
-        "id": "fd8d26e5f3a41151",
-        "type": "ui_slider",
-        "z": "ebe6a6c575db3baa",
-        "name": "",
-        "label": "12:00-13:00",
-        "tooltip": "",
-        "group": "62fd0e689c033d46",
-        "order": 14,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "end",
-        "topic": "",
-        "min": 0,
-        "max": "40",
-        "step": "5",
-        "x": 490,
-        "y": 1360,
-        "wires": [
-            [
-                "2a691a45db15612c"
-            ]
-        ]
-    },
-    {
-        "id": "e3a0c4cc8048c312",
-        "type": "function",
-        "z": "ebe6a6c575db3baa",
-        "name": "heating value",
-        "func": "var mystate = global.get(\"heat_table\");\n\nmystate.values[13]=msg.payload;\nglobal.set(\"heat_table\", mystate); // to store a variable\n\nmsg.payload = 0;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 1400,
-        "wires": [
-            [
-                "c246c53387d7fbcc"
-            ]
-        ]
-    },
-    {
-        "id": "98198ca6394946ab",
-        "type": "ui_slider",
-        "z": "ebe6a6c575db3baa",
-        "name": "",
-        "label": "13:00-14:00",
-        "tooltip": "",
-        "group": "62fd0e689c033d46",
-        "order": 15,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "end",
-        "topic": "",
-        "min": 0,
-        "max": "40",
-        "step": "5",
-        "x": 490,
-        "y": 1400,
-        "wires": [
-            [
-                "e3a0c4cc8048c312"
-            ]
-        ]
-    },
-    {
-        "id": "02eb029a8b68aa32",
-        "type": "function",
-        "z": "ebe6a6c575db3baa",
-        "name": "heating value",
-        "func": "var mystate = global.get(\"heat_table\");\n\nmystate.values[14]=msg.payload;\nglobal.set(\"heat_table\", mystate); // to store a variable\n\nmsg.payload = 0;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 1440,
-        "wires": [
-            [
-                "c246c53387d7fbcc"
-            ]
-        ]
-    },
-    {
-        "id": "552798adaef8e7b5",
-        "type": "ui_slider",
-        "z": "ebe6a6c575db3baa",
-        "name": "",
-        "label": "14:00-15:00",
-        "tooltip": "",
-        "group": "62fd0e689c033d46",
-        "order": 16,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "end",
-        "topic": "",
-        "min": 0,
-        "max": "40",
-        "step": "5",
-        "x": 490,
-        "y": 1440,
-        "wires": [
-            [
-                "02eb029a8b68aa32"
-            ]
-        ]
-    },
-    {
-        "id": "e8199afd68a6cc68",
-        "type": "function",
-        "z": "ebe6a6c575db3baa",
-        "name": "heating value",
-        "func": "var mystate = global.get(\"heat_table\");\n\nmystate.values[15]=msg.payload;\nglobal.set(\"heat_table\", mystate); // to store a variable\n\nmsg.payload = 0;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 1480,
-        "wires": [
-            [
-                "c246c53387d7fbcc"
-            ]
-        ]
-    },
-    {
-        "id": "23384d55ea062441",
-        "type": "ui_slider",
-        "z": "ebe6a6c575db3baa",
-        "name": "",
-        "label": "15:00-16:00",
-        "tooltip": "",
-        "group": "62fd0e689c033d46",
-        "order": 17,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "end",
-        "topic": "",
-        "min": 0,
-        "max": "40",
-        "step": "5",
-        "x": 490,
-        "y": 1480,
-        "wires": [
-            [
-                "e8199afd68a6cc68"
-            ]
-        ]
-    },
-    {
-        "id": "f990f0b32e753bb3",
-        "type": "function",
-        "z": "ebe6a6c575db3baa",
-        "name": "heating value",
-        "func": "var mystate = global.get(\"heat_table\");\n\nmystate.values[16]=msg.payload;\nglobal.set(\"heat_table\", mystate); // to store a variable\n\nmsg.payload = 0;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 1520,
-        "wires": [
-            [
-                "c246c53387d7fbcc"
-            ]
-        ]
-    },
-    {
-        "id": "5820e332e416f7b7",
-        "type": "ui_slider",
-        "z": "ebe6a6c575db3baa",
-        "name": "",
-        "label": "16:00-17:00",
-        "tooltip": "",
-        "group": "62fd0e689c033d46",
-        "order": 18,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "end",
-        "topic": "",
-        "min": 0,
-        "max": "40",
-        "step": "5",
-        "x": 490,
-        "y": 1520,
-        "wires": [
-            [
-                "f990f0b32e753bb3"
-            ]
-        ]
-    },
-    {
-        "id": "e0c292181ed146cf",
-        "type": "function",
-        "z": "ebe6a6c575db3baa",
-        "name": "heating value",
-        "func": "var mystate = global.get(\"heat_table\");\n\nmystate.values[17]=msg.payload;\nglobal.set(\"heat_table\", mystate); // to store a variable\n\nmsg.payload = 0;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 1560,
-        "wires": [
-            [
-                "c246c53387d7fbcc"
-            ]
-        ]
-    },
-    {
-        "id": "7ba764c460522663",
-        "type": "ui_slider",
-        "z": "ebe6a6c575db3baa",
-        "name": "",
-        "label": "17:00-18:00",
-        "tooltip": "",
-        "group": "62fd0e689c033d46",
-        "order": 19,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "end",
-        "topic": "",
-        "min": 0,
-        "max": "40",
-        "step": "5",
-        "x": 490,
-        "y": 1560,
-        "wires": [
-            [
-                "e0c292181ed146cf"
-            ]
-        ]
-    },
-    {
-        "id": "dd8862eeea351ee4",
-        "type": "function",
-        "z": "ebe6a6c575db3baa",
-        "name": "heating value",
-        "func": "var mystate = global.get(\"heat_table\");\n\nmystate.values[18]=msg.payload;\nglobal.set(\"heat_table\", mystate); // to store a variable\n\nmsg.payload = 0;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 1600,
-        "wires": [
-            [
-                "c246c53387d7fbcc"
-            ]
-        ]
-    },
-    {
-        "id": "6485982d3198330e",
-        "type": "ui_slider",
-        "z": "ebe6a6c575db3baa",
-        "name": "",
-        "label": "18:00-19:00",
-        "tooltip": "",
-        "group": "62fd0e689c033d46",
-        "order": 20,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "end",
-        "topic": "",
-        "min": 0,
-        "max": "40",
-        "step": "5",
-        "x": 490,
-        "y": 1600,
-        "wires": [
-            [
-                "dd8862eeea351ee4"
-            ]
-        ]
-    },
-    {
-        "id": "6941bd9ab42246f4",
-        "type": "function",
-        "z": "ebe6a6c575db3baa",
-        "name": "heating value",
-        "func": "var mystate = global.get(\"heat_table\");\n\nmystate.values[19]=msg.payload;\nglobal.set(\"heat_table\", mystate); // to store a variable\n\nmsg.payload = 0;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 1640,
-        "wires": [
-            [
-                "c246c53387d7fbcc"
-            ]
-        ]
-    },
-    {
-        "id": "729804f5a16521a8",
-        "type": "ui_slider",
-        "z": "ebe6a6c575db3baa",
-        "name": "",
-        "label": "19:00-20:00",
-        "tooltip": "",
-        "group": "62fd0e689c033d46",
-        "order": 21,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "end",
-        "topic": "",
-        "min": 0,
-        "max": "40",
-        "step": "5",
-        "x": 490,
-        "y": 1640,
-        "wires": [
-            [
-                "6941bd9ab42246f4"
-            ]
-        ]
-    },
-    {
-        "id": "680853c606b76252",
-        "type": "function",
-        "z": "ebe6a6c575db3baa",
-        "name": "heating value",
-        "func": "var mystate = global.get(\"heat_table\");\n\nmystate.values[20]=msg.payload;\nglobal.set(\"heat_table\", mystate); // to store a variable\n\nmsg.payload = 0;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 1680,
-        "wires": [
-            [
-                "c246c53387d7fbcc"
-            ]
-        ]
-    },
-    {
-        "id": "772dd4a5feadc350",
-        "type": "ui_slider",
-        "z": "ebe6a6c575db3baa",
-        "name": "",
-        "label": "20:00-21:00",
-        "tooltip": "",
-        "group": "62fd0e689c033d46",
-        "order": 22,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "end",
-        "topic": "",
-        "min": 0,
-        "max": "40",
-        "step": "5",
-        "x": 490,
-        "y": 1680,
-        "wires": [
-            [
-                "680853c606b76252"
-            ]
-        ]
-    },
-    {
-        "id": "40a5d224548cdbd4",
-        "type": "function",
-        "z": "ebe6a6c575db3baa",
-        "name": "heating value",
-        "func": "var mystate = global.get(\"heat_table\");\n\nmystate.values[21]=msg.payload;\nglobal.set(\"heat_table\", mystate); // to store a variable\n\nmsg.payload = 0;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 1720,
-        "wires": [
-            [
-                "c246c53387d7fbcc"
-            ]
-        ]
-    },
-    {
-        "id": "42ef4885bff5a925",
-        "type": "ui_slider",
-        "z": "ebe6a6c575db3baa",
-        "name": "",
-        "label": "21:00-22:00",
-        "tooltip": "",
-        "group": "62fd0e689c033d46",
-        "order": 23,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "end",
-        "topic": "",
-        "min": 0,
-        "max": "40",
-        "step": "5",
-        "x": 490,
-        "y": 1720,
-        "wires": [
-            [
-                "40a5d224548cdbd4"
-            ]
-        ]
-    },
-    {
-        "id": "fcd9c26f8dc4efdf",
-        "type": "function",
-        "z": "ebe6a6c575db3baa",
-        "name": "heating value",
-        "func": "var mystate = global.get(\"heat_table\");\n\nmystate.values[22]=msg.payload;\nglobal.set(\"heat_table\", mystate); // to store a variable\n\nmsg.payload = 0;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 1760,
-        "wires": [
-            [
-                "c246c53387d7fbcc"
-            ]
-        ]
-    },
-    {
-        "id": "a0fe22095df7d111",
-        "type": "ui_slider",
-        "z": "ebe6a6c575db3baa",
-        "name": "",
-        "label": "22:00-23:00",
-        "tooltip": "",
-        "group": "62fd0e689c033d46",
-        "order": 24,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "end",
-        "topic": "",
-        "min": 0,
-        "max": "40",
-        "step": "5",
-        "x": 490,
-        "y": 1760,
-        "wires": [
-            [
-                "fcd9c26f8dc4efdf"
-            ]
-        ]
-    },
-    {
-        "id": "4c410cb806f0a9f9",
-        "type": "function",
-        "z": "ebe6a6c575db3baa",
-        "name": "heating value",
-        "func": "var mystate = global.get(\"heat_table\");\n\nmystate.values[23]=msg.payload;\nglobal.set(\"heat_table\", mystate); // to store a variable\n\nmsg.payload = 0;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 1800,
-        "wires": [
-            [
-                "c246c53387d7fbcc"
-            ]
-        ]
-    },
-    {
-        "id": "6f59e8aabe182cae",
-        "type": "ui_slider",
-        "z": "ebe6a6c575db3baa",
-        "name": "",
-        "label": "23:00-00:00",
-        "tooltip": "",
-        "group": "62fd0e689c033d46",
-        "order": 25,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "end",
-        "topic": "",
-        "min": 0,
-        "max": "40",
-        "step": "5",
-        "x": 490,
-        "y": 1800,
-        "wires": [
-            [
-                "4c410cb806f0a9f9"
+                "c4e354a3c3010ab9"
             ]
         ]
     }
